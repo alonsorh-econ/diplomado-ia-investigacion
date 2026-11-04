@@ -1,0 +1,161 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Libro de prompts · Sesión 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F7F9;--card:#fff;--ink:#141821;--text:#4B5563;--muted:#78818F;--line:#E4E8EC;--blue:#1B44CC;--blue-t:#EEF2FE;--red:#C81E4A;--code:#141821}
+@media (prefers-color-scheme:dark){:root{--bg:#0F1218;--card:#171B23;--ink:#EEF1F5;--text:#C3C9D2;--muted:#8E97A4;--line:#272D37;--blue:#8AA2FF;--blue-t:#1B2442;--red:#FF7896;--code:#0B0E13}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 Inter,Arial,sans-serif;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+.w{max-width:780px;margin:0 auto;padding-block:36px 64px;display:flex;flex-direction:column;gap:28px}
+a{color:var(--blue)}h1,h2,h3{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);margin:0;text-wrap:balance}
+h1{font-size:clamp(28px,6vw,38px);font-weight:800;letter-spacing:-.02em;line-height:1.1}h2{font-size:21px;font-weight:700}h3{font-size:24px;font-weight:800;margin-top:10px}
+.eb{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.ficha{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.ficha.kit{border:2px solid var(--blue)}
+.cuando{font-size:15px}.cuando b{color:var(--ink)}
+pre{margin:0;background:var(--code);color:#E8ECF2;border-radius:10px;padding:14px 16px;font:400 13.5px/1.55 "IBM Plex Mono",monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+button{align-self:flex-start;font:600 13px Inter,sans-serif;border:1.5px solid var(--blue);color:var(--blue);background:transparent;border-radius:8px;padding:6px 12px;cursor:pointer}
+.hacer{background:var(--blue-t);border-radius:10px;padding:12px 14px;font-size:15px;color:var(--ink)}.hacer b{color:var(--blue)}
+ol{margin:0;padding-left:22px}li{margin:4px 0}
+table{width:100%;border-collapse:collapse;font-size:15px}th{text-align:left;border-bottom:2px solid var(--ink);padding:6px;color:var(--ink)}td{border-bottom:1px solid var(--line);padding:8px 6px;vertical-align:top}
+.tbl{overflow-x:auto}
+.links{display:flex;flex-wrap:wrap;gap:10px}.links a{font:600 14px Inter,sans-serif;text-decoration:none;color:var(--blue);border:1.5px solid var(--blue);border-radius:9px;padding:8px 13px}
+</style></head><body><div class="w">
+<div><p class="eb">Diplomado en IA para la Investigación · Módulo 3 · Sesión 2 · 4 de noviembre de 2026</p>
+<h1>Libro de prompts · De la inquietud a la pregunta</h1>
+<p>Fase 1 del proceso de investigación: la pregunta. Cada ficha dice cuándo se usa, el prompt para copiar y <strong>qué hacer con lo que devuelve</strong>. Funcionan en ChatGPT, Gemini, Claude, Copilot o la IA que usted prefiera.</p>
+<p><a href="../">← Volver al módulo</a> · <a href="laminas.html">Ver las láminas</a></p></div>
+
+<div class="ficha kit"><p class="eb">Pieza 0 · El kit de arranque</p><h2>Todos desde el mismo punto</h2>
+<ol>
+<li><b>Escoja una IA de chat</b> y quédese con ella todo el módulo. La versión gratuita sirve.</li>
+<li><b>Cree una carpeta llamada <code>mi_sistema</code></b>, en su computador o en Drive, y guarde adentro el cuaderno del sistema:</li>
+</ol>
+<div class="links"><a href="cuaderno_mi_sistema.docx">Cuaderno del sistema (.docx)</a><a href="cuaderno_mi_sistema.md">Versión en texto (.md)</a></div>
+<ol start="3">
+<li><b>Configure su asistente:</b> pegue la ficha 0 en las instrucciones de un Proyecto (ChatGPT, Claude) o de un Gem (Gemini). Si su IA no tiene esa opción, péguela al inicio de cada conversación.</li>
+</ol>
+<p class="hacer"><b>Cómo funciona el rompecabezas:</b> cada sesión le agrega una pieza al cuaderno y una regla a su asistente. Al terminar el módulo, su sistema queda armado: la pregunta, la literatura, las fuentes, el método, los resultados y la discusión.</p></div>
+
+<div class="ficha"><p class="eb">Ficha 0 · Instrucciones permanentes</p><h2>Lo que su IA debe saber siempre</h2>
+<p class="cuando"><b>Cuándo:</b> una sola vez, al configurar su asistente. Después solo se le agregan reglas.</p>
+<pre>Soy [profesión] y trabajo en [disciplina] en [institución]. Investigo sobre [tema, en una frase].
+Cuando trabajes conmigo:
+1. No me elogies. Si algo está flojo, dilo primero.
+2. Si no sabes algo o no puedes verificarlo, dilo. No inventes referencias, datos ni cifras.
+3. Separa lo que es evidencia publicada de lo que es tu opinión.
+4. Cuando te pida ideas, dame alternativas que se diferencien de verdad, no variaciones de la misma.
+5. Al final de cada respuesta, lista lo que yo tendría que verificar.
+Reglas que he aprendido en el módulo:
+- [se agrega una por sesión]</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Qué hacer con lo que devuelve:</b> pruébelo con una pregunta cualquiera. Si sigue empezando con «¡Excelente pregunta!», la regla 1 no está entrando: revise dónde la pegó.</p></div>
+
+<div class="ficha"><p class="eb">Actividad 1 · Al empezar</p><h2>El reflejo colectivo</h2>
+<p class="cuando"><b>Cuándo:</b> en el minuto uno. Todos piden exactamente lo mismo.</p>
+<pre>Dame una idea de investigación sobre el frailejón, en una sola frase.</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Qué hacer con lo que devuelve:</b> péguelo en Slido sin corregirlo. Al preparar la clase se lo pedimos seis veces a la misma IA: cinco veces respondió lo mismo.</p></div>
+
+<div class="ficha"><p class="eb">Ficha 1 · Formular · anatomía + few-shot</p><h2>De la inquietud a la pregunta</h2>
+<p class="cuando"><b>Cuándo:</b> cuando su tema todavía es amplio. Llene los corchetes; si tiene ejemplos de su propio campo, cambie los dos de abajo.</p>
+<pre>Rol: actúa como asesor de metodología de investigación en [su disciplina].
+Contexto: soy [profesión] de [institución] y trabajo en [área]. Mi inquietud es: «[una frase]».
+Objetivo: convierte mi inquietud en una pregunta de investigación con formato PECO (población, exposición o intervención, comparación y desenlace). Si mi inquietud es cualitativa, usa SPIDER (muestra, fenómeno de interés, diseño, evaluación y tipo de investigación).
+Restricciones: no me propongas temas nuevos; trabaja sobre el mío. Si no sabes si un dato existe, dilo.
+Formato: tres versiones, de la más ambiciosa a la más viable en un semestre. Para cada una: sus elementos, el dato que haría falta y quién lo tiene.
+
+Dos ejemplos de cómo lo quiero:
+
+Inquietud: «me preocupa la resistencia a antibióticos».
+P: adultos con infección urinaria atendidos en hospitales de Tunja · E: uso de fluoroquinolonas en los 12 meses previos · C: sin uso previo · O: proporción de aislamientos de E. coli resistentes · Dato: registros del laboratorio de microbiología · Quién lo tiene: el laboratorio clínico de cada hospital.
+
+Inquietud: «plaguicidas en el agua rural».
+P: acueductos veredales de Boyacá · E: captación a menos de 500 m de cultivos de papa · C: captación a más de 2 km · O: concentración de clorpirifos en el agua de consumo · Dato: muestreo propio en 20 acueductos · Quién lo tiene: nadie todavía; hay que levantarlo.
+
+Ahora la mía.</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Qué hacer con lo que devuelve:</b> escoja una sola versión y escriba por qué descarta las otras dos. Después escriba su hipótesis en una frase y qué resultado la tumbaría. Pegue la pregunta en el tablero de la clase (enlace en el chat de Meet).</p></div>
+
+<div class="ficha"><p class="eb">Ficha 2 · Evaluar · cadena de razonamiento</p><h2>FINER, criterio por criterio</h2>
+<p class="cuando"><b>Cuándo:</b> apenas tenga una pregunta escogida.</p>
+<pre>Esta es mi pregunta de investigación: «[pregunta]».
+Evalúala con los criterios FINER: factible, interesante, novedosa, ética y relevante.
+Para cada criterio, primero escribe tu razonamiento en dos o tres líneas y después la calificación (alta, media o baja). No pongas la calificación antes del razonamiento.
+Al final: cuál es el criterio más débil, qué información te faltó para juzgar y qué tendría que verificar yo.
+Responde en una tabla.</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Qué hacer con lo que devuelve:</b> audite el razonamiento. Tache lo que la máquina no puede saber: su laboratorio, su presupuesto, sus permisos. Si le puso «alta» a algo que usted sabe que es bajo, ese es su criterio. Vote en Slido cuál criterio salió más débil.</p></div>
+
+<div class="ficha"><p class="eb">Ficha 3 · Interrogar · rol y restricciones</p><h2>El evaluador más exigente</h2>
+<p class="cuando"><b>Cuándo:</b> antes de mostrarle la pregunta a su director o a un comité.</p>
+<pre>Esta es mi pregunta de investigación: «[pregunta]».
+Actúa como el evaluador más exigente de mi comité. Dame las tres razones más fuertes por las que esta pregunta no vale la pena investigarse: porque ya está respondida, porque no es medible con datos accesibles o porque la respuesta no le cambia una decisión a nadie.
+Sé concreto y duro. No elogies la pregunta ni propongas alternativas. Solo las objeciones.
+Para cada una, dime qué tendría que mostrarte yo para tumbarla.</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Qué hacer con lo que devuelve:</b> responda cada objeción por escrito, en dos líneas. Subraye las afirmaciones que vienen sin fuente («existen muchos estudios…»): esas van al punto 7 de su ficha, para verificarlas en la literatura.</p></div>
+
+<div class="ficha"><p class="eb">Ficha 4 · Control de formato</p><h2>La ficha de la pregunta</h2>
+<p class="cuando"><b>Cuándo:</b> al final, en la misma conversación donde trabajó las fichas 1 a 3.</p>
+<pre>Con lo que trabajamos en esta conversación, llena esta ficha. No agregues nada que yo no haya dicho o aprobado; si falta algo, escribe [FALTA].
+
+FICHA DE LA PREGUNTA · [fecha]
+1. Inquietud inicial
+2. Pregunta (PECO o SPIDER)
+3. Hipótesis y qué resultado la tumbaría
+4. Versiones descartadas y por qué
+5. FINER: el criterio más débil y qué voy a hacer
+6. Objeciones y mi respuesta
+7. Lo que tengo que verificar en la literatura
+8. Regla nueva para mi asistente</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Qué hacer con lo que devuelve:</b> péguela en su cuaderno, en la pieza 1, y corríjala a mano. La regla 8 va a las instrucciones de su asistente (ficha 0). El punto 7 es la entrada de la próxima sesión.</p></div>
+
+<h3>Para afinar el pedido</h3>
+
+<div class="ficha"><p class="eb">Patrón · Entrevista invertida</p><h2>Que la IA le pregunte a usted</h2>
+<p class="cuando"><b>Cuándo:</b> cuando no sabe por dónde empezar, o cuando sabe mucho y no lo ha escrito.</p>
+<pre>Quiero formular una pregunta de investigación sobre [tema]. Hazme preguntas, una a la vez, hasta que tengas lo suficiente para proponerme una pregunta en formato PECO. Espera mi respuesta antes de hacer la siguiente. Empieza.</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Qué hacer con lo que devuelve:</b> responda con detalle: así entra su conocimiento al sistema. Al final, compare la pregunta que propone con la que usted formuló en la ficha 1.</p></div>
+
+<div class="ficha"><p class="eb">Patrón · Metaprompt</p><h2>Que la IA mejore su prompt</h2>
+<p class="cuando"><b>Cuándo:</b> cuando un prompt le devuelve algo genérico.</p>
+<pre>Este es mi prompt: «[su prompt]».
+Antes de mejorarlo, hazme las tres preguntas que necesitas que yo responda para que el prompt sea bueno. Después, muéstrame una versión mejorada, con espacios entre corchetes para lo que falta.</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Qué hacer con lo que devuelve:</b> compárelo con la anatomía (rol, contexto, objetivo, restricciones y formato). Al preparar la clase, la versión «mejorada» seguía sin restricciones ni formato: mejora hasta donde usted la empuja.</p></div>
+
+<div class="ficha"><p class="eb">Patrón · Alternativas de verdad</p><h2>Divergir sin repetir</h2>
+<p class="cuando"><b>Cuándo:</b> cuando todas las ideas que le da se parecen.</p>
+<pre>Sobre mi tema «[tema]», dame 10 preguntas de investigación que se diferencien en el diseño (experimental, observacional, cualitativo, de revisión), no solo en las palabras. Incluye 3 poco convencionales. Para cada una, una línea: qué se mide, en quién y contra qué.</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Qué hacer con lo que devuelve:</b> antes de leerlas, escriba sus criterios (FINER). Después descarte por escrito. La máquina cubre el espacio de ideas; usted escoge dentro de él.</p></div>
+
+<div class="ficha"><p class="eb">Glosario de la sesión</p><h2>Las técnicas, en una línea</h2>
+<div class="tbl"><table><tr><th>Técnica</th><th>Qué es</th></tr>
+<tr><td>Zero-shot</td><td>Pedir sin ejemplos. Devuelve lo más probable: sirve para explorar.</td></tr>
+<tr><td>Few-shot</td><td>Mostrar dos o tres ejemplos resueltos antes del suyo. Imita el formato y el nivel, y también el contenido: use ejemplos de otro tema.</td></tr>
+<tr><td>Cadena de razonamiento</td><td>Pedir el razonamiento antes de la conclusión, para poder auditarlo. El razonamiento escrito no siempre es la causa real de la respuesta.</td></tr>
+<tr><td>Temperatura</td><td>Cuánto se aleja el modelo de la palabra más probable. Alta para generar, baja para evaluar. Se ajusta en Google AI Studio.</td></tr>
+<tr><td>Descomposición</td><td>Partir una tarea grande en pasos, cada uno con su prompt: el embudo.</td></tr>
+<tr><td>Control de formato</td><td>Fijar la forma de la salida para que entre directo a su archivo.</td></tr>
+<tr><td>Metaprompt</td><td>Pedirle a la IA que mejore su prompt. También lo hacen los optimizadores de OpenAI Playground y de la Consola de Anthropic.</td></tr></table></div></div>
+
+<div class="ficha"><p class="eb">Lo que pasó al preparar la clase</p><h2>Las pruebas, con el caso del frailejón</h2>
+<div class="tbl"><table><tr><th>Prueba</th><th>Resultado</th></tr>
+<tr><td>«Una idea de investigación sobre el frailejón», seis veces</td><td>Cinco veces la misma: el impacto del cambio climático en su distribución y crecimiento.</td></tr>
+<tr><td>Temperatura 0 contra 1,2</td><td>Cambiaron las palabras más que las ideas.</td></tr>
+<tr><td>Ficha 1 sin ejemplos y con ejemplos</td><td>Con ejemplos dijo que el dato probablemente no existe y que habría que levantarlo; sin ejemplos se lo atribuyó a instituciones.</td></tr>
+<tr><td>FINER sin razonamiento y con razonamiento</td><td>Tres de las cinco calificaciones cambiaron.</td></tr>
+<tr><td>El interrogatorio</td><td>No elogió, pero afirmó sin fuente que «existen múltiples estudios»; en la evaluación FINER había dicho que hay pocos.</td></tr></table></div>
+<p class="hacer"><b>La lección:</b> cada afirmación de la máquina es una hipótesis para verificar. Eso empieza en la próxima sesión, con la literatura.</p></div>
+
+<p class="eb">Alonso Ramírez Hernández · CENES–UPTC · 4 de noviembre de 2026 · Pruebas con gpt-4.1 por API</p>
+</div>
+<script>
+function copiar(b){const t=b.previousElementSibling.innerText;
+  navigator.clipboard.writeText(t).then(()=>{b.textContent="Copiado";setTimeout(()=>b.textContent="Copiar",1500)})
+  .catch(()=>{const r=document.createRange();r.selectNodeContents(b.previousElementSibling);const s=getSelection();s.removeAllRanges();s.addRange(r)})}
+</script></body></html>
