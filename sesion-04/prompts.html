@@ -1,0 +1,120 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Libro de prompts · Sesión 4</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F7F9;--card:#fff;--ink:#141821;--text:#4B5563;--muted:#78818F;--line:#E4E8EC;--blue:#1B44CC;--blue-t:#EEF2FE;--red:#C81E4A;--code:#141821}
+@media (prefers-color-scheme:dark){:root{--bg:#0F1218;--card:#171B23;--ink:#EEF1F5;--text:#C3C9D2;--muted:#8E97A4;--line:#272D37;--blue:#8AA2FF;--blue-t:#1B2442;--red:#FF7896;--code:#0B0E13}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 Inter,Arial,sans-serif;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+.w{max-width:780px;margin:0 auto;padding-block:36px 64px;display:flex;flex-direction:column;gap:28px}
+a{color:var(--blue)}h1,h2,h3{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);margin:0;text-wrap:balance}
+h1{font-size:clamp(28px,6vw,38px);font-weight:800;letter-spacing:-.02em;line-height:1.1}h2{font-size:21px;font-weight:700}h3{font-size:24px;font-weight:800;margin-top:10px}
+.eb{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.ficha{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.ficha.kit{border:2px solid var(--blue)}
+.cuando{font-size:15px}.cuando b{color:var(--ink)}
+pre{margin:0;background:var(--code);color:#E8ECF2;border-radius:10px;padding:14px 16px;font:400 13.5px/1.55 "IBM Plex Mono",monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+button{align-self:flex-start;font:600 13px Inter,sans-serif;border:1.5px solid var(--blue);color:var(--blue);background:transparent;border-radius:8px;padding:6px 12px;cursor:pointer}
+.hacer{background:var(--blue-t);border-radius:10px;padding:12px 14px;font-size:15px;color:var(--ink)}.hacer b{color:var(--blue)}
+ol{margin:0;padding-left:22px}li{margin:4px 0}
+table{width:100%;border-collapse:collapse;font-size:15px}th{text-align:left;border-bottom:2px solid var(--ink);padding:6px;color:var(--ink)}td{border-bottom:1px solid var(--line);padding:8px 6px;vertical-align:top}
+.tbl{overflow-x:auto}
+.links{display:flex;flex-wrap:wrap;gap:10px}.links a{font:600 14px Inter,sans-serif;text-decoration:none;color:var(--blue);border:1.5px solid var(--blue);border-radius:9px;padding:8px 13px}
+</style></head><body><div class="w">
+<div><p class="eb">Diplomado en IA para la Investigación · Módulo 3 · Sesión 4 · 7 de noviembre de 2026</p>
+<h1>Libro de prompts · Del sobre sellado a la tabla de evidencia</h1>
+<p>Fase 2 del proceso de investigación: la literatura. Hoy sale la pieza 2 de su sistema: una tabla de evidencia verificada, un párrafo de estado del arte y la bitácora de búsqueda.</p>
+<p><a href="../">← Volver al módulo</a> · <a href="laminas.html">Ver las láminas</a> · <a href="verificador.html"><b>Verificador de referencias</b></a></p></div>
+
+<div class="ficha kit"><p class="eb">Al empezar · 10 minutos</p><h2>Abra el sobre sellado</h2>
+<p class="cuando"><b>Cuándo:</b> en el primer bloque. Busque las cinco referencias que su IA le dio en la sesión 1 y que guardó sin revisar.</p>
+<p>Péguelas en el <a href="verificador.html"><b>verificador de referencias</b></a>: la página busca cada DOI en doi.org y en Crossref y le dice si existe, si es de otro artículo o si no existe. Después responda en Slido cuántas de sus cinco existen y coinciden.</p>
+<p class="hacer"><b>Si no las guardó:</b> pídale ahora a su IA «Dame 5 referencias académicas recientes sobre [su tema], con autor, año, título, revista y DOI» y verifíquelas.</p></div>
+
+<div class="ficha"><p class="eb">Las herramientas de hoy</p><h2>Una herramienta por pregunta</h2>
+<div class="tbl"><table><tr><th>Herramienta</th><th>La pregunta que responde</th><th>Gratis</th></tr>
+<tr><td><a href="https://consensus.app" target="_blank">Consensus</a></td><td>¿Qué dice la evidencia sobre esto?</td><td>búsquedas ilimitadas; 10 mensajes Pro y 3 revisiones profundas al mes</td></tr>
+<tr><td><a href="https://scholar.google.com/scholar_labs/search" target="_blank">Google Scholar Labs</a></td><td>¿Qué artículos responden mi pregunta, y por qué?</td><td>con cuenta de Google; acepta preguntas en español</td></tr>
+<tr><td><a href="https://elicit.com" target="_blank">Elicit</a></td><td>¿Qué dicen estos estudios, en una tabla?</td><td>búsqueda y resúmenes ilimitados; agente limitado</td></tr>
+<tr><td><a href="https://www.connectedpapers.com" target="_blank">Connected Papers</a> · <a href="https://www.researchrabbit.ai" target="_blank">Research Rabbit</a></td><td>¿Qué hay alrededor de este artículo?</td><td>5 grafos al mes con cuenta · 50 artículos semilla</td></tr>
+<tr><td><a href="https://notebooklm.google" target="_blank">NotebookLM (hoy Gemini Notebook)</a></td><td>¿Qué dicen mis documentos?</td><td>100 cuadernos, 50 fuentes por cuaderno</td></tr>
+<tr><td><a href="https://openalex.org" target="_blank">OpenAlex</a> · <a href="https://europepmc.org" target="_blank">Europe PMC</a> · <a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank">PubMed</a></td><td>Bases abiertas para buscar (todas las disciplinas · ciencias de la vida · salud)</td><td>gratis</td></tr>
+</table></div>
+<p class="hacer"><b>Ojo:</b> Scite no tiene plan gratis: su prueba de 7 días pasa a cobro si no se cancela. Límites consultados en las páginas oficiales el 6 de noviembre de 2026.</p></div>
+
+<h3>Ejercicio 1 · revisión rápida asistida</h3>
+
+<div class="ficha"><p class="eb">Ficha A · 10 minutos</p><h2>De su pregunta a la cadena de búsqueda</h2>
+<p class="cuando"><b>Cuándo:</b> al empezar el ejercicio, con su pregunta PEDCO.</p>
+<pre>Esta es mi pregunta de investigación: «[pregunta PEDCO]».
+1. Sepárala en conceptos: población, exposición o intervención y desenlace.
+2. Para cada concepto dame términos en inglés y en español, sinónimos y variantes. Si es de salud, sugiere términos MeSH o DeCS, y marca [VERIFICAR] los que no tengas seguros: no los inventes.
+3. Arma la cadena de búsqueda booleana (AND, OR, comillas, paréntesis) en dos versiones: una para Google Scholar y otra para PubMed u OpenAlex.
+4. Dime qué término puede traer mucho ruido y cuál puede dejar por fuera estudios importantes.</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Qué hacer con lo que devuelve:</b> compruebe los términos MeSH en el <a href="https://meshb.nlm.nih.gov" target="_blank">buscador MeSH</a> y los DeCS en <a href="https://decs.bvsalud.org" target="_blank">decs.bvsalud.org</a>. Corra la cadena en dos bases y anote cuántos resultados trae cada una.</p></div>
+
+<div class="ficha"><p class="eb">Ficha B · 10 minutos</p><h2>Los criterios, antes de buscar</h2>
+<p class="cuando"><b>Cuándo:</b> antes de mirar un solo resultado.</p>
+<pre>Voy a hacer una revisión rápida sobre: «[pregunta]».
+Ayúdame a escribir los criterios de inclusión y exclusión ANTES de ver resultados: población, tipo de estudio, años, idiomas, lugar, desenlace y tipo de publicación.
+Hazme primero las preguntas que necesites, máximo cuatro, y después dame los criterios en una tabla de dos columnas: incluye · excluye.
+No me propongas criterios que dependan de lo que encontremos.</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Qué hacer con lo que devuelve:</b> guárdelos tal cual. Si después de ver los resultados quiere cambiarlos, anote el cambio y la razón en la bitácora: eso también es rastro.</p></div>
+
+<div class="ficha"><p class="eb">Ficha C · 15 minutos</p><h2>El cribado</h2>
+<p class="cuando"><b>Cuándo:</b> cuando tenga 20 títulos y resúmenes numerados en un documento.</p>
+<pre>Estos son mis criterios de inclusión y exclusión: [pegue los de la ficha B].
+Abajo van títulos y resúmenes numerados. Para cada uno, responde en una tabla: número · incluye, excluye o duda · el criterio que decide · una razón de máximo 12 palabras.
+Usa SOLO mis criterios. Si el resumen no da información suficiente, marca «duda»: en la duda, no excluyas.
+[pegue aquí los títulos y resúmenes]</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Qué hacer con lo que devuelve:</b> revise a mano todas las «duda» y al menos cinco «excluye». En un estudio con más de 24.000 resúmenes, el modelo dejó por fuera 1 de cada 4 artículos que sí debían entrar (Guo et al., 2024).</p></div>
+
+<div class="ficha"><p class="eb">Ficha D · 15 minutos</p><h2>La tabla de evidencia</h2>
+<p class="cuando"><b>Cuándo:</b> con los 5 estudios que incluyó.</p>
+<pre>Del texto que te paso, extrae SOLO lo que dice el texto. Si un dato no está, escribe «no está en el texto»; no lo deduzcas.
+Tabla con estas columnas: autor y año · país · diseño · muestra · exposición o intervención · desenlace · hallazgo principal, con la cifra si la hay · limitación que reconocen los autores · DOI.
+Al final, dime qué dato te costó más y por qué.
+[pegue el resumen o el artículo]</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Qué hacer con lo que devuelve:</b> compare la columna del hallazgo con el artículo: es la que más falla (en Bianchi et al., 2025, el 95 % de los efectos extraídos por Elicit fue solo parcialmente igual al humano). Pase cada DOI por el <a href="verificador.html">verificador</a>.</p></div>
+
+<div class="ficha"><p class="eb">Ficha F · 5 minutos</p><h2>La bitácora de búsqueda</h2>
+<p class="cuando"><b>Cuándo:</b> al cerrar el ejercicio, en la misma conversación.</p>
+<pre>Llena esta bitácora con lo que hicimos en esta conversación. Si falta un dato, escribe [FALTA]; no lo inventes.
+
+BITÁCORA DE BÚSQUEDA · [fecha]
+Pregunta:
+Bases consultadas y fecha de consulta:
+Cadena de búsqueda usada en cada base:
+Filtros (años, idiomas, tipo de estudio):
+Resultados: encontrados · cribados · incluidos · excluidos, con la razón más común
+Referencias verificadas por DOI: cuántas
+Herramientas de IA usadas, versión, fecha y para qué:</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Qué hacer con lo que devuelve:</b> guárdela en mi_sistema, junto a la tabla. La última línea es la que exige la declaración de Cochrane, Campbell, JBI y la Colaboración para la Evidencia Ambiental (2025): herramienta, versión, fecha y propósito.</p></div>
+
+<h3>La síntesis</h3>
+
+<div class="ficha"><p class="eb">Ficha E · en NotebookLM (Gemini Notebook) · 25 minutos</p><h2>El estado del arte, anclado en sus fuentes</h2>
+<p class="cuando"><b>Cuándo:</b> después de cargar sus PDF y los artículos de su tabla en un cuaderno.</p>
+<pre>Con SOLO las fuentes de este cuaderno, escribe un párrafo de estado del arte de 150 a 200 palabras sobre «[pregunta]»: qué se sabe, dónde coinciden los estudios, dónde discrepan y qué no se sabe todavía.
+Organízalo por hallazgos, no por autores. Cada afirmación lleva su cita. Si algo no está en las fuentes, márcalo [SIN FUENTE] en vez de completarlo.
+Al final, en una frase: el hueco que mi pregunta podría llenar.</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Qué hacer con lo que devuelve:</b> abra tres citas y compruebe que el pasaje dice eso. Pregúntese si el hueco es real o si es falta de búsqueda (otro idioma, otra base, otra palabra).</p></div>
+
+<div class="ficha kit"><p class="eb">Para su asistente</p><h2>La regla de hoy</h2>
+<pre>Nunca me des una referencia sin un DOI que yo pueda verificar. Si no tienes la fuente, dime «no la tengo».</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Dónde va:</b> en las instrucciones permanentes de su asistente (ficha 0 de la sesión 2), en «Reglas que he aprendido en el módulo».</p></div>
+
+<p class="eb">Alonso Ramírez Hernández · CENES–UPTC · 7 de noviembre de 2026</p>
+</div>
+<script>
+function copiar(b){const t=b.previousElementSibling.innerText;
+  navigator.clipboard.writeText(t).then(()=>{b.textContent="Copiado";setTimeout(()=>b.textContent="Copiar",1500)})
+  .catch(()=>{const r=document.createRange();r.selectNodeContents(b.previousElementSibling);const s=getSelection();s.removeAllRanges();s.addRange(r)})}
+</script></body></html>

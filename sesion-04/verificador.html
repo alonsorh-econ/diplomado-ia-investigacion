@@ -1,0 +1,82 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verificador de referencias</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F7F9;--card:#fff;--ink:#141821;--text:#4B5563;--muted:#78818F;--line:#E4E8EC;--blue:#1B44CC;--blue-t:#EEF2FE;--ok:#127A4A;--ok-t:#E7F6EF;--warn:#A25B00;--warn-t:#FFF3E0;--bad:#C81E4A;--bad-t:#FDEEF2;--gris-t:#F0F2F5}
+@media (prefers-color-scheme:dark){:root{--bg:#0F1218;--card:#171B23;--ink:#EEF1F5;--text:#C3C9D2;--muted:#8E97A4;--line:#272D37;--blue:#8AA2FF;--blue-t:#1B2442;--ok:#5FD39B;--ok-t:#12261C;--warn:#F2B35C;--warn-t:#2A2010;--bad:#FF7896;--bad-t:#2C141B;--gris-t:#20252E}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 Inter,Arial,sans-serif;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+.w{max-width:820px;margin:0 auto;padding-block:36px 64px;display:flex;flex-direction:column;gap:22px}
+a{color:var(--blue)}h1,h2{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);margin:0;text-wrap:balance}
+h1{font-size:clamp(28px,6vw,38px);font-weight:800;letter-spacing:-.02em;line-height:1.1}h2{font-size:18px;font-weight:700}
+.eb{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+textarea{width:100%;min-height:190px;border:1px solid var(--line);border-radius:12px;padding:14px;font:400 14px/1.5 "IBM Plex Mono",monospace;background:var(--card);color:var(--ink);resize:vertical}
+.bot{display:flex;flex-wrap:wrap;gap:10px}
+button{font:600 15px Inter,sans-serif;border-radius:10px;padding:10px 16px;cursor:pointer;border:1.5px solid var(--blue)}
+.p{background:var(--blue);color:#fff}.s{background:transparent;color:var(--blue)}
+button:disabled{opacity:.5;cursor:default}
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.k{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}.k b{font:800 26px "Inter Tight",sans-serif;color:var(--ink);display:block}
+.ref{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.ref.ok{border-left-color:var(--ok)}.ref.warn{border-left-color:var(--warn)}.ref.bad{border-left-color:var(--bad)}.ref.gris{border-left-color:var(--muted)}
+.ver{font:600 14px Inter,sans-serif;display:inline-block;border-radius:7px;padding:3px 9px;align-self:flex-start}
+.ok .ver{background:var(--ok-t);color:var(--ok)}.warn .ver{background:var(--warn-t);color:var(--warn)}.bad .ver{background:var(--bad-t);color:var(--bad)}.gris .ver{background:var(--gris-t);color:var(--muted)}
+.orig{font:400 13px/1.5 "IBM Plex Mono",monospace;color:var(--muted);overflow-wrap:anywhere}
+.real{font-size:14.5px;color:var(--ink)}
+.nota{background:var(--blue-t);border-radius:10px;padding:12px 14px;font-size:14.5px;color:var(--ink)}
+</style></head><body><div class="w">
+<div><p class="eb">Diplomado en IA para la Investigación · Módulo 3 · Sesión 4</p>
+<h1>Verificador de referencias</h1>
+<p>Pegue las referencias que le dio una IA, una por renglón o numeradas. La página busca cada DOI en <strong>doi.org</strong> y en <strong>Crossref</strong> y compara el título real con lo que dijo la IA.</p>
+<p><a href="prompts.html">← Libro de prompts de la sesión 4</a></p></div>
+
+<textarea id="t" placeholder="1. Autor, A., y Autor, B. (2021). Título del artículo. Revista, 12(3), 45–67. https://doi.org/10.xxxx/xxxxx&#10;2. …"></textarea>
+<div class="bot"><button class="p" id="go">Verificar</button><button class="s" id="ej">Probar con un ejemplo</button></div>
+<div id="resumen" class="res" hidden></div>
+<div id="lista" style="display:flex;flex-direction:column;gap:12px"></div>
+<p class="nota"><b>Cómo leer el resultado.</b> «El DOI existe, pero es de otro artículo» es el error más común: la IA arma un DOI real y le pega un título inventado. Si una referencia no trae DOI y no aparece en Crossref, puede ser un libro o una publicación no indexada: búsquela en Google Scholar antes de descartarla. Todo corre en su navegador; las consultas van solo a doi.org y Crossref.</p>
+<p class="eb">Alonso Ramírez Hernández · CENES–UPTC · noviembre de 2026</p>
+</div>
+<script>
+const $=s=>document.querySelector(s);
+const norm=s=>(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/<[^>]+>/g," ").replace(/[^a-z0-9ñ ]+/g," ");
+const STOP=new Set("the and for with from that this are was were into over under between among about de la el los las del en y con por para una un que sobre entre como sus su se".split(" "));
+const toks=s=>new Set(norm(s).split(/\s+/).filter(w=>w.length>3&&!STOP.has(w)));
+function parecido(tituloReal,texto){const a=toks(tituloReal),b=toks(texto);if(!a.size)return 0;let n=0;a.forEach(w=>{if(b.has(w))n++});return n/a.size}
+function bloques(txt){const out=[];let cur="";for(const l of txt.split(/\r?\n/)){const v=l.trim();
+  if(!v){if(cur){out.push(cur);cur=""}continue}
+  if(/^(\d+[\.\)]|[-•*])\s+/.test(v)&&cur){out.push(cur);cur=v}else cur=cur?cur+" "+v:v}
+  if(cur)out.push(cur);return out.map(b=>b.replace(/^(\d+[\.\)]|[-•*])\s+/,"")).filter(b=>b.length>15)}
+const doiDe=b=>{const m=b.match(/10\.\d{4,9}\/[^\s"<>]+/i);return m?m[0].replace(/[.,;)\]]+$/,""):null};
+async function cr(doi){try{const r=await fetch("https://api.crossref.org/works/"+encodeURIComponent(doi));if(!r.ok)return null;return (await r.json()).message}catch(e){return undefined}}
+async function existeDoi(doi){try{const r=await fetch("https://doi.org/api/handles/"+encodeURIComponent(doi));const j=await r.json();return j.responseCode===1}catch(e){return null}}
+async function buscar(texto){try{const r=await fetch("https://api.crossref.org/works?rows=1&select=DOI,title,author,issued,container-title&query.bibliographic="+encodeURIComponent(texto.slice(0,300)));if(!r.ok)return null;const it=(await r.json()).message.items;return it&&it[0]||null}catch(e){return undefined}}
+const ficha=m=>{if(!m)return"";const t=(m.title||[""])[0];const au=(m.author||[]).slice(0,3).map(a=>a.family||a.name||"").filter(Boolean).join(", ");
+  const y=((m.issued||{})["date-parts"]||[[""]])[0][0];const rev=(m["container-title"]||[""])[0];
+  return `«${t}»${au?" · "+au:""}${y?" ("+y+")":""}${rev?" · "+rev:""}`};
+const esc=s=>(s||"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+function tarjeta(clase,veredicto,orig,real,doi){const d=document.createElement("div");d.className="ref "+clase;
+  d.innerHTML=`<span class="ver">${veredicto}</span><div class="orig">${esc(orig)}</div>`+(real?`<div class="real"><b>En la fuente:</b> ${esc(real)}</div>`:"")+(doi?`<a href="https://doi.org/${encodeURI(doi)}" target="_blank" rel="noopener">Abrir en doi.org</a>`:"");
+  $("#lista").appendChild(d)}
+async function verificar(){const bs=bloques($("#t").value);$("#lista").innerHTML="";const c={ok:0,otro:0,no:0,sin:0};
+  if(!bs.length){$("#lista").innerHTML='<p class="nota">No encontré referencias. Pegue una por renglón o numeradas.</p>';return}
+  $("#go").disabled=true;$("#go").textContent="Verificando…";
+  for(const b of bs){const doi=doiDe(b);
+    if(doi){const [m,ex]=await Promise.all([cr(doi),existeDoi(doi)]);
+      if(m){const t=(m.title||[""])[0];const p=parecido(t,b);
+        if(p>=0.6){c.ok++;tarjeta("ok","Existe y coincide",b,ficha(m),doi)}
+        else{c.otro++;tarjeta("warn","El DOI existe, pero es de otro artículo",b,ficha(m),doi)}}
+      else if(ex===true){c.ok++;tarjeta("gris","El DOI existe (no está en Crossref): ábralo y compare",b,"",doi)}
+      else if(ex===false){c.no++;tarjeta("bad","Ese DOI no existe",b,"",null)}
+      else{tarjeta("gris","No pude consultar ahora; intente de nuevo",b,"",doi)}}
+    else{c.sin++;const m=await buscar(b);
+      if(m&&parecido((m.title||[""])[0],b)>=0.6){tarjeta("gris","Sin DOI · en Crossref aparece uno muy parecido: revise si es el mismo",b,ficha(m),m.DOI)}
+      else{tarjeta("bad","Sin DOI y no aparece en Crossref: probablemente no existe (si es un libro, búsquelo en Google Scholar)",b,m?"Lo más cercano: "+ficha(m):"",null)}}}
+  $("#resumen").hidden=false;
+  $("#resumen").innerHTML=`<div class="k"><b>${c.ok}</b>existen y coinciden</div><div class="k"><b>${c.otro}</b>DOI de otro artículo</div><div class="k"><b>${c.no}</b>DOI inexistente</div><div class="k"><b>${c.sin}</b>sin DOI</div>`;
+  $("#go").disabled=false;$("#go").textContent="Verificar"}
+$("#go").onclick=verificar;
+$("#ej").onclick=()=>{$("#t").value=`1. Walters, W. H., y Wilder, E. I. (2023). Fabrication and errors in the bibliographic citations generated by ChatGPT. Scientific Reports, 13, 14045. https://doi.org/10.1038/s41598-023-41032-5
+2. Gómez, L., y Pérez, R. (2021). Exposición a PM2.5 y mortalidad cardiovascular en ciudades de América Latina. Environmental Research, 195, 110812. https://doi.org/10.1038/s41598-023-41032-5
+3. Rodríguez, A. (2020). Material particulado y salud respiratoria en Bogotá. Revista de Salud Pública, 22(4), 1-9. https://doi.org/10.1016/j.envres.2099.999999`;verificar()};
+</script></body></html>
