@@ -1,0 +1,322 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Taller de ideación</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F7F9;--card:#fff;--ink:#141821;--text:#4B5563;--muted:#78818F;--line:#E4E8EC;--blue:#1B44CC;--blue-t:#EEF2FE;--ok:#127A4A;--ok-t:#E7F6EF;--warn:#A25B00;--warn-t:#FFF3E0;--bad:#C81E4A;--bad-t:#FDEEF2;--gris-t:#F0F2F5}
+@media (prefers-color-scheme:dark){:root{--bg:#0F1218;--card:#171B23;--ink:#EEF1F5;--text:#C3C9D2;--muted:#8E97A4;--line:#272D37;--blue:#8AA2FF;--blue-t:#1B2442;--ok:#5FD39B;--ok-t:#12261C;--warn:#F2B35C;--warn-t:#2A2010;--bad:#FF7896;--bad-t:#2C141B;--gris-t:#20252E}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 Inter,Arial,sans-serif;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+.w{max-width:880px;margin:0 auto;padding-block:36px 80px;display:flex;flex-direction:column;gap:20px}
+a{color:var(--blue)}
+h1,h2,h3{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);margin:0;text-wrap:balance}
+h1{font-size:clamp(28px,6vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+h2{font-size:20px;font-weight:700;display:flex;gap:10px;align-items:center}
+h3{font-size:16px;font-weight:700}
+.eb{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:12px;scroll-margin-top:12px}
+.num{font:800 14px "Inter Tight",sans-serif;background:var(--blue);color:#fff;border-radius:8px;min-width:28px;height:28px;display:inline-grid;place-items:center;flex:none}
+.cuando{font-size:14.5px;color:var(--muted);margin:0}
+label{font:600 14px Inter,sans-serif;color:var(--ink);display:flex;flex-direction:column;gap:6px}
+label small{font-weight:400;color:var(--muted)}
+input,textarea,select{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:400 15px/1.5 Inter,sans-serif;background:var(--bg);color:var(--ink)}
+textarea{min-height:92px;resize:vertical}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.bot{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+button{font:600 15px Inter,sans-serif;border-radius:10px;padding:9px 15px;cursor:pointer;border:1.5px solid var(--blue)}
+.p{background:var(--blue);color:#fff}.s{background:transparent;color:var(--blue)}
+button:disabled{opacity:.5;cursor:default}
+.out{border-left:4px solid var(--blue);background:var(--bg);border-radius:10px;padding:10px 16px;font-size:15px;color:var(--ink);overflow-x:auto}
+.out:empty{display:none}
+.out table{border-collapse:collapse;font-size:14px;margin:6px 0}
+.out th,.out td{border:1px solid var(--line);padding:6px 8px;vertical-align:top;text-align:left}
+.out p{margin:.45em 0}.out ul,.out ol{margin:.3em 0;padding-left:1.3em}.out h3{margin:.6em 0 .2em}
+.err{color:var(--bad);font-size:14.5px;margin:0}
+.err:empty{display:none}
+.muted{color:var(--muted);font-size:14px;margin:0}
+.nav{display:flex;flex-wrap:wrap;gap:6px}
+.nav a{font:500 13px Inter,sans-serif;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:var(--card)}
+.tres{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.crit{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;font-size:14.5px;color:var(--ink)}
+.crit h3{font-size:15px}
+.ver{font:600 13px Inter,sans-serif;border-radius:7px;padding:2px 8px;align-self:flex-start}
+.v-sigue{background:var(--ok-t);color:var(--ok)}.v-ajustar{background:var(--warn-t);color:var(--warn)}.v-replantear{background:var(--bad-t);color:var(--bad)}.v-espera{background:var(--gris-t);color:var(--muted)}
+.crit ol{margin:0;padding-left:1.2em}.crit li{margin-bottom:6px}
+.crit .res{color:var(--muted);font-size:13.5px;display:block}
+.crit .preg{border-top:1px dashed var(--line);padding-top:6px;color:var(--text)}
+table.bit{width:100%;border-collapse:collapse;font-size:14px}
+table.bit td,table.bit th{border-bottom:1px solid var(--line);padding:8px 6px;vertical-align:top;text-align:left}
+table.bit th{font:600 13px Inter,sans-serif;color:var(--muted)}
+table.bit select,table.bit textarea,table.bit input{font-size:14px;padding:7px 9px}
+table.bit textarea{min-height:64px}
+.nota{background:var(--blue-t);border-radius:10px;padding:12px 14px;font-size:14.5px;color:var(--ink);margin:0}
+details summary{cursor:pointer;color:var(--blue);font-weight:600;font-size:14.5px}
+.ok{color:var(--ok);font-weight:600}
+@media (max-width:640px){table.bit,table.bit tbody,table.bit tr,table.bit td{display:block;width:100%}table.bit thead{display:none}table.bit tr{border-bottom:2px solid var(--line);padding:8px 0}table.bit td{border:0;padding:4px 0}}
+</style></head><body><div class="w">
+
+<div style="display:flex;flex-direction:column;gap:10px">
+<p class="eb">Diplomado en IA para la Investigación · Módulo 3 · Sesión 4 · Taller 1</p>
+<h1>De la inquietud a la pregunta defendida</h1>
+<p>Ocho pasos, en orden, con las fichas que ya conoce de la sesión 2. Lo que devuelve la IA es una propuesta: corríjala antes de pasar al siguiente paso. Al final se lleva la <strong>pieza 1</strong> de su sistema, la ficha de la pregunta, en un archivo.</p>
+<nav class="nav"><a href="#p0">0 · Llave</a><a href="#caso">Su caso</a><a href="#p1">1 · Volcado</a><a href="#p2">2 · Zero-shot</a><a href="#p3">3 · Few-shot</a><a href="#p4">4 · FINER</a><a href="#p5">5 · Interrogatorio</a><a href="#p6">6 · Consejo</a><a href="#p7">7 · Decisiones</a><a href="#p8">8 · Ficha</a></nav>
+<p class="muted"><a href="prompts.html">Libro de prompts</a> · <a href="verificador.html">Verificador de referencias</a></p>
+</div>
+
+<section class="card" id="p0">
+<h2><span class="num">0</span>La llave</h2>
+<p class="cuando">Pegue la llave del curso que está en el chat de Meet. Se queda solo en esta pestaña y se usa únicamente para hablar con Gemini, de Google.</p>
+<div class="grid2">
+<label>Llave de Gemini<input type="password" id="key" placeholder="AIza…" autocomplete="off" spellcheck="false"></label>
+<label>Modelo<select id="modelo"><option value="gemini-2.5-flash">gemini-2.5-flash (recomendado)</option><option value="gemini-flash-latest">gemini-flash-latest (si el otro se satura)</option></select></label>
+</div>
+<div class="bot"><button class="p" id="conectar">Conectar</button><span id="estadoLlave" class="muted"></span></div>
+<details><summary>¿Y después de las 12?</summary><p class="muted">La llave del curso se borra al terminar la clase. Para seguir usando esta página, cree una llave gratis suya en <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a> (no pide tarjeta) y péguela aquí. Con la llave gratis, Google puede usar lo que usted envíe para mejorar sus productos: no ponga datos personales ni confidenciales.</p></details>
+</section>
+
+<section class="card" id="caso">
+<h2>Su caso</h2>
+<p class="cuando">Se llena una vez. Los pasos lo usan para armar cada prompt.</p>
+<div class="grid2">
+<label>Su tema, en dos o tres palabras<input data-c="tema" placeholder="el frailejón"></label>
+<label>Su disciplina<input data-c="disciplina" placeholder="biología vegetal"></label>
+</div>
+<label>Quién es usted<small>profesión, institución y área</small><input data-c="perfil" placeholder="bióloga de la UPTC; trabajo en cultivo in vitro"></label>
+<label>Su inquietud, en una frase<input data-c="inquietud" placeholder="me preocupa que el frailejón se propague tan despacio para restaurar páramos"></label>
+<label>Los datos que tiene o podría conseguir<small>qué base, qué años, qué variables; o «hay que levantarlos»</small><textarea data-c="datos" placeholder="ensayos propios de laboratorio, 2024–2026; tasa de brotación por tratamiento"></textarea></label>
+</section>
+
+<section class="card" id="p1">
+<h2><span class="num">1</span>Volcar en voz alta</h2>
+<p class="cuando">Dicte dos minutos, en desorden, todo lo que piensa de su tema. Use el micrófono del teclado del celular o el dictado del computador. La IA no le da ideas todavía: solo ordena lo suyo.</p>
+<label>Su volcado<textarea data-c="volcado" style="min-height:140px" placeholder="Hable o escriba sin ordenar…"></textarea></label>
+<div class="bot"><button class="p" data-run="volcado">Ordenar mi volcado</button><button class="s" data-copy="volcado">Copiar</button></div>
+<p class="err" id="e-volcado"></p><div class="out" id="o-volcado"></div>
+</section>
+
+<section class="card" id="p2">
+<h2><span class="num">2</span>Zero-shot: el reflejo colectivo</h2>
+<p class="cuando">La misma petición, sin ejemplos ni contexto, tres veces. ¿Las ideas se parecen entre sí? ¿Y con las de sus compañeros? Es lo que pasa cuando todos le piden lo mismo a la máquina.</p>
+<div class="bot"><button class="p" data-run="zero">Pedir tres ideas</button></div>
+<p class="err" id="e-zero"></p><div class="out" id="o-zero"></div>
+</section>
+
+<section class="card" id="p3">
+<h2><span class="num">3</span>Few-shot: de la inquietud a la pregunta (PEDCO)</h2>
+<p class="cuando">Ahora con anatomía completa (rol, contexto, objetivo, restricciones, formato) y dos ejemplos de cómo la quiere: población, exposición, comparación, desenlace y <strong>el dato</strong>, con quién lo tiene. Si ordenó su volcado, va como contexto.</p>
+<div class="bot"><button class="p" data-run="fewshot">Proponer tres versiones</button><button class="s" data-copy="fewshot">Copiar</button></div>
+<p class="err" id="e-fewshot"></p><div class="out" id="o-fewshot"></div>
+<label>Su pregunta v1<small>escoja una versión, corríjala a mano y escríbala aquí: es la que va a defender</small><textarea data-c="v1" placeholder="¿…?"></textarea></label>
+</section>
+
+<section class="card" id="p4">
+<h2><span class="num">4</span>FINER, criterio por criterio</h2>
+<p class="cuando">Factible, interesante, novedosa, ética y relevante. Primero el razonamiento y después la nota: así se puede auditar.</p>
+<div class="bot"><button class="p" data-run="finer">Evaluar mi pregunta v1</button><button class="s" data-copy="finer">Copiar</button></div>
+<p class="err" id="e-finer"></p><div class="out" id="o-finer"></div>
+</section>
+
+<section class="card" id="p5">
+<h2><span class="num">5</span>El interrogatorio</h2>
+<p class="cuando">El evaluador más exigente de su comité: las tres razones más fuertes para no investigarla, y qué tendría que mostrar usted para tumbar cada una.</p>
+<div class="bot"><button class="p" data-run="interrogatorio">Atacar mi pregunta</button><button class="s" data-copy="interrogatorio">Copiar</button></div>
+<p class="err" id="e-interrogatorio"></p><div class="out" id="o-interrogatorio"></div>
+</section>
+
+<section class="card" id="p6">
+<h2><span class="num">6</span>El consejo de IAs</h2>
+<p class="cuando">Cinco evaluadores revisan su pregunta v1 por separado, sin ver lo que dicen los otros: la metodóloga, el revisor escéptico, el guardián de los datos, la experta de su campo y el comité de ética. Luego un presidente resume en qué coinciden y en qué no. <strong>Nadie reescribe su pregunta: eso lo decide usted.</strong></p>
+<div class="bot"><button class="p" id="convocar">Convocar el consejo</button><span id="estadoConsejo" class="muted"></span></div>
+<p class="err" id="e-consejo"></p>
+<div class="tres" id="criticos"></div>
+<div class="out" id="o-presidente"></div>
+<p class="muted">Por qué así: los comentarios de GPT-4 a manuscritos se parecen a los de revisores humanos tanto como los de dos humanos entre sí (Liang et al., NEJM AI, 2024), pero un juez de IA tiende a darle la razón a quien le pregunta (Sharma et al., 2023). Por eso los roles son adversarios y la decisión es suya.</p>
+</section>
+
+<section class="card" id="p7">
+<h2><span class="num">7</span>Sus decisiones y la pregunta v2</h2>
+<p class="cuando">Para cada objeción: ¿la acepta, la rechaza o la va a verificar en la literatura? Y por qué, en una línea. Este registro es su criterio de investigador; va completo a su sistema.</p>
+<div style="overflow-x:auto"><table class="bit"><thead><tr><th style="width:18%">Quién</th><th>Objeción</th><th style="width:17%">Decisión</th><th style="width:30%">Por qué</th></tr></thead><tbody id="filas"></tbody></table></div>
+<div class="bot"><button class="s" id="agregarFila">Agregar una fila</button></div>
+<label>Su pregunta v2<small>la versión que sobrevivió al consejo</small><textarea data-c="v2" placeholder="¿…?"></textarea></label>
+</section>
+
+<section class="card" id="p8">
+<h2><span class="num">8</span>La ficha de la pregunta · pieza 1</h2>
+<p class="cuando">La IA llena la ficha con lo que usted trabajó en los pasos 1 a 7, sin agregar nada que usted no haya dicho. Revísela, corríjala y guárdela en su carpeta <strong>mi_sistema</strong>. El punto 7 de la ficha es la entrada al Taller 2.</p>
+<div class="bot"><button class="p" data-run="ficha">Llenar mi ficha</button><button class="s" data-copy="ficha">Copiar</button><button class="s" id="bajarFicha">Descargar la ficha (.md)</button><button class="s" id="bajarTodo">Descargar todo el taller (.md)</button></div>
+<p class="err" id="e-ficha"></p><div class="out" id="o-ficha"></div>
+</section>
+
+<p class="nota"><b>Dónde queda lo que escribe.</b> Su trabajo se guarda en este navegador para que no se pierda si recarga la página; nadie más lo ve. Lo que envía en cada paso va a Gemini con la llave del curso. No escriba datos personales de terceros ni información confidencial. <button class="s" id="borrar" style="margin-left:6px;padding:4px 10px;font-size:13px">Empezar de cero</button></p>
+<p class="eb">Alonso Ramírez Hernández · CENES–UPTC · noviembre de 2026</p>
+</div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const LOCAL=/^(127\.0\.0\.1|localhost)$/.test(location.hostname)&&new URLSearchParams(location.search).has("proxy");
+const BASE=LOCAL?"/gemini":"https://generativelanguage.googleapis.com";
+const ALM="ideacion_s4_v1";
+let S={campos:{},salidas:{},bitacora:[]};
+try{const g=localStorage.getItem(ALM);if(g)S=Object.assign(S,JSON.parse(g))}catch(e){}
+const guardar=()=>{try{localStorage.setItem(ALM,JSON.stringify(S))}catch(e){}};
+let KEY="";try{KEY=sessionStorage.getItem("ideacion_llave")||""}catch(e){}
+const C=id=>(S.campos[id]||"").trim();
+const espera=ms=>new Promise(r=>setTimeout(r,ms));
+const esc=s=>String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function inl(s){return esc(s).replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+)\*(?!\*)/g,"$1<em>$2</em>").replace(/(^|[\s(«"])_([^_\n]+)_(?=[\s.,;:)»"]|$)/g,"$1<em>$2</em>").replace(/`([^`]+)`/g,"<code>$1</code>")}
+function md(t){const L=String(t||"").replace(/\r/g,"").split("\n");let h="",i=0;
+  const sep=r=>/^\s*\|?[\s:\-|]+\|?\s*$/.test(r)&&r.includes("-");
+  const celdas=r=>r.trim().replace(/^\|/,"").replace(/\|$/,"").split("|").map(c=>c.trim());
+  while(i<L.length){const l=L[i];
+    if(/^\s*\|/.test(l)){let k=0,o="<table>";while(i<L.length&&/^\s*\|/.test(L[i])){const r=L[i];i++;if(sep(r))continue;const tg=k===0?"th":"td";o+="<tr>"+celdas(r).map(c=>`<${tg}>${inl(c)}</${tg}>`).join("")+"</tr>";k++}h+=o+"</table>";continue}
+    if(/^\s*#{1,6}\s/.test(l)){h+=`<h3>${inl(l.replace(/^\s*#+\s*/,""))}</h3>`;i++;continue}
+    if(/^\s*[-*•]\s+/.test(l)){h+="<ul>";while(i<L.length&&/^\s*[-*•]\s+/.test(L[i])){h+=`<li>${inl(L[i].replace(/^\s*[-*•]\s+/,""))}</li>`;i++}h+="</ul>";continue}
+    if(/^\s*\d+[.)]\s+/.test(l)){h+=`<ol start="${parseInt(l.trim(),10)||1}">`;while(i<L.length&&/^\s*\d+[.)]\s+/.test(L[i])){h+=`<li>${inl(L[i].replace(/^\s*\d+[.)]\s+/,""))}</li>`;i++}h+="</ol>";continue}
+    if(!l.trim()){i++;continue}
+    h+=`<p>${inl(l)}</p>`;i++}
+  return h}
+
+async function gemini(prompt,{sys="",temp=0.7,max=1600,json=null}={}){
+  if(!LOCAL&&!KEY)throw new Error("Primero pegue la llave del curso en el paso 0.");
+  const model=$("#modelo").value;
+  const body={contents:[{role:"user",parts:[{text:prompt}]}],generationConfig:{temperature:temp,maxOutputTokens:max,thinkingConfig:{thinkingBudget:0}}};
+  if(sys)body.systemInstruction={parts:[{text:sys}]};
+  if(json){body.generationConfig.responseMimeType="application/json";body.generationConfig.responseSchema=json}
+  const headers={"Content-Type":"application/json"};if(!LOCAL)headers["x-goog-api-key"]=KEY;
+  for(let i=0;i<3;i++){let r;
+    try{r=await fetch(`${BASE}/v1beta/models/${model}:generateContent`,{method:"POST",headers,body:JSON.stringify(body)})}
+    catch(e){if(i<2){await espera(2000*(i+1));continue}throw new Error("No hubo conexión con Gemini. Revise internet e intente de nuevo.")}
+    if(r.ok){const d=await r.json();const c=(d.candidates||[])[0];
+      const t=c&&c.content&&c.content.parts?c.content.parts.map(p=>p.text||"").join(""):"";
+      if(!t)throw new Error("Gemini no devolvió texto"+(c&&c.finishReason?` (${c.finishReason})`:"")+". Intente de nuevo.");
+      return t}
+    let msg="";try{msg=((await r.json()).error||{}).message||""}catch(e){}
+    if((r.status===429||r.status>=500)&&i<2){await espera(3000*(i+1)+Math.random()*2000);continue}
+    if(r.status===400&&/api key/i.test(msg))throw new Error("La llave no sirve. Cópiela completa desde el chat de Meet.");
+    if(r.status===403)throw new Error("La llave no tiene permiso; puede que ya la hayan borrado.");
+    if(r.status===429)throw new Error("Mucha gente a la vez. Espere un minuto y vuelva a intentar.");
+    if(r.status>=500)throw new Error("Gemini está saturado. Intente de nuevo o cambie el modelo en el paso 0.");
+    throw new Error(`Error ${r.status}: ${msg.slice(0,180)}`)}}
+
+function falta(ids){const nombres={tema:"su tema",disciplina:"su disciplina",perfil:"quién es usted",inquietud:"su inquietud",volcado:"su volcado",v1:"su pregunta v1",v2:"su pregunta v2"};
+  const f=ids.filter(id=>!C(id));if(f.length)throw new Error("Falta llenar: "+f.map(x=>nombres[x]||x).join(", ")+".")}
+
+const EJEMPLOS=`Dos ejemplos de cómo lo quiero:
+
+Inquietud: «me preocupa la resistencia a antibióticos».
+P: adultos con infección urinaria atendidos en hospitales de Tunja · E: uso de fluoroquinolonas en los 12 meses previos · C: sin uso previo · O: proporción de aislamientos de E. coli resistentes · Dato: registros del laboratorio de microbiología · Quién lo tiene: el laboratorio clínico de cada hospital.
+
+Inquietud: «plaguicidas en el agua rural».
+P: acueductos veredales de Boyacá · E: captación a menos de 500 m de cultivos de papa · C: captación a más de 2 km · O: concentración de clorpirifos en el agua de consumo · Dato: muestreo propio en 20 acueductos · Quién lo tiene: nadie todavía; hay que levantarlo.
+
+Ahora la mía.`;
+
+const PASOS={
+ volcado:{req:["volcado"],prompt:()=>`PASO 1 · VOLCADO. Te dicto lo que pienso, en desorden. No lo corrijas ni me des ideas nuevas todavía.
+Ordénalo en cinco listas cortas: (1) hechos que afirmé, (2) hipótesis, (3) preguntas posibles, (4) supuestos que no he verificado, (5) datos que mencioné o que harían falta.
+Al final, hazme UNA sola pregunta: la que más me ayudaría a afinar.
+
+Mi volcado: ${C("volcado")}`},
+ fewshot:{req:["disciplina","perfil","inquietud"],prompt:()=>`Rol: actúa como asesor de metodología de investigación en ${C("disciplina")}.
+Contexto: soy ${C("perfil")}. Mi inquietud es: «${C("inquietud")}».${C("datos")?`\nLos datos que tengo o podría conseguir: ${C("datos")}.`:""}
+Objetivo: convierte mi inquietud en una pregunta de investigación con formato PECO (población, exposición o intervención, comparación y desenlace). Si mi inquietud es cualitativa, usa SPIDER (muestra, fenómeno de interés, diseño, evaluación y tipo de investigación).
+Restricciones: no me propongas temas nuevos; trabaja sobre el mío. Si no sabes si un dato existe, dilo.
+Formato: tres versiones, de la más ambiciosa a la más viable en un semestre. Para cada una: sus elementos, el dato que haría falta y quién lo tiene.
+
+${EJEMPLOS}${S.salidas.volcado?`\n\nPara contexto, así quedó ordenado mi volcado:\n${S.salidas.volcado}`:""}`},
+ finer:{req:["v1"],prompt:()=>`Esta es mi pregunta de investigación: «${C("v1")}».
+Evalúala con los criterios FINER: factible, interesante, novedosa, ética y relevante.
+Para cada criterio, primero escribe tu razonamiento en dos o tres líneas y después la calificación (alta, media o baja). No pongas la calificación antes del razonamiento.
+Al final: cuál es el criterio más débil, qué información te faltó para juzgar y qué tendría que verificar yo.
+Responde en una tabla.`},
+ interrogatorio:{req:["v1"],prompt:()=>`Esta es mi pregunta de investigación: «${C("v1")}».
+Actúa como el evaluador más exigente de mi comité. Dame las tres razones más fuertes por las que esta pregunta no vale la pena investigarse: porque ya está respondida, porque no es medible con datos accesibles o porque la respuesta no le cambia una decisión a nadie.
+Sé concreto y duro. No elogies la pregunta ni propongas alternativas. Solo las objeciones.
+Para cada una, dime qué tendría que mostrarte yo para tumbarla.`},
+ ficha:{req:["v1"],max:2200,temp:0.3,prompt:()=>`Con lo que trabajé en el taller (abajo), llena esta ficha. No agregues nada que yo no haya dicho o aprobado; si falta algo, escribe [FALTA]. Responde solo con la ficha, en Markdown.
+
+FICHA DE LA PREGUNTA · ${new Date().toLocaleDateString("es-CO")}
+1. Inquietud inicial
+2. Pregunta (PECO o SPIDER)
+3. Hipótesis y qué resultado la tumbaría
+4. Versiones descartadas y por qué
+5. FINER: el criterio más débil y qué voy a hacer
+6. Objeciones y mi respuesta
+7. Lo que tengo que verificar en la literatura
+8. Regla nueva para mi asistente
+
+=== LO QUE TRABAJÉ ===
+${contexto()}`}
+};
+function contexto(){const b=S.bitacora.filter(f=>f.objecion||f.porque).map(f=>`- ${f.quien||"?"}: ${f.objecion} → ${f.decision||"sin decidir"}${f.porque?` (${f.porque})`:""}`).join("\n");
+  return [`Quién soy: ${C("perfil")} · Disciplina: ${C("disciplina")}`,`Inquietud: ${C("inquietud")}`,C("datos")&&`Datos: ${C("datos")}`,
+   S.salidas.volcado&&`Volcado ordenado:\n${S.salidas.volcado}`,S.salidas.fewshot&&`Versiones que propuso la IA:\n${S.salidas.fewshot}`,
+   `Mi pregunta v1: ${C("v1")}`,S.salidas.finer&&`Evaluación FINER:\n${S.salidas.finer}`,S.salidas.interrogatorio&&`Objeciones del evaluador exigente:\n${S.salidas.interrogatorio}`,
+   S.salidas.presidente&&`Síntesis del consejo:\n${S.salidas.presidente}`,b&&`Mis decisiones sobre las objeciones:\n${b}`,C("v2")?`Mi pregunta v2 (la definitiva): ${C("v2")}`:"Pregunta v2: [FALTA]"].filter(Boolean).join("\n\n")}
+
+async function correr(id,btn){const P=PASOS[id];$("#e-"+id).textContent="";const txt0=btn.textContent;btn.disabled=true;btn.textContent="Pensando…";
+  try{falta(P.req||[]);const t=await gemini(P.prompt(),{temp:P.temp??0.7,max:P.max||1600});S.salidas[id]=t;guardar();$("#o-"+id).innerHTML=md(t)}
+  catch(e){$("#e-"+id).textContent=e.message}finally{btn.disabled=false;btn.textContent=txt0}}
+
+async function zeroShot(btn){$("#e-zero").textContent="";const txt0=btn.textContent;btn.disabled=true;btn.textContent="Pensando…";
+  try{falta(["tema"]);const p=`Dame una idea de investigación sobre ${C("tema")}, en una sola frase.`;
+    const r=await Promise.all([0,1,2].map(()=>gemini(p,{temp:1.0,max:300})));
+    S.salidas.zero=r.map((x,i)=>`${i+1}. ${x.replace(/\s+/g," ").trim()}`).join("\n");guardar();
+    $("#o-zero").innerHTML=`<p><b>El prompt:</b> «${esc(p)}»</p>`+md(S.salidas.zero)}
+  catch(e){$("#e-zero").textContent=e.message}finally{btn.disabled=false;btn.textContent=txt0}}
+
+const CRITICOS=[
+ {id:"metodo",nombre:"La metodóloga",rol:()=>"Eres la metodóloga del comité. Te fijas en el diseño que respondería la pregunta, la comparación, cómo se miden las variables, los sesgos y factores de confusión, y si la pregunta es causal o descriptiva sin decirlo."},
+ {id:"esceptico",nombre:"El revisor escéptico",rol:()=>"Eres el revisor escéptico de una revista científica. Te fijas en si la pregunta ya está respondida o es trivial, si la novedad es real o solo de lugar (por ejemplo, «en Boyacá»), y si la respuesta le cambiaría una decisión a alguien."},
+ {id:"datos",nombre:"El guardián de los datos",rol:()=>"Eres el guardián de los datos del comité. Te fijas en si el dato existe, quién lo tiene, cómo se accede, su calidad, el tamaño de muestra que haría falta y si se puede hacer en un semestre con pocos recursos."},
+ {id:"campo",nombre:"La experta del campo",rol:()=>`Eres una investigadora con experiencia en ${C("disciplina")||"la disciplina del investigador"}. Te fijas en el mecanismo, la teoría, la escala y las variables que un colega del campo echaría de menos.`},
+ {id:"etica",nombre:"El comité de ética",rol:()=>"Eres el comité de ética e integridad. Te fijas en el consentimiento, los riesgos para personas, comunidades o ecosistemas, los permisos que harían falta (colecta, datos personales, comité de ética) y el uso honesto de la IA en el proyecto."}];
+const REGLAS=" Formas parte de un comité que revisa preguntas de investigación antes de que el investigador invierta meses en ellas. Reglas: no elogies; no reescribas la pregunta ni propongas otra; da exactamente tres objeciones, de la más grave a la menos grave, concretas para ESTA pregunta y nada genérico; para cada una, di qué tendría que mostrar el investigador para resolverla; no cites estudios, autores ni cifras, porque no puedes verificarlos; si algo depende de información que no tienes, dilo. Al final, hazle UNA pregunta al investigador. Escribe en español, con frases cortas.";
+const ESQ={type:"OBJECT",properties:{veredicto:{type:"STRING",enum:["sigue","ajustar","replantear"]},objeciones:{type:"ARRAY",items:{type:"OBJECT",properties:{objecion:{type:"STRING"},que_la_resolveria:{type:"STRING"}},required:["objecion","que_la_resolveria"]}},pregunta_al_investigador:{type:"STRING"}},required:["veredicto","objeciones","pregunta_al_investigador"]};
+const VER={sigue:"sigue",ajustar:"ajustar",replantear:"replantear"};
+function tarjeta(c,r){if(!r)return`<div class="crit"><h3>${esc(c.nombre)}</h3><span class="ver v-espera">deliberando…</span></div>`;
+  if(r.error)return`<div class="crit"><h3>${esc(c.nombre)}</h3><p class="err">${esc(r.error)}</p></div>`;
+  return`<div class="crit"><h3>${esc(c.nombre)}</h3><span class="ver v-${VER[r.veredicto]?r.veredicto:"espera"}">${esc(r.veredicto||"")}</span><ol>${(r.objeciones||[]).map(o=>`<li>${esc(o.objecion)}<span class="res">Se resuelve si: ${esc(o.que_la_resolveria)}</span></li>`).join("")}</ol><div class="preg"><b>Le pregunta:</b> ${esc(r.pregunta_al_investigador)}</div></div>`}
+function pintarConsejo(){const R=S.salidas.consejo||[];$("#criticos").innerHTML=CRITICOS.map((c,i)=>tarjeta(c,R[i])).join("");$("#o-presidente").innerHTML=S.salidas.presidente?"<h3>El presidente del consejo</h3>"+md(S.salidas.presidente):""}
+async function convocar(btn){$("#e-consejo").textContent="";
+  try{falta(["v1","disciplina"])}catch(e){$("#e-consejo").textContent=e.message;return}
+  btn.disabled=true;$("#estadoConsejo").textContent="Cinco evaluadores leyendo su pregunta…";
+  S.salidas.consejo=[null,null,null,null,null];S.salidas.presidente="";pintarConsejo();
+  const caso=`Pregunta de investigación: «${C("v1")}»\nDisciplina: ${C("disciplina")}. Quién investiga: ${C("perfil")||"no lo dijo"}.\nDatos que tiene o podría conseguir: ${C("datos")||"no lo dijo"}.`;
+  await Promise.all(CRITICOS.map(async(c,i)=>{try{const t=await gemini(caso,{sys:c.rol()+REGLAS,temp:0.7,max:1200,json:ESQ});let r;
+      try{r=JSON.parse(t)}catch(e){r={veredicto:"",objeciones:[{objecion:t.slice(0,600),que_la_resolveria:"(respuesta sin formato)"}],pregunta_al_investigador:""}}
+      S.salidas.consejo[i]=r}catch(e){S.salidas.consejo[i]={error:e.message}}pintarConsejo()}));
+  const validos=CRITICOS.map((c,i)=>[c,S.salidas.consejo[i]]).filter(([c,r])=>r&&!r.error);
+  if(!validos.length){$("#e-consejo").textContent="Ningún evaluador respondió. Revise la llave e intente de nuevo.";btn.disabled=false;$("#estadoConsejo").textContent="";return}
+  $("#estadoConsejo").textContent="El presidente está leyendo a los cinco…";
+  try{const insumo=`Pregunta: «${C("v1")}»\n\n`+validos.map(([c,r])=>`${c.nombre} (veredicto: ${r.veredicto}):\n`+(r.objeciones||[]).map((o,k)=>`${k+1}. ${o.objecion} | Se resuelve si: ${o.que_la_resolveria}`).join("\n")).join("\n\n");
+    S.salidas.presidente=await gemini(insumo,{sys:"Eres el presidente de un comité de investigación. Recibes las objeciones de varios evaluadores sobre una pregunta de investigación. No agregues objeciones nuevas, no reescribas la pregunta y no la califiques: la decisión es del investigador. Escribe en español, en Markdown, con estas cuatro secciones y nada más, cada título en negrita en su propia línea: **En qué coinciden** (dos o tres viñetas), **En qué no coinciden** (una a tres viñetas), **Las tres objeciones que hay que resolver primero** (lista numerada, diciendo quién la planteó), **Lo que usted tiene que decidir** (dos o tres preguntas concretas, en viñetas). Máximo 250 palabras.",temp:0.4,max:1200})}
+  catch(e){$("#e-consejo").textContent="El presidente no respondió: "+e.message}
+  S.bitacora=validos.map(([c,r])=>({quien:c.nombre,objecion:((r.objeciones||[])[0]||{}).objecion||"",decision:"",porque:""}));
+  guardar();pintarConsejo();pintarFilas();btn.disabled=false;$("#estadoConsejo").innerHTML='<span class="ok">Listo.</span> Ahora decida en el paso 7.'}
+
+function pintarFilas(){$("#filas").innerHTML=S.bitacora.map((f,i)=>`<tr><td><input data-f="${i}" data-k="quien" value="${esc(f.quien)}"></td><td><textarea data-f="${i}" data-k="objecion">${esc(f.objecion)}</textarea></td><td><select data-f="${i}" data-k="decision">${["","Acepto","Rechazo","Lo verifico en la literatura"].map(o=>`<option ${f.decision===o?"selected":""} value="${o}">${o||"—"}</option>`).join("")}</select></td><td><textarea data-f="${i}" data-k="porque" placeholder="en una línea">${esc(f.porque)}</textarea></td></tr>`).join("")||`<tr><td colspan="4" class="muted">Las filas se llenan solas cuando corre el consejo (paso 6). También puede agregarlas a mano.</td></tr>`}
+$("#filas").addEventListener("input",e=>{const t=e.target;if(t.dataset.f===undefined)return;S.bitacora[+t.dataset.f][t.dataset.k]=t.value;guardar()});
+$("#agregarFila").onclick=()=>{S.bitacora.push({quien:"",objecion:"",decision:"",porque:""});guardar();pintarFilas()};
+
+function bajar(nombre,texto){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([texto],{type:"text/markdown;charset=utf-8"}));a.download=nombre;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
+$("#bajarFicha").onclick=()=>{if(!S.salidas.ficha){$("#e-ficha").textContent="Primero llene la ficha con el botón «Llenar mi ficha».";return}bajar("pieza1_ficha_de_la_pregunta.md",S.salidas.ficha)};
+$("#bajarTodo").onclick=()=>{const R=S.salidas.consejo||[];const consejo=CRITICOS.map((c,i)=>{const r=R[i];if(!r||r.error)return"";return`### ${c.nombre} · ${r.veredicto}\n`+(r.objeciones||[]).map((o,k)=>`${k+1}. ${o.objecion} — Se resuelve si: ${o.que_la_resolveria}`).join("\n")+`\n\nLe pregunta: ${r.pregunta_al_investigador}`}).filter(Boolean).join("\n\n");
+  const b=S.bitacora.map(f=>`| ${f.quien} | ${String(f.objecion).replace(/\|/g,"/")} | ${f.decision||"—"} | ${String(f.porque).replace(/\|/g,"/")} |`).join("\n");
+  const doc=`# Taller de ideación · ${new Date().toLocaleDateString("es-CO")}\n\n## Su caso\n- Tema: ${C("tema")}\n- Disciplina: ${C("disciplina")}\n- Quién: ${C("perfil")}\n- Inquietud: ${C("inquietud")}\n- Datos: ${C("datos")}\n\n## 1 · Volcado\n${C("volcado")}\n\n**Ordenado por la IA:**\n\n${S.salidas.volcado||""}\n\n## 2 · Zero-shot\n${S.salidas.zero||""}\n\n## 3 · Few-shot (PEDCO)\n${S.salidas.fewshot||""}\n\n**Pregunta v1:** ${C("v1")}\n\n## 4 · FINER\n${S.salidas.finer||""}\n\n## 5 · Interrogatorio\n${S.salidas.interrogatorio||""}\n\n## 6 · Consejo de IAs\n${consejo}\n\n### El presidente\n${S.salidas.presidente||""}\n\n## 7 · Mis decisiones\n| Quién | Objeción | Decisión | Por qué |\n|---|---|---|---|\n${b}\n\n**Pregunta v2:** ${C("v2")}\n\n## 8 · Ficha de la pregunta\n${S.salidas.ficha||""}\n`;
+  bajar("taller_ideacion_completo.md",doc)};
+
+$$("[data-c]").forEach(el=>{el.value=S.campos[el.dataset.c]||"";el.addEventListener("input",()=>{S.campos[el.dataset.c]=el.value;guardar()})});
+["volcado","fewshot","finer","interrogatorio","ficha"].forEach(id=>{if(S.salidas[id])$("#o-"+id).innerHTML=md(S.salidas[id])});
+if(S.salidas.zero)$("#o-zero").innerHTML=md(S.salidas.zero);
+pintarConsejo();pintarFilas();
+$$("[data-run]").forEach(b=>b.onclick=()=>b.dataset.run==="zero"?zeroShot(b):correr(b.dataset.run,b));
+$$("[data-copy]").forEach(b=>b.onclick=async()=>{const t=S.salidas[b.dataset.copy];if(!t)return;try{await navigator.clipboard.writeText(t);const o=b.textContent;b.textContent="Copiado";setTimeout(()=>b.textContent=o,1200)}catch(e){}});
+$("#convocar").onclick=()=>convocar($("#convocar"));
+const k=$("#key");k.value=KEY;k.addEventListener("input",()=>{KEY=k.value.trim();try{sessionStorage.setItem("ideacion_llave",KEY)}catch(e){}});
+if(LOCAL){k.placeholder="(modo local: no hace falta)";k.disabled=true}
+$("#conectar").onclick=async()=>{const b=$("#conectar");b.disabled=true;$("#estadoLlave").textContent="Probando…";
+  try{await gemini("Responde solo con la palabra: listo",{max:10,temp:0});$("#estadoLlave").innerHTML='<span class="ok">Conectado.</span> Siga con «Su caso».'}
+  catch(e){$("#estadoLlave").innerHTML=`<span class="err">${esc(e.message)}</span>`}finally{b.disabled=false}};
+$("#borrar").onclick=()=>{if(!confirm("¿Borrar todo lo que escribió en esta página? No se puede deshacer."))return;S={campos:{},salidas:{},bitacora:[]};guardar();location.reload()};
+</script></body></html>
