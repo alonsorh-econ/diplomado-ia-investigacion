@@ -36,7 +36,7 @@ th{font:600 13px Inter,sans-serif;color:var(--muted)}
 <p class="eb">Diplomado en IA para la Investigación · Módulo 3 · Tutorial</p>
 <h1>Su sistema de investigación, gratis y en su computador</h1>
 <p>Hasta ahora usted le ha llevado los documentos a la IA: copiar, pegar, subir. Con un <strong>agente</strong> es al revés: la IA trabaja dentro de su carpeta, lee lo que hay, escribe los archivos y le pide permiso antes de tocar algo. <strong>Antigravity</strong>, de Google, lo hace gratis con su cuenta personal de Google. Este tutorial lleva su sistema hasta donde vamos en el módulo.</p>
-<nav class="nav"><a href="#antes">Antes de empezar</a><a href="#p1">1 · Instalar</a><a href="#p2">2 · Proyecto</a><a href="#p3">3 · Armar</a><a href="#traer">↪ Traer sus chats</a><a href="#p4">4 · Entrevista</a><a href="#p5">5 · Pregunta</a><a href="#p6">6 · Literatura</a><a href="#p7">7 · Cada sesión</a><a href="#cuidados">Cuidados</a></nav>
+<nav class="nav"><a href="#antes">Antes de empezar</a><a href="#p1">1 · Instalar</a><a href="#p2">2 · Proyecto</a><a href="#p3">3 · Armar</a><a href="#traer">↪ Traer sus chats</a><a href="#p4">4 · Entrevista</a><a href="#p5">5 · Pregunta</a><a href="#p6">6 · Literatura</a><a href="#conectores">+ Conectores y pódcast</a><a href="#p7">7 · Cada sesión</a><a href="#cuidados">Cuidados</a></nav>
 </div>
 
 <section class="card" id="antes">
@@ -132,6 +132,28 @@ th{font:600 13px Inter,sans-serif;color:var(--muted)}
 <div class="prompt" id="pr4">Mi pregunta está en 01_pregunta. Busca en la web de 5 a 8 artículos científicos que me ayuden a responderla. Para cada uno, verifica que exista abriendo su DOI en doi.org o la página de la revista. Guarda en 02_literatura/tabla_de_evidencia.md una tabla con: autores, año, título, revista, DOI, qué encontró y para qué me sirve. Marca [NO VERIFICADO] lo que no hayas podido confirmar y no inventes nada. Al final dime qué hueco ves en la literatura y actualiza ESTADO.md y BITACORA.md.</div>
 <p class="ojo"><b>No le crea a la tabla sin revisarla.</b> Pegue los DOI en el <a href="verificador.html">verificador de referencias</a> y abra al menos tres artículos. Para buscar con más fuerza, use también <strong>Google Scholar Labs</strong> (scholar.google.com, con su sesión iniciada) y lea los artículos en <strong>Gemini Notebook</strong>; luego pídale al agente: «agrega estos artículos a 02_literatura/tabla_de_evidencia.md».</p>
 </div>
+</section>
+
+<section class="card" id="conectores">
+<h2><span class="num">+</span>Conectores gratis: bases científicas, Scholar Labs y el pódcast de sus artículos</h2>
+<h3>1. El plugin Science: PubMed, Europe PMC, OpenAlex y más</h3>
+<p>En Antigravity, menú izquierdo <em>Customizations</em> → busque <strong>Science</strong> → <em>Add</em>. Le da al agente habilidades para consultar bases científicas públicas: PubMed, Europe PMC, OpenAlex, arXiv, bioRxiv, ClinicalTrials.gov, PubChem, ChEMBL, PDB, AlphaFold, Ensembl y otras. No se conecta a ninguna cuenta suya.</p>
+<div class="prompt" id="prc1">Usa las habilidades de búsqueda de literatura del plugin Science (Europe PMC, PubMed y OpenAlex) para buscar artículos para mi pregunta de 01_pregunta. Guarda en 02_literatura/busqueda_bases.md una tabla con autores, año, título, revista, DOI o PMID y para qué me sirve; señala cuáles ya estaban en tabla_de_evidencia.md. No inventes nada. Actualiza BITACORA.md.</div>
+<p class="ok"><b>En la prueba</b> encontró un artículo de 2025 sobre <em>Espeletia occidentalis</em> que la búsqueda web no había encontrado, y los 7 artículos de la tabla existen.</p>
+<p class="ojo"><b>Pero 2 de sus identificadores estaban mal:</b> un DOI con dos dígitos cambiados (llevaba a un artículo sobre macadamia) y un PMID que llevaba a un artículo sobre fracturas óseas. Las bases científicas reducen el error, no lo eliminan: pase todos los DOI por el <a href="verificador.html">verificador</a>.</p>
+<h3>2. Google Scholar Labs</h3>
+<p>Scholar Labs no tiene conexión directa con el agente: Google Scholar no ofrece una vía oficial para eso. El puente es manual y toma dos minutos: busque en Scholar Labs con su sesión iniciada, copie los títulos que le sirvan y pídale al agente:</p>
+<div class="prompt" id="prc2">Estos son artículos que encontré en Google Scholar Labs. Búscalos en OpenAlex o Crossref, confirma su DOI y agrégalos a 02_literatura/tabla_de_evidencia.md con lo que encontró cada uno; marca [NO VERIFICADO] los que no aparezcan:</div>
+<h3>3. El pódcast de sus artículos en Gemini Notebook</h3>
+<ol>
+<li>Entre a Gemini Notebook (notebooklm.google.com) → <em>Nuevo cuaderno</em>.</li>
+<li>Agregue como fuentes los PDF de sus artículos o los enlaces de su tabla de evidencia.</li>
+<li>En el panel <em>Studio</em>, elija <em>Resumen de audio</em>, personalícelo y pulse generar. Una instrucción que funciona: «Conversación en español para investigadores. Enfóquense en qué funcionó, en qué condiciones, y qué vacío queda para esta pregunta: [su pregunta]».</li>
+<li>Descargue el audio y guárdelo en <code>02_literatura</code>: también es parte de su sistema.</li>
+</ol>
+<p class="cuando">Es gratis, con un límite diario que Google no publica para cuentas personales. También hay resumen en video y mapa mental. El pódcast sirve para escuchar la literatura, no para citarla: lo que diga se comprueba en el artículo.</p>
+<h3>4. Google Drive, Docs, Sheets y Calendar</h3>
+<p>En <em>Customizations</em> también están los conectores de Google Workspace. Al agregarlos, Google le pide permiso para que el agente use su cuenta. Son opcionales. Si los usa, conecte solo Drive y Docs, y nunca su correo.</p>
 </section>
 
 <section class="card" id="p7">
