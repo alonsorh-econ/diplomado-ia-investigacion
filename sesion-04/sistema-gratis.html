@@ -1,0 +1,150 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Su sistema, gratis</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F7F9;--card:#fff;--ink:#141821;--text:#4B5563;--muted:#78818F;--line:#E4E8EC;--blue:#1B44CC;--blue-t:#EEF2FE;--ok:#127A4A;--ok-t:#E7F6EF;--warn:#A25B00;--warn-t:#FFF3E0;--bad:#C81E4A;--bad-t:#FDEEF2}
+@media (prefers-color-scheme:dark){:root{--bg:#0F1218;--card:#171B23;--ink:#EEF1F5;--text:#C3C9D2;--muted:#8E97A4;--line:#272D37;--blue:#8AA2FF;--blue-t:#1B2442;--ok:#5FD39B;--ok-t:#12261C;--warn:#F2B35C;--warn-t:#2A2010;--bad:#FF7896;--bad-t:#2C141B}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.65 Inter,Arial,sans-serif;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+.w{max-width:860px;margin:0 auto;padding-block:36px 80px;display:flex;flex-direction:column;gap:20px}
+a{color:var(--blue)}
+h1,h2,h3{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);margin:0;text-wrap:balance}
+h1{font-size:clamp(28px,6vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+h2{font-size:20px;font-weight:700;display:flex;gap:10px;align-items:center}
+h3{font-size:16px;font-weight:700}
+p{margin:0}
+.eb{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:12px;scroll-margin-top:12px}
+.num{font:800 14px "Inter Tight",sans-serif;background:var(--blue);color:#fff;border-radius:8px;min-width:28px;height:28px;display:inline-grid;place-items:center;flex:none}
+.cuando{font-size:14.5px;color:var(--muted)}
+ul,ol{margin:0;padding-left:1.3em}li{margin:.2em 0}
+.prompt{position:relative;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px 14px 16px;font:400 14px/1.6 "IBM Plex Mono",monospace;color:var(--ink);white-space:pre-wrap}
+.copiar{position:absolute;top:8px;right:8px;font:600 13px Inter,sans-serif;border-radius:8px;padding:5px 10px;cursor:pointer;border:1.5px solid var(--blue);background:var(--card);color:var(--blue)}
+.ok{background:var(--ok-t);border-radius:10px;padding:12px 14px;font-size:14.5px;color:var(--ink)}
+.ojo{background:var(--warn-t);border-radius:10px;padding:12px 14px;font-size:14.5px;color:var(--ink)}
+.nota{background:var(--blue-t);border-radius:10px;padding:12px 14px;font-size:14.5px;color:var(--ink)}
+.arbol{font:400 13.5px/1.55 "IBM Plex Mono",monospace;background:var(--bg);border-radius:10px;padding:12px 14px;color:var(--ink);white-space:pre;overflow-x:auto}
+.nav{display:flex;flex-wrap:wrap;gap:6px}
+.nav a{font:500 13px Inter,sans-serif;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+td,th{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left;vertical-align:top}
+th{font:600 13px Inter,sans-serif;color:var(--muted)}
+</style></head><body><div class="w">
+
+<div style="display:flex;flex-direction:column;gap:10px">
+<p class="eb">Diplomado en IA para la Investigación · Módulo 3 · Tutorial</p>
+<h1>Su sistema de investigación, gratis y en su computador</h1>
+<p>Hasta ahora usted le ha llevado los documentos a la IA: copiar, pegar, subir. Con un <strong>agente</strong> es al revés: la IA trabaja dentro de su carpeta, lee lo que hay, escribe los archivos y le pide permiso antes de tocar algo. <strong>Antigravity</strong>, de Google, lo hace gratis con su cuenta personal de Google. Este tutorial lleva su sistema hasta donde vamos en el módulo.</p>
+<nav class="nav"><a href="#antes">Antes de empezar</a><a href="#p1">1 · Instalar</a><a href="#p2">2 · Proyecto</a><a href="#p3">3 · Armar</a><a href="#p4">4 · Entrevista</a><a href="#p5">5 · Pregunta</a><a href="#p6">6 · Literatura</a><a href="#p7">7 · Cada sesión</a><a href="#cuidados">Cuidados</a></nav>
+</div>
+
+<section class="card" id="antes">
+<h2>Antes de empezar</h2>
+<table>
+<tr><th>Necesita</th><th>Detalle</th></tr>
+<tr><td>Computador</td><td>Windows 10 u 11 de 64 bits, macOS 12 o posterior, o Linux.</td></tr>
+<tr><td>Cuenta</td><td>Su cuenta personal de Google (Gmail). Las cuentas institucionales a veces bloquean estas herramientas.</td></tr>
+<tr><td>Costo</td><td>Cero. El plan gratis de Antigravity tiene límites semanales que Google no publica: pida tareas cortas, una a la vez.</td></tr>
+<tr><td>Tiempo</td><td>40 minutos la primera vez, con la entrevista incluida.</td></tr>
+</table>
+<p class="nota"><b>Si es estudiante universitario:</b> Google ofrece un año gratis de Google AI Plus a universitarios mayores de 18 años en Colombia, hasta el 31 de diciembre de 2026, en <a href="https://gemini.google/co/students/?hl=es-419" target="_blank" rel="noopener">gemini.google/co/students</a>. Duplica los límites. Al terminar el año cobra si no se cancela. Se reclama con la cuenta personal, no con la institucional.</p>
+</section>
+
+<section class="card" id="p1">
+<h2><span class="num">1</span>Instalar Antigravity · 10 minutos</h2>
+<ol>
+<li>Entre a <a href="https://antigravity.google/download" target="_blank" rel="noopener">antigravity.google/download</a> y descargue la versión para su sistema. En Windows es un instalador <code>.exe</code>: ábralo y siga el asistente.</li>
+<li>Abra Antigravity e inicie sesión con su cuenta personal de Google.</li>
+<li>Aparece un <strong>aviso de seguridad y uso de datos</strong>. Léalo: dice que los agentes tienen riesgos, como filtrar datos o ejecutar código, y que no conviene procesar datos sensibles. La casilla para que Google use sus interacciones es opcional: puede desmarcarla. Luego pulse <em>Accept and continue</em>.</li>
+</ol>
+<p class="cuando">En Mac también está dentro de la app de Gemini: menú Visualización → Activar o desactivar Antigravity. Así lo probamos en clase.</p>
+</section>
+
+<section class="card" id="p2">
+<h2><span class="num">2</span>Crear la carpeta y el proyecto · 5 minutos</h2>
+<ol>
+<li>En Documentos, cree una carpeta <strong>vacía</strong> llamada <code>mi_sistema</code>.</li>
+<li>En Antigravity: <em>Create a Project</em> → <em>Add Folder</em> → escoja <code>mi_sistema</code> → <em>Next</em> → <em>Get started</em>.</li>
+</ol>
+<p class="ojo"><b>Escoja solo esa carpeta.</b> Si selecciona Documentos o el disco entero, el agente puede leer y modificar todo lo que hay ahí. Revise que el nombre que aparece en el proyecto sea <code>mi_sistema</code>.</p>
+</section>
+
+<section class="card" id="p3">
+<h2><span class="num">3</span>Armar el sistema · 5 minutos</h2>
+<p>Copie este mensaje en el cuadro de Antigravity y envíelo. El agente le muestra un plan antes de crear nada.</p>
+<div class="prompt" id="pr1">Voy a armar mi sistema de investigación en esta carpeta. Soy estudiante del Módulo 3 del Diplomado en IA para la Investigación (UPTC). Mi sistema es esta carpeta, unas reglas permanentes y un protocolo de seis fases: pregunta, literatura, fuentes, método, resultados y discusión, con la ética en todas. (1) Crea las carpetas 00_cuaderno, 01_pregunta, 02_literatura, 03_fuentes, 04_metodo, 05_resultados, 06_discusion y 07_etica. (2) En 00_cuaderno crea cuaderno_del_sistema.md con estas secciones, cada una con [FALTA]: Perfil; Temas y preguntas; Datos y fuentes; Métodos; Proyectos y fechas; Cómo trabajo; Reglas para mi asistente. (3) En la raíz crea ESTADO.md (en qué fase voy, qué piezas tengo y el siguiente paso) y BITACORA.md (una tabla con fecha, decisión, por qué y qué descarté). (4) Guarda estas reglas como reglas permanentes de este proyecto, para que las leas siempre: no me elogies y si algo está flojo dilo primero; si no sabes algo o no puedes verificarlo, dilo, y no inventes referencias, datos ni cifras; separa la evidencia publicada de tu opinión; cuando te pida ideas, dame alternativas que se diferencien de verdad; al final de cada respuesta lista lo que yo tendría que verificar; no borres ni sobrescribas archivos sin preguntarme; cuando terminemos una tarea, actualiza ESTADO.md y anota en BITACORA.md lo que decidí. Antes de crear nada, muéstrame el plan.</div>
+<p>Lea el plan. Si está de acuerdo, responda:</p>
+<div class="prompt" id="pr1b">Sí, apruebo el plan. Créalo y al final muéstrame el árbol de la carpeta.</div>
+<p class="ok"><b>Lo que debe quedar</b> (así quedó en la prueba del 7 de noviembre):</p>
+<div class="arbol">mi_sistema/
+├── 00_cuaderno/
+│   └── cuaderno_del_sistema.md   ← su perfil (se llena en el paso 4)
+├── 01_pregunta/                  ← pieza 1
+├── 02_literatura/                ← pieza 2
+├── 03_fuentes/  04_metodo/  05_resultados/  06_discusion/  07_etica/
+├── BITACORA.md                   ← sus decisiones, con fecha y porqué
+├── ESTADO.md                     ← en qué fase va y el siguiente paso
+└── GEMINI.md                     ← las reglas que el agente lee siempre</div>
+<p class="cuando"><code>GEMINI.md</code> hace lo mismo que la ficha 0 en el chat, pero con una diferencia: ya no hay que pegar las instrucciones en cada conversación.</p>
+<h3>Traer el material del curso a su carpeta</h3>
+<p>Para que las fichas del módulo queden dentro de su sistema y el agente las use:</p>
+<div class="prompt" id="pr1c">Crea la carpeta recursos_del_curso. Lee estas páginas y guarda cada una como un archivo .md con todas las fichas completas, sin resumir ni cambiar el texto de los prompts: https://alonsorh-econ.github.io/diplomado-ia-investigacion/sesion-02/prompts.html y https://alonsorh-econ.github.io/diplomado-ia-investigacion/sesion-04/prompts.html. Después agrega a GEMINI.md esta regla: cuando te pida una ficha por su nombre, búscala en recursos_del_curso y úsala tal como está.</div>
+</section>
+
+<section class="card" id="p4">
+<h2><span class="num">4</span>La entrevista: su cuaderno · 20 minutos</h2>
+<p>Es la misma entrevista de la sesión 2, con una diferencia: al final el agente escribe el cuaderno <strong>directamente en su carpeta</strong>. Responda con el dictado, como le hablaría a un colega.</p>
+<div class="prompt" id="pr2">Quiero construir el perfil de mi sistema de investigación. Entrevístame durante unos 20 minutos. Reglas: 1. Hazme UNA pregunta a la vez y espera mi respuesta. 2. Cubre, en este orden: quién soy (formación, cargo, institución); mis temas y preguntas de investigación; los datos y fuentes a los que tengo acceso, y sus trampas; los métodos que domino y los que no; mis proyectos y fechas límite; cómo trabajo (herramientas, horarios, con quién); qué me frustra del proceso de investigación. 3. Si una respuesta es vaga, repregunta antes de seguir. 4. Cada cinco preguntas, resume en tres líneas lo que llevas, para que yo lo corrija. 5. Al final, escribe mi cuaderno en 00_cuaderno/cuaderno_del_sistema.md con sus siete secciones; en Reglas para mi asistente pon de cinco a ocho reglas que salgan de lo que dije y agrégalas también a GEMINI.md. No inventes nada que yo no haya dicho; si falta algo, escribe [FALTA]. Actualiza ESTADO.md y BITACORA.md. Empieza.</div>
+<p class="cuando"><b>¿Ya hizo la entrevista en otro chat?</b> Pegue el cuaderno que obtuvo y escriba: «Guarda esto en 00_cuaderno/cuaderno_del_sistema.md sin cambiarle nada y agrega las reglas del final a GEMINI.md».</p>
+<p class="ojo"><b>Revise el archivo.</b> En la prueba, el agente llenó bien el cuaderno y dejó [FALTA] donde no había información, pero también completó cosas por su cuenta, como el nombre de la universidad o reglas más largas de lo que se le dijo. Corrija a mano lo que no sea cierto: el cuaderno es suyo.</p>
+</section>
+
+<section class="card" id="p5">
+<h2><span class="num">5</span>La pieza 1: su pregunta · 10 minutos</h2>
+<ol>
+<li>En el <a href="ideacion.html">taller de ideación</a>, paso 8, pulse <em>Descargar la ficha (.md)</em>.</li>
+<li>Mueva el archivo descargado a <code>mi_sistema/01_pregunta</code>.</li>
+<li>En Antigravity envíe:</li>
+</ol>
+<div class="prompt" id="pr3">Guardé la ficha de mi pregunta en 01_pregunta. Léela y dime qué le falta, sin modificarla. Después actualiza ESTADO.md y BITACORA.md.</div>
+<p class="ok">En la prueba, el agente encontró los vacíos de la ficha (hipótesis, especie, localidad, FINER incompleto), no la modificó, movió el estado a «Fase 1: Pregunta» y anotó en la bitácora qué decidió y qué descartó.</p>
+</section>
+
+<section class="card" id="p6">
+<h2><span class="num">6</span>La pieza 2: la literatura</h2>
+<div id="literatura" style="display:flex;flex-direction:column;gap:12px">
+<p>Antigravity busca en la web por su cuenta y puede ir verificando cada DOI. Tarda: en la prueba llevaba más de seis minutos buscando y comprobando. Mientras tanto, usted puede avanzar con Scholar Labs.</p>
+<div class="prompt" id="pr4">Mi pregunta está en 01_pregunta. Busca en la web de 5 a 8 artículos científicos que me ayuden a responderla. Para cada uno, verifica que exista abriendo su DOI en doi.org o la página de la revista. Guarda en 02_literatura/tabla_de_evidencia.md una tabla con: autores, año, título, revista, DOI, qué encontró y para qué me sirve. Marca [NO VERIFICADO] lo que no hayas podido confirmar y no inventes nada. Al final dime qué hueco ves en la literatura y actualiza ESTADO.md y BITACORA.md.</div>
+<p class="ojo"><b>No le crea a la tabla sin revisarla.</b> Pegue los DOI en el <a href="verificador.html">verificador de referencias</a> y abra al menos tres artículos. Para buscar con más fuerza, use también <strong>Google Scholar Labs</strong> (scholar.google.com, con su sesión iniciada) y lea los artículos en <strong>Gemini Notebook</strong>; luego pídale al agente: «agrega estos artículos a 02_literatura/tabla_de_evidencia.md».</p>
+</div>
+</section>
+
+<section class="card" id="p7">
+<h2><span class="num">7</span>Cada vez que vuelva a trabajar</h2>
+<p>Al empezar:</p>
+<div class="prompt" id="pr5">Lee ESTADO.md y dime en qué voy y cuál es el siguiente paso.</div>
+<p>Al terminar:</p>
+<div class="prompt" id="pr6">Actualiza ESTADO.md y anota en BITACORA.md lo que decidí hoy, por qué y qué descarté.</div>
+<p class="cuando">Las fichas del <a href="prompts.html">libro de prompts</a> funcionan igual aquí, con una ventaja: lo que devuelven puede quedar guardado en la carpeta de su fase. Pídalo así: «guarda el resultado en 01_pregunta».</p>
+</section>
+
+<section class="card" id="cuidados">
+<h2>Cuidados</h2>
+<ul>
+<li><strong>Solo la carpeta del sistema.</strong> Nunca le dé al agente Documentos, el Escritorio o el disco entero.</li>
+<li><strong>Lea el plan antes de aprobar.</strong> Por defecto el agente trabaja solo en la carpeta escogida y pide permiso antes de cambios sensibles. No cambie eso.</li>
+<li><strong>Nada sensible.</strong> Ni datos de pacientes, ni cédulas, ni información confidencial: el propio aviso de Google lo advierte.</li>
+<li><strong>La IA se equivoca, también dentro de su carpeta.</strong> Revise los archivos que escribe y pase cada referencia por el <a href="verificador.html">verificador</a>.</li>
+<li><strong>Respaldo.</strong> Si su carpeta está solo en el computador y este se daña, se pierde. Copie <code>mi_sistema</code> a Google Drive al final de cada sesión.</li>
+<li><strong>Si se acaba el límite semanal:</strong> espere a que se renueve, o siga en el chat de Gemini con la misma ficha y luego guarde el resultado en la carpeta.</li>
+</ul>
+<p class="nota"><b>¿No puede instalar nada?</b> Siga en el navegador: un Gem de Gemini con sus reglas y su cuaderno, una carpeta <code>mi_sistema</code> en Google Drive y Gemini Notebook para leer la literatura. Es más copiar y pegar, pero el método es el mismo.</p>
+</section>
+
+<p class="eb">Alonso Ramírez Hernández · CENES–UPTC · noviembre de 2026</p>
+</div>
+<script>
+document.querySelectorAll(".prompt").forEach(p=>{const b=document.createElement("button");b.className="copiar";b.textContent="Copiar";b.onclick=async()=>{try{await navigator.clipboard.writeText(p.childNodes[0].textContent.trim());b.textContent="Copiado";setTimeout(()=>b.textContent="Copiar",1200)}catch(e){}};p.appendChild(b)});
+</script>
+</body></html>
