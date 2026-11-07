@@ -90,6 +90,7 @@ th{font:600 13px Inter,sans-serif;color:var(--muted)}
 <h3>Traer el material del curso a su carpeta</h3>
 <p>Para que las fichas del módulo queden dentro de su sistema y el agente las use:</p>
 <div class="prompt" id="pr1c">Crea la carpeta recursos_del_curso. Lee estas páginas y guarda cada una como un archivo .md con todas las fichas completas, sin resumir ni cambiar el texto de los prompts: https://alonsorh-econ.github.io/diplomado-ia-investigacion/sesion-02/prompts.html y https://alonsorh-econ.github.io/diplomado-ia-investigacion/sesion-04/prompts.html. Después agrega a GEMINI.md esta regla: cuando te pida una ficha por su nombre, búscala en recursos_del_curso y úsala tal como está.</div>
+<p class="ok">Probado: el agente guardó las dos páginas con los prompts palabra por palabra y agregó la regla a GEMINI.md. Desde ahí basta con escribir, por ejemplo: «usa la ficha FINER con mi pregunta».</p>
 </section>
 
 <section class="card" id="traer">
@@ -122,6 +123,11 @@ th{font:600 13px Inter,sans-serif;color:var(--muted)}
 </ol>
 <div class="prompt" id="pr3">Guardé la ficha de mi pregunta en 01_pregunta. Léela y dime qué le falta, sin modificarla. Después actualiza ESTADO.md y BITACORA.md.</div>
 <p class="ok">En la prueba, el agente encontró los vacíos de la ficha (hipótesis, especie, localidad, FINER incompleto), no la modificó, movió el estado a «Fase 1: Pregunta» y anotó en la bitácora qué decidió y qué descartó.</p>
+<h3>El consejo de IAs, dentro de su sistema</h3>
+<p>Es mejor hacerlo después de la literatura (paso 6), porque así los evaluadores usan los artículos que ya están en su carpeta.</p>
+<div class="prompt" id="prcons">Convoca un consejo de cinco evaluadores para mi pregunta de 01_pregunta: la metodóloga, el revisor escéptico, el guardián de los datos, una experta de mi campo y el comité de ética. Cada uno la revisa por separado, sin ver lo que dicen los otros, y da tres objeciones concretas con lo que yo tendría que mostrar para resolverlas; nadie elogia ni cita estudios que no pueda verificar. Después, un presidente resume en qué coinciden, en qué no y las tres objeciones que hay que resolver primero. No reescribas mi pregunta: la decisión es mía. Guarda todo en 01_pregunta/consejo.md y anota en BITACORA.md que se hizo el consejo.</div>
+<p class="ok"><b>En la prueba</b> dejó un informe completo y no tocó la pregunta. La experta usó la literatura de la carpeta: en los frailejones publicados el BAP funciona con 0,01 a 0,05 mg/L, entre 20 y 80 veces menos que lo que planteaba la pregunta.</p>
+<p class="ojo">Aquí las cinco voces las escribe un solo agente, así que no son del todo independientes. En el <a href="ideacion.html">taller de ideación</a> (paso 6) sí son cinco consultas separadas. Después del consejo, anote sus decisiones en BITACORA.md: acepto, rechazo o lo verifico, y por qué.</p>
 </section>
 
 <section class="card" id="p6">
@@ -145,6 +151,9 @@ th{font:600 13px Inter,sans-serif;color:var(--muted)}
 <p>Scholar Labs no tiene conexión directa con el agente: Google Scholar no ofrece una vía oficial para eso. El puente es manual y toma dos minutos: busque en Scholar Labs con su sesión iniciada, copie los títulos que le sirvan y pídale al agente:</p>
 <div class="prompt" id="prc2">Estos son artículos que encontré en Google Scholar Labs. Búscalos en OpenAlex o Crossref, confirma su DOI y agrégalos a 02_literatura/tabla_de_evidencia.md con lo que encontró cada uno; marca [NO VERIFICADO] los que no aparezcan:</div>
 <h3>3. El pódcast de sus artículos en Gemini Notebook</h3>
+<p>Primero, que el agente le baje los PDF que se pueden descargar legalmente:</p>
+<div class="prompt" id="prpdf">Descarga en 02_literatura/pdfs los textos completos en PDF de los artículos de mis tablas que sean de acceso abierto (compruébalo con Europe PMC u OpenAlex). No descargues nada que no sea de acceso abierto. Al final dime cuáles bajaste, de dónde, y cuáles no se pudieron.</div>
+<p class="ok">Probado: bajó 6 PDF de acceso abierto, y cada uno era el artículo correcto. Antes de correr un programa, el agente pide permiso y muestra el código: léalo y apruebe solo esa vez.</p>
 <ol>
 <li>Entre a Gemini Notebook (notebooklm.google.com) → <em>Nuevo cuaderno</em>.</li>
 <li>Agregue como fuentes los PDF de sus artículos o los enlaces de su tabla de evidencia.</li>
@@ -153,7 +162,7 @@ th{font:600 13px Inter,sans-serif;color:var(--muted)}
 </ol>
 <p class="cuando">Es gratis, con un límite diario que Google no publica para cuentas personales. También hay resumen en video y mapa mental. El pódcast sirve para escuchar la literatura, no para citarla: lo que diga se comprueba en el artículo.</p>
 <h3>4. Google Drive, Docs, Sheets y Calendar</h3>
-<p>En <em>Customizations</em> también están los conectores de Google Workspace. Al agregarlos, Google le pide permiso para que el agente use su cuenta. Son opcionales. Si los usa, conecte solo Drive y Docs, y nunca su correo.</p>
+<p>En <em>Customizations</em> también están los conectores de Google Workspace. Al agregarlos, Google le pide permiso para que el agente use su cuenta. Son opcionales. Ojo: el de Drive puede buscar, mover, descargar y también <strong>compartir</strong> sus archivos con otras personas. Si lo conecta, revise cada acción antes de aprobarla, y nunca conecte su correo.</p>
 </section>
 
 <section class="card" id="p7">
