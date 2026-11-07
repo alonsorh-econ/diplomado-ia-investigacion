@@ -36,7 +36,7 @@ th{font:600 13px Inter,sans-serif;color:var(--muted)}
 <p class="eb">Diplomado en IA para la Investigación · Módulo 3 · Tutorial</p>
 <h1>Su sistema de investigación, gratis y en su computador</h1>
 <p>Hasta ahora usted le ha llevado los documentos a la IA: copiar, pegar, subir. Con un <strong>agente</strong> es al revés: la IA trabaja dentro de su carpeta, lee lo que hay, escribe los archivos y le pide permiso antes de tocar algo. <strong>Antigravity</strong>, de Google, lo hace gratis con su cuenta personal de Google. Este tutorial lleva su sistema hasta donde vamos en el módulo.</p>
-<nav class="nav"><a href="#antes">Antes de empezar</a><a href="#p1">1 · Instalar</a><a href="#p2">2 · Proyecto</a><a href="#p3">3 · Armar</a><a href="#traer">↪ Traer sus chats</a><a href="#p4">4 · Entrevista</a><a href="#p5">5 · Pregunta</a><a href="#p6">6 · Literatura</a><a href="#conectores">+ Conectores y pódcast</a><a href="#orden">≡ Orden</a><a href="#p7">7 · Cada sesión</a><a href="#cuidados">Cuidados</a></nav>
+<nav class="nav"><a href="#antes">Antes de empezar</a><a href="#cupo">! Cuide su cupo</a><a href="#p1">1 · Instalar</a><a href="#p2">2 · Proyecto</a><a href="#p3">3 · Armar</a><a href="#traer">↪ Traer sus chats</a><a href="#p4">4 · Entrevista</a><a href="#p5">5 · Pregunta</a><a href="#p6">6 · Literatura</a><a href="#conectores">+ Conectores y pódcast</a><a href="#orden">≡ Orden</a><a href="#p7">7 · Cada sesión</a><a href="#cuidados">Cuidados</a></nav>
 </div>
 
 <section class="card" id="antes">
@@ -49,6 +49,22 @@ th{font:600 13px Inter,sans-serif;color:var(--muted)}
 <tr><td>Tiempo</td><td>40 minutos la primera vez, con la entrevista incluida.</td></tr>
 </table>
 <p class="nota"><b>Si es estudiante universitario:</b> Google ofrece un año gratis de Google AI Plus a universitarios mayores de 18 años en Colombia, hasta el 31 de diciembre de 2026, en <a href="https://gemini.google/co/students/?hl=es-419" target="_blank" rel="noopener">gemini.google/co/students</a>. Duplica los límites. Al terminar el año cobra si no se cancela. Se reclama con la cuenta personal, no con la institucional.</p>
+</section>
+
+<section class="card" id="cupo" style="border:2px solid var(--warn)">
+<h2><span class="num" style="background:var(--warn)">!</span>Cuide su cupo semanal</h2>
+<p>El plan gratis tiene un <strong>cupo semanal</strong> para cada grupo de modelos. Si se acaba, el agente se bloquea hasta la fecha que muestra el aviso. En la prueba del profesor, una mañana de tareas largas lo agotó <strong>por una semana</strong>.</p>
+<table>
+<tr><th>Gasta mucho</th><th>Gasta poco</th></tr>
+<tr><td>Buscar literatura, descargar PDF, el consejo, verificar muchas referencias</td><td>Preguntas cortas, leer un archivo, actualizar ESTADO.md</td></tr>
+</table>
+<ol>
+<li><b>Una tarea a la vez, con límite:</b> «5 artículos», no «todo lo que encuentres».</li>
+<li><b>Pida el plan primero</b> y apruebe solo lo necesario.</li>
+<li><b>Lo que no toca su carpeta</b> (ideas, redacción, dudas) hágalo en el chat de Gemini, que no gasta este cupo.</li>
+<li><b>Mire el medidor</b> junto al nombre del modelo: si se pone amarillo, está cerca del límite.</li>
+<li><b>Si se acaba:</b> en el aviso, <em>Select another model</em>, porque cada grupo de modelos tiene su propio cupo. O siga por la ruta navegador hasta que se renueve.</li>
+</ol>
 </section>
 
 <section class="card" id="p1">
@@ -133,7 +149,7 @@ th{font:600 13px Inter,sans-serif;color:var(--muted)}
 <section class="card" id="p6">
 <h2><span class="num">6</span>La pieza 2: la literatura</h2>
 <div id="literatura" style="display:flex;flex-direction:column;gap:12px">
-<p>Antigravity busca en la web por su cuenta y va verificando cada DOI. Tarda unos ocho minutos: mientras trabaja, usted puede avanzar con Scholar Labs.</p>
+<p>Antigravity busca en la web por su cuenta y va verificando cada DOI. Tarda unos ocho minutos: mientras trabaja, usted puede avanzar con Scholar Labs. <strong>Es de lo que más cupo gasta:</strong> hágalo una vez y con pocos artículos.</p>
 <p class="ok"><b>En la prueba del 7 de noviembre</b> encontró 7 artículos sobre frailejones y asteráceas andinas. Los 5 que traían DOI existen y corresponden a lo citado (comprobado en Crossref), y los 2 sin DOI los marcó como [NO VERIFICADO]. Compárelo con el sobre sellado: el chat sin herramientas acertó 1 de 10. Pero en uno de los artículos acortó mal el título: el DOI era real y la descripción no del todo. Por eso se abre y se lee.</p>
 <div class="prompt" id="pr4">Mi pregunta está en 01_pregunta. Busca en la web de 5 a 8 artículos científicos que me ayuden a responderla. Para cada uno, verifica que exista abriendo su DOI en doi.org o la página de la revista. Guarda en 02_literatura/tabla_de_evidencia.md una tabla con: autores, año, título, revista, DOI, qué encontró y para qué me sirve. Marca [NO VERIFICADO] lo que no hayas podido confirmar y no inventes nada. Al final dime qué hueco ves en la literatura y actualiza ESTADO.md y BITACORA.md.</div>
 <p class="ojo"><b>No le crea a la tabla sin revisarla.</b> Pegue los DOI en el <a href="verificador.html">verificador de referencias</a> y abra al menos tres artículos. Para buscar con más fuerza, use también <strong>Google Scholar Labs</strong> (scholar.google.com, con su sesión iniciada) y lea los artículos en <strong>Gemini Notebook</strong>; luego pídale al agente: «agrega estos artículos a 02_literatura/tabla_de_evidencia.md».</p>
