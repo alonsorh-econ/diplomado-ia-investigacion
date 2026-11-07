@@ -36,7 +36,7 @@ th{font:600 13px Inter,sans-serif;color:var(--muted)}
 <p class="eb">Diplomado en IA para la Investigación · Módulo 3 · Tutorial</p>
 <h1>Su sistema de investigación, gratis y en su computador</h1>
 <p>Hasta ahora usted le ha llevado los documentos a la IA: copiar, pegar, subir. Con un <strong>agente</strong> es al revés: la IA trabaja dentro de su carpeta, lee lo que hay, escribe los archivos y le pide permiso antes de tocar algo. <strong>Antigravity</strong>, de Google, lo hace gratis con su cuenta personal de Google. Este tutorial lleva su sistema hasta donde vamos en el módulo.</p>
-<nav class="nav"><a href="#antes">Antes de empezar</a><a href="#p1">1 · Instalar</a><a href="#p2">2 · Proyecto</a><a href="#p3">3 · Armar</a><a href="#p4">4 · Entrevista</a><a href="#p5">5 · Pregunta</a><a href="#p6">6 · Literatura</a><a href="#p7">7 · Cada sesión</a><a href="#cuidados">Cuidados</a></nav>
+<nav class="nav"><a href="#antes">Antes de empezar</a><a href="#p1">1 · Instalar</a><a href="#p2">2 · Proyecto</a><a href="#p3">3 · Armar</a><a href="#traer">↪ Traer sus chats</a><a href="#p4">4 · Entrevista</a><a href="#p5">5 · Pregunta</a><a href="#p6">6 · Literatura</a><a href="#p7">7 · Cada sesión</a><a href="#cuidados">Cuidados</a></nav>
 </div>
 
 <section class="card" id="antes">
@@ -90,6 +90,19 @@ th{font:600 13px Inter,sans-serif;color:var(--muted)}
 <h3>Traer el material del curso a su carpeta</h3>
 <p>Para que las fichas del módulo queden dentro de su sistema y el agente las use:</p>
 <div class="prompt" id="pr1c">Crea la carpeta recursos_del_curso. Lee estas páginas y guarda cada una como un archivo .md con todas las fichas completas, sin resumir ni cambiar el texto de los prompts: https://alonsorh-econ.github.io/diplomado-ia-investigacion/sesion-02/prompts.html y https://alonsorh-econ.github.io/diplomado-ia-investigacion/sesion-04/prompts.html. Después agrega a GEMINI.md esta regla: cuando te pida una ficha por su nombre, búscala en recursos_del_curso y úsala tal como está.</div>
+</section>
+
+<section class="card" id="traer">
+<h2><span class="num">↪</span>Traer lo que ya hizo en sus chats · 10 minutos</h2>
+<p>Lo que trabajó en ChatGPT, Gemini o Claude (la entrevista, las fichas, su pregunta) no se pierde: se lleva a la carpeta en dos pasos.</p>
+<p><b>1. En el chat donde trabajó</b>, pegue esto y copie la respuesta completa:</p>
+<div class="prompt" id="prx1">Voy a pasar este trabajo a mi sistema. Reúne en un solo texto en Markdown todo lo que trabajamos en esta conversación, con estas secciones: Perfil y cuaderno (si hicimos la entrevista); Mi pregunta y sus versiones; Decisiones que tomé y por qué; Referencias que aparecieron (márcalas como sin verificar); Reglas para mi asistente. No agregues nada que no esté en la conversación; si falta algo, escribe [FALTA].</div>
+<p><b>2. En Antigravity</b>, pegue esto y, debajo, lo que copió:</p>
+<div class="prompt" id="prx2">Te pego lo que trabajé en otro chat. Repártelo en mi sistema: el perfil en 00_cuaderno/cuaderno_del_sistema.md, la pregunta en 01_pregunta, las referencias en 02_literatura/referencias_sin_verificar.md, las decisiones en BITACORA.md y las reglas en GEMINI.md. No borres ni reemplaces nada sin preguntarme y muéstrame el plan antes de escribir.</div>
+<ul>
+<li><b>Si usó el taller de ideación de hoy:</b> en el paso 8 pulse <em>Descargar todo el taller (.md)</em> y mueva el archivo a <code>mi_sistema/01_pregunta</code>.</li>
+<li><b>Si tiene un Gem o un Proyecto con instrucciones:</b> copie las instrucciones y pídale al agente: «agrega estas reglas a GEMINI.md».</li>
+</ul>
 </section>
 
 <section class="card" id="p4">
