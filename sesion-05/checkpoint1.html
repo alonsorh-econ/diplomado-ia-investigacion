@@ -1,0 +1,167 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checkpoint 1 · Módulo 3</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F7F9;--card:#fff;--ink:#141821;--text:#4B5563;--muted:#78818F;--line:#E4E8EC;--blue:#1B44CC;--blue-t:#EEF2FE;--ok:#127A4A;--ok-t:#E7F6EF;--warn:#A25B00;--warn-t:#FFF3E0;--bad:#C81E4A;--bad-t:#FDEEF2}
+@media (prefers-color-scheme:dark){:root{--bg:#0F1218;--card:#171B23;--ink:#EEF1F5;--text:#C3C9D2;--muted:#8E97A4;--line:#272D37;--blue:#8AA2FF;--blue-t:#1B2442;--ok:#5FD39B;--ok-t:#12261C;--warn:#F2B35C;--warn-t:#2A2010;--bad:#FF7896;--bad-t:#2C141B}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.65 Inter,Arial,sans-serif;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+.w{max-width:860px;margin:0 auto;padding-block:36px 80px;display:flex;flex-direction:column;gap:20px}
+a{color:var(--blue)}
+h1,h2,h3{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);margin:0;text-wrap:balance}
+h1{font-size:clamp(28px,6vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+h2{font-size:20px;font-weight:700;display:flex;gap:10px;align-items:center}
+h3{font-size:16px;font-weight:700}
+p{margin:0}
+.eb{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:12px;scroll-margin-top:12px}
+.card.clave{border:2px solid var(--blue)}
+.num{font:800 14px "Inter Tight",sans-serif;background:var(--blue);color:#fff;border-radius:8px;min-width:28px;height:28px;display:inline-grid;place-items:center;flex:none;padding:0 6px}
+.cuando{font-size:14.5px;color:var(--muted)}
+ul,ol{margin:0;padding-left:1.3em}li{margin:.25em 0}
+.prompt{position:relative;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px 44px;font:400 14px/1.6 "IBM Plex Mono",monospace;color:var(--ink);white-space:pre-wrap}
+.copiar{position:absolute;bottom:8px;right:8px;font:600 13px Inter,sans-serif;border-radius:8px;padding:5px 10px;cursor:pointer;border:1.5px solid var(--blue);background:var(--card);color:var(--blue)}
+.ok{background:var(--ok-t);border-radius:10px;padding:12px 14px;font-size:14.5px;color:var(--ink)}
+.ojo{background:var(--warn-t);border-radius:10px;padding:12px 14px;font-size:14.5px;color:var(--ink)}
+.nota{background:var(--blue-t);border-radius:10px;padding:12px 14px;font-size:14.5px;color:var(--ink)}
+.nav{display:flex;flex-wrap:wrap;gap:6px}
+.nav a{font:500 13px Inter,sans-serif;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:var(--card)}
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+td,th{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left;vertical-align:top}
+th{font:600 13px Inter,sans-serif;color:var(--muted)}
+td.pts{font:700 15px "Inter Tight",sans-serif;color:var(--ink);text-align:right;white-space:nowrap}
+tr.total td{border-bottom:none;font-weight:600;color:var(--ink)}
+.bit{min-width:640px}
+.esencial td:first-child{font-weight:600;color:var(--ink);width:34%}
+.chequeo{list-style:none;padding-left:0}
+.chequeo li{display:flex;gap:10px;align-items:flex-start}
+.chequeo input{margin-top:5px;width:17px;height:17px;flex:none;accent-color:var(--blue)}
+.preg h3{margin-bottom:2px}
+.preg{display:flex;flex-direction:column;gap:12px}
+code{font:400 14px "IBM Plex Mono",monospace;color:var(--ink)}
+</style></head><body><div class="w">
+
+<div style="display:flex;flex-direction:column;gap:10px">
+<p class="eb">Diplomado en IA para la Investigación · Módulo 3 · Checkpoint 1</p>
+<h1>Su revisión de literatura, con su criterio a la vista</h1>
+<p>Es el primer insumo de su trabajo final. Usted entrega la revisión de literatura que viene haciendo con IA desde la sesión 4, con una bitácora que muestra dónde decidió usted. No se califica cuánto hizo la máquina: <strong>se califica su criterio</strong>.</p>
+<nav class="nav"><a href="../">← Módulo</a><a href="#esencial">Lo esencial</a><a href="#partes">Las siete partes</a><a href="#rubrica">Cómo se evalúa</a><a href="#bitacora">La bitácora</a><a href="#armar">Armarlo con su sistema</a><a href="#chequeo">Antes de entregar</a><a href="#preguntas">Preguntas</a></nav>
+</div>
+
+<section class="card clave" id="esencial">
+<h2>Lo esencial</h2>
+<div class="tbl"><table class="esencial">
+<tr><td>Qué</td><td>Un PDF de 4 a 8 páginas, en siete partes</td></tr>
+<tr><td>Cuándo</td><td><strong>Jueves 12 de noviembre, antes de la clase de las 6:00 p. m.</strong></td></tr>
+<tr><td>Por dónde</td><td>El enlace de entrega que comparte Francesca</td></tr>
+<tr><td>Nombre del archivo</td><td><code>Apellido_Nombre_checkpoint1.pdf</code></td></tr>
+<tr><td>Con qué herramienta</td><td>Con su sistema en Antigravity o por la ruta navegador (chat, Gemini Notebook y Drive). Las dos valen igual.</td></tr>
+</table></div>
+</section>
+
+<section class="card" id="partes">
+<h2>Las siete partes</h2>
+<p>Cada parte sale de algo que ya hizo en clase. Si trabajó con su sistema, casi todo está en su carpeta.</p>
+<div class="tbl"><table>
+<tr><th>Parte</th><th>Qué lleva</th><th>Sale de</th></tr>
+<tr><td><b>1 · La pregunta</b></td><td>Su pregunta v2 en formato PEDCO (población, exposición, comparación, desenlace y el dato) y qué cambió desde la v1</td><td>Pieza 1 · <code>01_pregunta</code></td></tr>
+<tr><td><b>2 · La búsqueda</b></td><td>Las cadenas que usó, en qué bases, en qué fecha y con qué filtros. Y el embudo en números: encontrados, cribados, incluidos y la razón más común para excluir</td><td>Fichas A, C y F</td></tr>
+<tr><td><b>3 · Los criterios</b></td><td>Qué incluyó y qué excluyó, definidos antes de buscar, y cómo separó la literatura de contexto de la de método</td><td>Ficha B</td></tr>
+<tr><td><b>4 · La tabla de evidencia</b></td><td>De 5 a 10 estudios, todos verificados: autores, año, título, revista, DOI, qué encontró y para qué le sirve</td><td>Ficha D y el verificador</td></tr>
+<tr><td><b>5 · La síntesis y el hueco</b></td><td>Su estado del arte organizado por hallazgos, con sus citas, y el hueco en una frase escrita por usted</td><td>Ficha E</td></tr>
+<tr><td><b>6 · La bitácora de criterio</b></td><td>Al menos seis decisiones suyas, cada una con su porqué (el formato está abajo)</td><td><code>BITACORA.md</code></td></tr>
+<tr><td><b>7 · La declaración de uso de IA</b></td><td>Cada herramienta con su versión, la fecha y para qué la usó</td><td>Ficha F, última línea</td></tr>
+</table></div>
+<p class="nota">La parte 7 es la declaración que piden desde 2025 Cochrane, Campbell, JBI y la Colaboración para la Evidencia Ambiental: herramienta, versión, fecha y propósito. Las fichas A a F están en el <a href="../sesion-04/prompts.html">libro de prompts de la sesión 4</a>.</p>
+</section>
+
+<section class="card" id="rubrica">
+<h2>Cómo se evalúa</h2>
+<p>Lo que más pesa es dónde decidió usted.</p>
+<div class="tbl"><table>
+<tr><th>Criterio</th><th style="text-align:right">Puntos</th><th>Se cumple si…</th></tr>
+<tr><td><b>Búsqueda reproducible</b></td><td class="pts">20</td><td>Otra persona podría repetirla con sus cadenas, bases y fecha</td></tr>
+<tr><td><b>Verificación</b></td><td class="pts">20</td><td>Todas las referencias existen y dicen lo que usted les atribuye</td></tr>
+<tr><td><b>Síntesis y hueco</b></td><td class="pts">25</td><td>Va por hallazgos, no autor por autor, y el hueco sale de la literatura</td></tr>
+<tr><td><b>Criterio visible</b></td><td class="pts">25</td><td>La bitácora muestra al menos seis decisiones suyas, con su porqué</td></tr>
+<tr><td><b>Declaración y forma</b></td><td class="pts">10</td><td>Herramientas, versiones y fechas; PDF legible y con el nombre pedido</td></tr>
+<tr class="total"><td>Total</td><td class="pts">100</td><td></td></tr>
+</table></div>
+<p class="ojo"><b>Una referencia que no existe, o que no dice lo que usted le atribuye, devuelve el trabajo</b> para corregirlo. Por eso todas pasan por el <a href="../sesion-04/verificador.html">verificador de referencias</a>.</p>
+</section>
+
+<section class="card" id="bitacora">
+<h2>La bitácora de criterio</h2>
+<p>Es la parte que más dice de usted: sin ella no se sabe qué hizo usted y qué hizo la máquina. Una fila por decisión:</p>
+<div class="tbl"><table class="bit">
+<tr><th>Fecha</th><th>Herramienta y modelo</th><th>Qué le pedí</th><th>Qué devolvió</th><th>Qué decidí yo, y por qué</th></tr>
+<tr><td>7-nov</td><td>Antigravity · Gemini 3.8 Flash · plugin Science</td><td>Artículos en PubMed y Europe PMC</td><td>7 artículos</td><td>Rechacé el PMID 30730663: es de un artículo sobre fracturas óseas</td></tr>
+<tr><td>7-nov</td><td>Antigravity</td><td>Bajar los PDF de acceso abierto</td><td>7 archivos</td><td>Descarté uno: era una página de error guardada como PDF</td></tr>
+</table></div>
+<p class="cuando">Los dos ejemplos son reales: salen de la prueba del 7 de noviembre con una pregunta sobre frailejones.</p>
+<h3>Qué cuenta como decisión</h3>
+<ul>
+<li>Aceptar, corregir o rechazar algo que propuso la IA: un artículo, un término de búsqueda, una cifra.</li>
+<li>Cambiar la pregunta, un criterio o una cadena de búsqueda.</li>
+<li>Mandar un estudio a la canasta de contexto o a la de método.</li>
+<li>Descartar una referencia que no pasó el verificador.</li>
+<li>Quedarse con su propio hueco o con el que propuso la IA.</li>
+</ul>
+<p class="ojo">«Usé ChatGPT para buscar» no es una decisión. «Descarté 4 de los 10 artículos que me dio porque eran de otra especie» sí lo es.</p>
+</section>
+
+<section class="card" id="armar">
+<h2>Armarlo con su sistema</h2>
+<p>Si trabajó en Antigravity, el agente puede juntar las siete partes desde su carpeta. Usted revisa y completa.</p>
+<div class="prompt">Voy a armar mi checkpoint 1. Crea 02_literatura/checkpoint1.md con siete secciones: 1. La pregunta; 2. La búsqueda; 3. Los criterios; 4. La tabla de evidencia; 5. La síntesis y el hueco; 6. La bitácora de criterio; 7. La declaración de uso de IA. Llénalas SOLO con lo que ya está en 01_pregunta, 02_literatura y BITACORA.md. Copia la síntesis, el hueco y mis decisiones tal como están, sin reescribirlos. La bitácora va en una tabla con estas columnas: fecha, herramienta y modelo, qué le pedí, qué devolvió, qué decidí yo y por qué. Donde falte algo, escribe [FALTA] y no lo completes. Al final, dime qué falta y qué referencias de la tabla no están verificadas.</div>
+<ol>
+<li>Complete usted los [FALTA].</li>
+<li>Pase los DOI por el <a href="../sesion-04/verificador.html">verificador</a>.</li>
+<li>Copie el texto a Google Docs o Word, dele formato y descárguelo como PDF (en Google Docs: Archivo → Descargar → Documento PDF).</li>
+</ol>
+<p class="nota"><b>Ruta navegador:</b> las mismas siete partes, en un documento de Google Docs, con lo que guardó de cada ficha. Para la bitácora, en el chat donde trabajó pida: «Reúne en una tabla las decisiones que tomé en esta conversación, con su porqué. Si falta el porqué, escribe [FALTA]; no lo completes tú».</p>
+</section>
+
+<section class="card" id="chequeo">
+<h2>Antes de entregar</h2>
+<ul class="chequeo">
+<li><input type="checkbox" id="c1"><label for="c1">Todos los DOI pasaron por el verificador.</label></li>
+<li><input type="checkbox" id="c2"><label for="c2">Abrí al menos tres artículos y comprobé que dicen lo que les atribuyo.</label></li>
+<li><input type="checkbox" id="c3"><label for="c3">La síntesis va por hallazgos, no autor por autor.</label></li>
+<li><input type="checkbox" id="c4"><label for="c4">El hueco lo escribí yo.</label></li>
+<li><input type="checkbox" id="c5"><label for="c5">La bitácora tiene al menos seis decisiones, cada una con su porqué.</label></li>
+<li><input type="checkbox" id="c6"><label for="c6">La declaración dice herramienta, versión, fecha y para qué.</label></li>
+<li><input type="checkbox" id="c7"><label for="c7">No hay datos personales de terceros ni información confidencial.</label></li>
+<li><input type="checkbox" id="c8"><label for="c8">El archivo se llama <code>Apellido_Nombre_checkpoint1.pdf</code>.</label></li>
+</ul>
+</section>
+
+<section class="card preg" id="preguntas">
+<h2>Preguntas frecuentes</h2>
+<div><h3>¿Tengo que usar Antigravity?</h3><p>No. La ruta navegador vale igual: se califica el criterio, no la herramienta.</p></div>
+<div><h3>¿Y si no encontré un hueco?</h3><p>Dígalo y explique dónde buscó. Puede que no exista, o que falte buscar en otro idioma, en otra base o en la otra canasta. Esa explicación también es criterio.</p></div>
+<div><h3>¿Más estudios dan más puntos?</h3><p>No. Cinco estudios bien verificados valen más que treinta sin revisar.</p></div>
+<div><h3>¿Puedo redactar con IA?</h3><p>Sí, si lo declara en la parte 7. La síntesis se ancla en sus fuentes (ficha E) y el hueco lo escribe usted.</p></div>
+</section>
+
+<section class="card" id="final">
+<h2>Después: el trabajo final</h2>
+<p>El checkpoint es la segunda parte del brief de investigación con el que cierra el módulo:</p>
+<ol>
+<li>Problema y pregunta: la pieza 1.</li>
+<li><b>Estado del arte y hueco: este checkpoint.</b></li>
+<li>Datos y fuentes: empieza en la sesión 5, con los textos como datos.</li>
+<li>Método: cómo va a responder la pregunta.</li>
+<li>Ética, referencias verificadas y bitácora: lo que garantiza que es suyo.</li>
+</ol>
+<p class="cuando">La guía completa del trabajo final sale esta semana.</p>
+</section>
+
+<p class="eb">Alonso Ramírez Hernández · CENES–UPTC · 9 de noviembre de 2026</p>
+</div>
+<script>
+document.querySelectorAll(".prompt").forEach(p=>{const b=document.createElement("button");b.className="copiar";b.textContent="Copiar";b.onclick=async()=>{try{await navigator.clipboard.writeText(p.childNodes[0].textContent.trim());b.textContent="Copiado";setTimeout(()=>b.textContent="Copiar",1200)}catch(e){const r=document.createRange();r.selectNodeContents(p.childNodes[0]);const s=getSelection();s.removeAllRanges();s.addRange(r)}};p.appendChild(b)});
+</script>
+</body></html>
