@@ -24,11 +24,61 @@ code{font:400 14px "IBM Plex Mono",monospace;color:var(--ink);overflow-wrap:anyw
 <div><p class="eb">Diplomado en IA para la Investigación · Módulo 3 · Sesión 6 · 10 de noviembre de 2026</p>
 <h1>Libro de prompts · Sus textos, convertidos en datos</h1>
 <p>Hoy sigue la unidad 3.3 con sus propios documentos: clasificarlos, encontrar sus temas y medir cuánto coincide su IA con usted. Guarde sus documentos en <code>03_fuentes/documentos</code>.</p>
-<p><a href="../">← Volver al módulo</a> · <a href="laminas.html">Ver las láminas</a> · <a href="companero.html">Su compañero</a> · <a href="../sesion-05/checkpoint1.html"><b>Checkpoint 1</b></a></p></div>
+<p><a href="../">← Volver al módulo</a> · <a href="laminas.html">Ver las láminas</a> · <a href="companero.html">Su compañero</a> · <a href="#metodo">Su pregunta escoge su método</a> · <a href="../sesion-05/checkpoint1.html"><b>Checkpoint 1</b></a></p></div>
 
 <div class="ficha enc"><p class="eb">Antes de empezar · 5 minutos</p><h2>La encuesta: sus datos y su método</h2>
 <p>Diez preguntas sobre los datos con los que trabaja y lo que quiere sacar de ellos. Con sus respuestas armamos los ejemplos del miércoles y del jueves por disciplina.</p>
 <a class="boton" href="https://docs.google.com/forms/d/1efIHY5BO9fx-Czo-uzgDNff0XWmCTmQoX-Qv1NI5aY0/viewform">Responder la encuesta</a></div>
+
+<div id="metodo"><h3>Antes de los datos · Su pregunta escoge su método</h3>
+<p>El verbo de su pregunta decide la familia de métodos. La IA le abre el abanico; usted escoge.</p></div>
+
+<div class="ficha"><p class="eb">Para ubicarse</p><h2>El verbo de su pregunta</h2>
+<p class="cuando"><b>Verbo</b> · familia de métodos · <i>ejemplo</i></p>
+<ol>
+<li><b>Describir</b> · Descriptivos: medición, encuesta, mapas<br><i>¿Cómo cambia la cobertura del frailejón con la altitud?</i></li>
+<li><b>Comparar</b> · Comparación de grupos y experimentos<br><i>¿Crece más la planta con el tratamiento A que con el B?</i></li>
+<li><b>Relacionar</b> · Correlacionales y regresión<br><i>¿Se asocia el tiempo de pantalla con el rendimiento escolar?</i></li>
+<li><b>Explicar una causa</b> · Experimentales y cuasiexperimentales<br><i>¿Qué efecto tuvo el programa sobre la deserción?</i></li>
+<li><b>Predecir</b> · Modelos de predicción y machine learning<br><i>¿Qué pacientes tienen más riesgo de reingresar?</i></li>
+<li><b>Comprender</b> · Cualitativos: entrevistas, grupos focales, análisis del discurso<br><i>¿Cómo viven los docentes rurales la evaluación?</i></li>
+<li><b>Simular</b> · Modelos y simulación<br><i>¿Qué pasaría con el caudal si la temperatura sube 2&nbsp;°C?</i></li>
+<li><b>Sintetizar</b> · Revisión sistemática y metaanálisis<br><i>¿Qué dice la evidencia sobre un tratamiento?</i></li>
+</ol></div>
+
+<div class="ficha"><p class="eb">La prueba · lo hace usted</p><h2>¿Su método responde su pregunta?</h2>
+<ol>
+<li>¿Coinciden el verbo de su pregunta y el de su método? Si pregunta «¿qué efecto tiene?» y solo puede relacionar, cambie la pregunta o cambie el método.</li>
+<li>¿Puede conseguir el dato que ese método exige: la unidad, la cantidad, el tiempo y el grupo con qué comparar?</li>
+<li>¿Qué podrá afirmar y qué no?</li>
+</ol></div>
+
+<div class="ficha"><p class="eb">Ficha J · en Gemini, Claude o Antigravity</p><h2>Su pregunta escoge su método</h2>
+<p class="cuando"><b>Cómo:</b> cinco prompts en el mismo chat, uno tras otro.</p>
+<p class="cuando"><b>J1 · El verbo</b></p>
+<pre>Mi pregunta de investigación es: [su pregunta]. Soy de [su disciplina]. ¿Cuál es el verbo de fondo de mi pregunta: describir, comparar, relacionar, explicar una causa, predecir, comprender, simular o sintetizar evidencia? Explícame por qué en tres líneas y dime qué familia de métodos responde a ese verbo.</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="cuando"><b>J2 · El abanico</b></p>
+<pre>Propón tres diseños para responder mi pregunta, del más simple al más ambicioso. Para cada uno dime qué datos necesito, qué podría afirmar, qué no podría afirmar y un artículo que lo haya usado en mi tema. Si no estás seguro de que el artículo existe, dilo.</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="cuando"><b>J3 · La frontera</b></p>
+<pre>¿Qué métodos usan hoy los mejores grupos de investigación en mi tema que quizá no me enseñaron en mi carrera? Explícame el más prometedor como si nunca lo hubiera visto, con un ejemplo aplicado a mi pregunta.</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="cuando"><b>J4 · El abogado del diablo</b></p>
+<pre>Ahora critica el diseño que más me sirve. ¿Qué podría hacer que mi conclusión sea falsa: sesgos, variables que faltan, causalidad al revés, una muestra pequeña? ¿Qué no podré afirmar? ¿Qué tendría que cambiar en mi pregunta para que el método sí la responda?</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="cuando"><b>J5 · La decisión</b> (es suya)</p>
+<pre>Los datos que de verdad puedo conseguir son: [cuáles, cuántos y en cuánto tiempo]. Con eso, ¿cuál es el diseño más simple que responde mi pregunta? Dame la pregunta reescrita, el método en tres líneas, el dato que necesito y la guía de reporte que aplica (CONSORT, STROBE, PRISMA, COREQ, ARRIVE, TRIPOD+AI u otra).</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Todo artículo que la IA le cite se verifica</b> en Consensus o en Google Scholar: ya vimos que puede inventarlo.</p></div>
+
+<div class="ficha"><p class="eb">Para su bitácora</p><h2>Su línea de coherencia</h2>
+<p>Pregunta → verbo → método → dato → lo que podrá afirmar → lo que no.</p></div>
+
+<div class="ficha"><p class="eb">Para revisar su método</p><h2>Los estándares</h2>
+<p>Cada tipo de estudio tiene su lista de chequeo internacional. Están reunidas en la red EQUATOR (<a href="https://www.equator-network.org">equator-network.org</a>): CONSORT (experimentos y ensayos), STROBE (observacionales), PRISMA (revisiones sistemáticas), COREQ (entrevistas y grupos focales), ARRIVE (experimentos con animales) y TRIPOD+AI (modelos de predicción y machine learning). En física y química no hay una lista única: ahí manda la columna «qué método usan» de su revisión de literatura.</p></div>
+
+<div class="ficha kit"><p class="eb">La trampa</p><h2>La IA le va a recomendar el método más sofisticado que quepa. El correcto es el más simple que responde con los datos que usted puede conseguir.</h2></div>
 
 <h3>Clasificar</h3>
 
