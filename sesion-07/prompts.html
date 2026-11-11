@@ -67,8 +67,11 @@ details p{margin:8px 0 0}
 <p class="hacer"><b>Solo para la estación de imágenes:</b> Entorno de ejecución → Cambiar tipo de entorno de ejecución → GPU T4.</p>
 <p class="hacer"><b>Plan B, si Gemini no aparece en su Colab:</b> descargue el CSV y súbalo a gemini.google.com o a Antigravity con los mismos prompts.</p></div>
 
-<div class="ficha" id="k"><p class="eb">Ficha K · en el panel de Gemini de Colab</p><h2>Los cuatro prompts, iguales en todas las estaciones</h2>
+<div class="ficha" id="k"><p class="eb">Ficha K · en el panel de Gemini de Colab</p><h2>K0 con su pregunta; K1 a K4, iguales en todas las estaciones</h2>
 <p class="cuando"><b>Cómo:</b> en el mismo chat, uno tras otro. K2 lleva la pregunta y el verbo de su estación: ya vienen escritos en el cuaderno.</p>
+<p class="cuando"><b>K0 · Busque las fuentes que no conoce</b> · con su propia pregunta, antes de la estación. Guarde la respuesta en <code>03_fuentes</code> y verifique que cada fuente exista.</p>
+<pre>Mi pregunta es: [su pregunta]. Mi método es: [el de su ficha J]. Los datos que conozco son: [cuáles], y su límite es: [por ejemplo, solo llegan a 2014]. ¿Qué otras fuentes existen o se pueden construir para responderla? Incluye registros administrativos, bases abiertas, imágenes de satélite o de sensores, archivos que se pueden digitalizar con IA, datos de la web y datos que yo tendría que levantar. Para cada una dime qué mide, qué cobertura y qué años tiene, cómo se consigue, cuánto tiempo me tomaría y qué supuesto exige. Si no estás seguro de que una fuente exista, dilo.</pre>
+<button onclick="copiar(this)">Copiar</button>
 <p class="cuando"><b>K1 · Mire los datos antes de analizarlos</b></p>
 <pre>Carga el archivo y descríbemelo antes de analizar nada: cuántas filas hay, qué es cada columna y en qué unidad está, cuál es la unidad de observación (qué representa una fila) y si hay datos faltantes, repetidos o raros. No hagas ningún análisis todavía.</pre>
 <button onclick="copiar(this)">Copiar</button>
@@ -183,6 +186,9 @@ details p{margin:8px 0 0}
 
 <div class="ficha"><p class="eb">Para su bitácora</p><h2>Su línea de hoy</h2>
 <pre>Estación __ · La IA dijo: __ · La trampa era: __ · La verifiqué con: __ · Puedo afirmar: __ · No puedo afirmar: __</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="cuando"><b>Y la línea de su investigación:</b></p>
+<pre>Mi caso: pregunta __ → método __ → fuente __ → análisis __ → puedo afirmar __</pre>
 <button onclick="copiar(this)">Copiar</button>
 <p class="hacer"><b>Dónde va:</b> en su <code>BITACORA.md</code>.</p></div>
 
