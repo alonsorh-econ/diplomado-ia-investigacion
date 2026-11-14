@@ -1,0 +1,52 @@
+{
+  "distintivo": {
+    "valor": "HJCD",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "ciudad": {
+    "valor": "Sogamoso",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "frecuencia": {
+    "valor": "960 Kcs/S",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "potencia": {
+    "valor": "1 kWs",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "marca": {
+    "valor": "RCA",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "antena": {
+    "valor": "Torre bertical",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "altura": {
+    "valor": "48 mts",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "fecha": {
+    "valor": "03-VIII-1961",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "propietario": {
+    "valor": "Sociedad Radial Sugamuxi",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "folio": {
+    "valor": "112",
+    "tachado": null,
+    "confianza": "alta"
+  }
+}

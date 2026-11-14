@@ -1,0 +1,52 @@
+{
+  "distintivo": {
+    "valor": "HJIJ",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "ciudad": {
+    "valor": "Moniquirá",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "frecuencia": {
+    "valor": "1.180 Kcs/S",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "potencia": {
+    "valor": "2,5 kWs",
+    "tachado": "XXXXX",
+    "confianza": "alta"
+  },
+  "marca": {
+    "valor": "Westinghouse",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "antena": {
+    "valor": "Torre vertical",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "altura": {
+    "valor": "40 mts",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "fecha": {
+    "valor": "09-XI-1965",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "propietario": {
+    "valor": "Emisora Ricaurte",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "folio": {
+    "valor": "31",
+    "tachado": null,
+    "confianza": "alta"
+  }
+}

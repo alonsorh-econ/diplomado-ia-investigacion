@@ -1,0 +1,52 @@
+{
+  "distintivo": {
+    "valor": "HJEF",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "ciudad": {
+    "valor": "Duitama",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "frecuencia": {
+    "valor": "1.430 Kcs/S",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "potencia": {
+    "valor": "2 kWs",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "marca": {
+    "valor": "Collins",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "antena": {
+    "valor": "Torre paraguas",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "altura": {
+    "valor": "52.3 mts",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "fecha": {
+    "valor": "21-I-1963",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "propietario": {
+    "valor": "La Voz de Tundama",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "folio": {
+    "valor": "87",
+    "tachado": null,
+    "confianza": "alta"
+  }
+}

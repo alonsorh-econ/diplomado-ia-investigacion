@@ -1,0 +1,52 @@
+{
+  "distintivo": {
+    "valor": "HJOP",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "ciudad": {
+    "valor": "Villa de Leyva",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "frecuencia": {
+    "valor": "1.500 Kcs/S",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "potencia": {
+    "valor": "0,5 kWs",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "marca": {
+    "valor": "Gates",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "antena": {
+    "valor": "Torre vertical",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "altura": {
+    "valor": "30 mts",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "fecha": {
+    "valor": "02-X-1969",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "propietario": {
+    "valor": "Radio Cultural del Alto Ricaurte",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "folio": {
+    "valor": "19",
+    "tachado": null,
+    "confianza": "alta"
+  }
+}

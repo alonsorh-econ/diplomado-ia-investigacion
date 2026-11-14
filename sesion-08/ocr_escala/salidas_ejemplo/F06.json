@@ -1,0 +1,52 @@
+{
+  "distintivo": {
+    "valor": "HJKL",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "ciudad": {
+    "valor": "Garagoa",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "frecuencia": {
+    "valor": "850 Kcs/S",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "potencia": {
+    "valor": "1 kWs",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "marca": {
+    "valor": "RCA",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "antena": {
+    "valor": "Torre de alambre",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "altura": {
+    "valor": "36.5 mts",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "fecha": {
+    "valor": "27-II-1967",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "propietario": {
+    "valor": "Radio Valle de Tenza",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "folio": {
+    "valor": "64",
+    "tachado": null,
+    "confianza": "alta"
+  }
+}

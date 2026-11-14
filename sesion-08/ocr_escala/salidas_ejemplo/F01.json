@@ -1,0 +1,52 @@
+{
+  "distintivo": {
+    "valor": "HJAB",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "ciudad": {
+    "valor": "Tunja",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "frecuencia": {
+    "valor": "1.230 Kcs/S",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "potencia": {
+    "valor": "5 kWs",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "marca": {
+    "valor": "Gates",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "antena": {
+    "valor": "Torre vertical",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "altura": {
+    "valor": "64.5 mts",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "fecha": {
+    "valor": "12-III-1958",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "propietario": {
+    "valor": "Radio Emisora del Valle Ltda.",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "folio": {
+    "valor": "45",
+    "tachado": null,
+    "confianza": "alta"
+  }
+}

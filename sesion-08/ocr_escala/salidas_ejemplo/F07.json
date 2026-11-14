@@ -1,0 +1,52 @@
+{
+  "distintivo": {
+    "valor": "HJMN",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "ciudad": {
+    "valor": "Puerto Boyacá",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "frecuencia": {
+    "valor": "1.320 Kcs/S",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "potencia": {
+    "valor": "5 kWs",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "marca": {
+    "valor": "Collins",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "antena": {
+    "valor": "Torre vertical",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "altura": {
+    "valor": "58 mts",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "fecha": {
+    "valor": "18-VI-1964",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "propietario": {
+    "valor": "ILEGIBLE",
+    "tachado": null,
+    "confianza": "alta"
+  },
+  "folio": {
+    "valor": "150",
+    "tachado": null,
+    "confianza": "alta"
+  }
+}
