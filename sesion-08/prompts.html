@@ -1,0 +1,391 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Libro de prompts · Sesión 8</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F7F9;--card:#fff;--ink:#141821;--text:#4B5563;--muted:#78818F;--line:#E4E8EC;--blue:#1B44CC;--blue-t:#EEF2FE;--red:#C81E4A;--code:#141821}
+@media (prefers-color-scheme:dark){:root{--bg:#0F1218;--card:#171B23;--ink:#EEF1F5;--text:#C3C9D2;--muted:#8E97A4;--line:#272D37;--blue:#8AA2FF;--blue-t:#1B2442;--red:#FF7896;--code:#0B0E13}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 Inter,Arial,sans-serif;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+.w{max-width:780px;margin:0 auto;padding-block:36px 64px;display:flex;flex-direction:column;gap:28px}
+a{color:var(--blue)}h1,h2,h3{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);margin:0;text-wrap:balance}
+h1{font-size:clamp(28px,6vw,38px);font-weight:800;letter-spacing:-.02em;line-height:1.1}h2{font-size:21px;font-weight:700}h3{font-size:24px;font-weight:800;margin-top:10px}
+.eb{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.ficha{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.ficha.kit{border:2px solid var(--blue)}.ficha.enc{border:2px solid var(--blue);background:var(--blue-t)}.ficha.envivo{border:2px solid var(--red)}
+.cuando{font-size:15px}.cuando b{color:var(--ink)}
+pre{margin:0;background:var(--code);color:#E8ECF2;border-radius:10px;padding:14px 16px;font:400 13.5px/1.55 "IBM Plex Mono",monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+button{align-self:flex-start;font:600 13px Inter,sans-serif;border:1.5px solid var(--blue);color:var(--blue);background:transparent;border-radius:8px;padding:6px 12px;cursor:pointer}
+.hacer{background:var(--blue-t);border-radius:10px;padding:12px 14px;font-size:15px;color:var(--ink)}.hacer b{color:var(--blue)}
+.boton{align-self:flex-start;display:inline-block;background:var(--blue);color:#fff;text-decoration:none;font:600 15px Inter,sans-serif;border-radius:10px;padding:10px 16px}
+.vivo{display:inline-block;margin-left:6px;background:var(--red);color:#fff;font:600 11px "IBM Plex Mono",monospace;letter-spacing:.1em;border-radius:6px;padding:2px 8px}
+@media (prefers-color-scheme:dark){.boton,.vivo{color:#0F1218}}
+ol,ul{margin:0;padding-left:22px}li{margin:4px 0}
+code{font:400 14px "IBM Plex Mono",monospace;color:var(--ink);overflow-wrap:anywhere}
+.preg{font-size:17px;color:var(--ink)}
+.acc{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;vertical-align:top;padding:8px 6px;border-top:1px solid var(--line)}
+th{color:var(--ink);font-weight:600;border-top:0}td b{color:var(--ink)}
+.mut{color:var(--muted);font-size:14px}
+details{border-top:1px solid var(--line);padding-top:10px}
+summary{cursor:pointer;font-weight:600;color:var(--blue)}
+details p{margin:8px 0 0}
+details pre,details ul,details button{margin-top:10px}
+</style></head><body><div class="w">
+<div><p class="eb">Diplomado en IA para la Investigación · Módulo 3 · Libro de prompts · sábado 14 de noviembre de 2026 · 8:00 a 12:00</p>
+<h1>Sesión 8 · Un sistema en acción</h1>
+<p>Cuatro estaciones de un sistema de investigación. En cada una, primero me ven a mí y después lo hacen ustedes con su proyecto.</p>
+<p><a href="../">← Volver al módulo</a> · <a href="#mapa">El mapa de hoy</a> · <a href="#e1">1 · La fuente</a> · <a href="#e2">2 · La interpretación</a> · <a href="#e3">3 · El procesamiento</a> · <a href="#e4">4 · El sistema</a> · <a href="#bitacora">Bitácora</a> · <a href="../sesion-07/prompts.html">Sesión 7</a></p></div>
+
+<div class="ficha" id="mapa"><p class="eb">Para ubicarse</p><h2>El mapa de hoy</h2>
+<table>
+<tr><th>Estación</th><th>Qué se hace · dónde queda la pieza</th></tr>
+<tr><td><b>1 · La fuente</b><br><span class="mut">35 min</span></td><td>Del papel a la tabla: la IA transcribe un documento suyo y usted verifica 10 celdas a mano.<br><span class="mut">La pieza queda en</span> <code>03_fuentes</code></td></tr>
+<tr><td><b>2 · La interpretación</b><br><span class="mut">40 min</span></td><td>De las voces a las categorías: usted escribe el libro de códigos, la IA codifica y usted mide el acuerdo con una experta.<br><span class="mut">La pieza queda en</span> <code>05_resultados</code></td></tr>
+<tr><td><b>3 · El procesamiento</b><br><span class="mut">30 min</span></td><td>El código con criterio: un agente cruza dos tablas y usted lo audita con siete preguntas.<br><span class="mut">La pieza queda en</span> <code>04_metodo</code></td></tr>
+<tr><td><b>4 · El sistema completo</b><br><span class="mut">10 min</span></td><td>El mapa de su sistema: qué estaciones tiene su investigación y cuáles podría hacer un agente.<br><span class="mut">La pieza queda en</span> <code>ESTADO.md</code></td></tr>
+</table>
+<p class="hacer"><b>En cada estación:</b> primero el ejemplo en vivo; después, usted con su proyecto.</p></div>
+
+<div id="e1"><h3>Estación 1 · La fuente: del papel a la tabla</h3>
+<p>35 minutos. Primero, una ficha técnica de archivo que se vuelve una fila de una base de datos. Después, usted con un documento de su proyecto: se lleva una tabla y una tasa de acierto que usted mismo midió.</p></div>
+
+<div class="ficha"><p class="eb">Paso a paso · en gemini.google.com</p><h2>Su documento, su tabla</h2>
+<ol>
+<li><b>Escoja de 3 a 5 páginas de su proyecto:</b> una tabla de resultados, un formato de laboratorio, un acta, una encuesta en papel, un cuaderno de campo. Si no sabe cuál, la tabla de resultados de un artículo de su revisión sirve a todos.</li>
+<li><b>Defina sus campos</b> mirando el papel, no la base de datos: entre 5 y 15, cada uno con la palabra impresa que lo antecede, para que la IA lo ubique. Si su documento es una tabla, los campos son las columnas.</li>
+<li><b>Abra gemini.google.com</b> (sirve la cuenta gratis), chat nuevo, adjunte sus páginas y pegue la ficha L con sus dos corchetes llenos.</li>
+<li><b>Verifique 10 celdas a mano</b>, y no las 10 más fáciles: más abajo está cuáles escoger.</li>
+<li><b>Anote su tasa de acierto en la bitácora:</b> cuántas de las 10 coinciden con el papel.</li>
+<li><b>Guarde la tabla</b> (el JSON que le devolvió Gemini) y su hoja de verificación en <code>03_fuentes</code>.</li>
+</ol>
+<p class="hacer"><b>Antes de subir nada:</b> con una cuenta gratis, lo que usted sube puede usarse para mejorar el servicio. No suba documentos con datos personales (nombres, cédulas, teléfonos, direcciones, historias clínicas): tápelos o recórtelos antes de tomar la foto, o use una hoja de ejemplo.</p>
+<details><summary>Ejemplos de campos según el documento</summary>
+<ul>
+<li><b>Tabla de resultados de un artículo:</b> <code>variable</code>, <code>coeficiente</code>, <code>error_estandar</code>, <code>estrellas</code>, <code>n</code>. La trampa: los paréntesis y los asteriscos son datos (pida que los copie) y el signo menos se pierde.</li>
+<li><b>Formato de laboratorio:</b> <code>muestra_id</code>, <code>fecha</code>, <code>temperatura</code>, <code>ph</code>, <code>observador</code>. La trampa: lo escrito a mano y las unidades que no están escritas.</li>
+<li><b>Acta de reunión:</b> <code>fecha</code>, <code>asistentes</code>, <code>decision</code>, <code>responsable</code>, <code>plazo</code>. La trampa: la IA resume en vez de copiar; pida el texto literal.</li>
+<li><b>Encuesta en papel:</b> <code>id_encuesta</code>, <code>p1</code>, <code>p2</code>…, <code>observaciones</code>. La trampa: las casillas; pida <code>MARCADA</code>, <code>NO MARCADA</code> o <code>DOBLE MARCA</code>.</li>
+</ul></details></div>
+
+<div class="ficha" id="fichaL"><p class="eb">Ficha L · en gemini.google.com</p><h2>El prompt de extracción</h2>
+<p class="cuando"><b>Cómo:</b> chat nuevo, adjunte la imagen y pegue esto con sus dos partes entre corchetes reemplazadas. Si la respuesta llega envuelta en texto, escriba: «Repite solo el JSON».</p>
+<pre>Eres un transcriptor cuidadoso. Te paso la imagen de [DESCRIBA SU DOCUMENTO: p. ej. «una tabla de resultados de un artículo de 1998», «un formato de laboratorio llenado a mano», «un acta de reunión de 2015», «una encuesta en papel»]. Tu tarea es convertirla en filas de una tabla, en JSON.
+
+REGLAS
+1. Copia tal cual: no corrijas ortografía, no completes palabras, no cambies unidades, no redondees, no cambies comas por puntos.
+2. Si no puedes leer algo, escribe "ILEGIBLE". Si el espacio está vacío, escribe "VACÍO". Nunca adivines para llenar un campo.
+3. Si algo está tachado o escrito encima de otra cosa, pon en "tachado" lo que alcances a leer de lo tachado ("TACHADO: …" o "TACHADO: ILEGIBLE"). En "valor" va solo lo vigente.
+4. Separa lo impreso o mecanografiado de lo escrito a mano: en cada campo indica "mano": "impreso" o "manuscrito".
+5. Para cada campo da una confianza: "alta" (lo lees sin duda), "media" (hay un carácter dudoso) o "baja" (casi adivinas).
+6. No inventes. Si un campo no aparece en el documento, pon null.
+7. La unidad va aparte, copiada como está escrita. Si no hay unidad escrita, pon null: no la supongas.
+8. Cada fila es un renglón del documento (o el documento entero, si es un formulario) y lleva TODOS los campos del libro. No hagas una fila por campo.
+9. Responde solo con el JSON, sin texto antes ni después.
+
+LIBRO DE CAMPOS
+[PEGUE AQUÍ SU LIBRO DE CAMPOS: campo → qué es → rótulo en el papel → unidad]
+
+FORMATO
+{
+  "filas": [
+    {
+      "&lt;campo_1&gt;": {"valor": "", "unidad": null, "tachado": null, "mano": "impreso", "confianza": "alta"},
+      "&lt;campo_2&gt;": {"valor": "", "unidad": null, "tachado": null, "mano": "impreso", "confianza": "alta"}
+    }
+  ],
+  "notas_al_margen": [{"texto": "", "ubicacion": "", "tachado": false}],
+  "observaciones": "una o dos frases sobre problemas de la imagen"
+}</pre>
+<button onclick="copiar(this)">Copiar</button>
+<details><summary>Cómo se llenan los dos corchetes (un ejemplo)</summary>
+<p><b>[DESCRIBA SU DOCUMENTO]</b> → «una ficha técnica de una emisora de radio colombiana del archivo del Ministerio de Comunicaciones, escrita a máquina, con anotaciones a mano en tinta roja y negra».</p>
+<p><b>[LIBRO DE CAMPOS]</b> → una línea por campo: nombre del campo → qué es → «rótulo en el papel» → unidad. Las primeras líneas de ese ejemplo:</p>
+<pre>nombre → nombre de la emisora → «Nombre»
+frecuencia → frecuencia de operación → «Frecuencia Operación» → unidad como esté escrita
+distintivo → indicativo → «Distintivo»
+clase → clase de la emisora → «Clase»
+potencia → potencia → «Potencia» → unidad como esté escrita</pre></details>
+<details><summary>El ejemplo de Alonso: la ficha técnica de Radio Sutatenza</summary>
+<p>El prompt de la demostración, que va con la imagen escaneada de la ficha técnica de la emisora, del archivo del Ministerio de Comunicaciones. Fíjese en tres decisiones: el libro de campos usa las palabras del papel («Mod», «Horno», «en la torre»); VACÍO e ILEGIBLE no son lo mismo (un campo en blanco es un dato; un número partido por un empalme es un dato perdido), y la unidad va aparte (si el modelo pone una unidad que no está escrita, la supuso).</p>
+<pre>Eres un transcriptor de archivo histórico. Te paso la imagen de una ficha técnica de una emisora de radio colombiana del archivo del Ministerio de Comunicaciones: está escrita a máquina, tiene anotaciones a mano y es una copia escaneada de mala calidad. Tu tarea es convertirla en UNA fila de una base de datos, en JSON.
+
+REGLAS
+1. Copia tal cual. No corrijas ortografía, no completes palabras, no cambies unidades (si dice «Kcs/S», escribe «Kcs/S», no «kHz»), no conviertas números ni cambies comas por puntos. Si una palabra está mal escrita en el papel, déjala mal escrita.
+2. Si no puedes leer algo, escribe "ILEGIBLE". Si la raya del campo está vacía o solo tiene un guion o una raya, escribe "VACÍO". Nunca adivines para llenar un campo.
+3. Si el texto se corta en el borde de la imagen o en un empalme, copia solo lo visible y agrega " [CORTADO]" al final.
+4. Si hay algo tachado o escrito encima de otra cosa, pon en "tachado" lo que alcances a leer de lo tachado, así: "TACHADO: …" (o "TACHADO: ILEGIBLE"). En "valor" va solo lo vigente.
+5. Separa lo mecanografiado de lo escrito a mano. Los campos del formulario son lo mecanografiado. Todo lo escrito a mano (números de folio, firmas, notas, rayas, chulos) va en "anotaciones_manuscritas", con su ubicación y su color de tinta.
+6. Para cada campo da una confianza: "alta" (lo lees sin duda), "media" (hay un carácter dudoso) o "baja" (estás casi adivinando).
+7. No inventes. Si un campo del libro no aparece en la imagen, pon null. Ignora los recuadros de color: los agregó el investigador. Ignora el texto que se transparenta del reverso (se ve tenue o en espejo).
+8. La unidad va aparte del número, copiada como está escrita ("mts", "Kcs/S", "kWs"). Si no hay unidad escrita, pon null: no la supongas.
+9. Responde solo con el JSON, sin texto antes ni después.
+
+LIBRO DE CAMPOS (cada campo es un objeto {"valor", "unidad", "tachado", "confianza"})
+transmisor_principal:
+  marca, modelo                 → rótulos «Marca» y «Mod»
+  frecuencia                    → «Frecuencia»
+  distintivo                    → «Distintivo» (indicativo de la emisora, p. ej. HJxx)
+  potencia                      → «Potencia»
+  frecuencia_cristal            → «Frecuencia del cristal»
+  horno                         → «Horno»
+modulacion:
+  transformador_entrada_audio, transformador_paso_intermedio, transformador_modulacion,
+  choque_modulacion, monitor_modulacion, limitador_sobremodulacion, monitor_frecuencia,
+  receptor_monitor_marca, receptor_monitor_modelo, receptor_monitor_numero,
+  receptor_fm_marca, receptor_fm_modelo, receptor_fm_numero
+sistema_radiacion:
+  antena_tipo, antena_altura, antena_construccion, distancia_caseta (a la caseta del transmisor),
+  sistema_acoplamiento, sistema_tierra, radiales_numero, radiales_longitud,
+  senales_torre (el número junto a «en la torre»), senales_altas, senales_medias, senales_total,
+  filtro_senales, filtro_senales_tipo, filtro_armonicas_tipo,
+  unidad_sintonia, unidad_sintonia_tipo, unidad_sintonia_marca, medidor_rf,
+  lectura_0_mod (la lectura con 0 % de modulación), lectura_100_mod (con 100 %),
+  medidor_tipo, medidor_marca
+transmisor_auxiliar:
+  marca, frecuencia, distintivo, potencia, frecuencia_cristal, horno, tubos_salida_rf
+
+FORMATO DE SALIDA
+{
+  "documento": {"entidad": "", "titulo": "", "seccion": ""},
+  "transmisor_principal": {"marca": {"valor": "", "unidad": null, "tachado": null, "confianza": "alta"}, "...": {}},
+  "modulacion": {"...": {}},
+  "sistema_radiacion": {"...": {}},
+  "transmisor_auxiliar": {"...": {}},
+  "anotaciones_manuscritas": [
+    {"texto": "", "ubicacion": "", "tinta": "", "tachado": false, "que_parece": "folio | nota | firma | marca de revisión | otro", "confianza": "alta"}
+  ],
+  "observaciones": "una o dos frases sobre problemas de la imagen (cortes, empalmes, manchas)"
+}</pre>
+<button onclick="copiar(this)">Copiar</button></details>
+<p class="hacer"><b>Ojo:</b> la IA puede leer con confianza alta y equivocarse; el número que no se ve no se adivina: ILEGIBLE.</p></div>
+
+<div class="ficha" id="verificar"><p class="eb">Verificar · a mano · 10 celdas</p><h2>Su tasa de acierto</h2>
+<p class="cuando"><b>No verifique las 10 más fáciles.</b> Escoja así:</p>
+<ul>
+<li>3 números, los que más importan en su análisis;</li>
+<li>2 cosas escritas a mano, si las hay;</li>
+<li>1 tachón o corrección, si lo hay;</li>
+<li>1 celda cerca del borde o de una mancha;</li>
+<li>1 campo que debería estar vacío (¿la IA lo llenó?);</li>
+<li>2 al azar (cierre los ojos y señale).</li>
+</ul>
+<p class="cuando"><b>Si no coincide, diga qué pasó:</b> <b>leyó mal</b> (un 6 por un 8, una M por un 1) · <b>corrigió</b> (arregló la ortografía, cambió la unidad, completó una palabra) · <b>inventó</b> (dio un valor donde no hay nada legible) · <b>omitió</b> (dijo ILEGIBLE o VACÍO donde sí se lee) · <b>se movió de campo</b> (el dato es correcto, pero quedó en otra columna).</p>
+<table>
+<tr><th>Si su tasa es…</th><th>Entonces…</th></tr>
+<tr><td><b>9 o 10 de 10, sin ningún «inventó»</b></td><td>Puede escalar a más documentos, verificando una muestra (por ejemplo, 1 de cada 10 documentos, 10 celdas cada uno).</td></tr>
+<tr><td><b>7 u 8 de 10</b></td><td>Mejore el libro de campos (rótulos más precisos, unidades explícitas) o la imagen (más luz, más resolución, sin márgenes) y repita.</td></tr>
+<tr><td><b>6 o menos</b></td><td>Ese documento necesita transcripción humana, o la IA solo como primer borrador que alguien corrige entero.</td></tr>
+<tr><td><b>Cualquier «inventó»</b></td><td>Ese tipo de campo se revisa siempre a mano. Un dato inventado con confianza «alta» es peor que una celda vacía.</td></tr>
+</table>
+<p class="hacer"><b>Mire también la confianza:</b> si las celdas que la IA marcó «baja» fueron las que falló, la confianza le dice dónde mirar. Si falló en celdas que marcó «alta», no le crea a la confianza.</p>
+<details><summary>La hoja de verificación, para copiar</summary>
+<pre>| # | Campo | Lo que dice el papel | Lo que dijo la IA | ¿Igual? (✓ / ✗) | Si ✗, ¿qué pasó? | Confianza que dio la IA |
+|---|---|---|---|---|---|---|
+| 1 | | | | | | |
+| 2 | | | | | | |
+| 3 | | | | | | |
+| 4 | | | | | | |
+| 5 | | | | | | |
+| 6 | | | | | | |
+| 7 | | | | | | |
+| 8 | | | | | | |
+| 9 | | | | | | |
+| 10 | | | | | | |
+
+Tasa de acierto = celdas con ✓ ÷ 10 = __</pre>
+<button onclick="copiar(this)">Copiar</button></details>
+<p class="cuando"><b>Para la sección de método:</b> «Los datos se extrajeron con [modelo] y se verificaron a mano N celdas, con una tasa de acierto de X».</p></div>
+
+<div id="e2"><h3>Estación 2 · La interpretación: de las voces a las categorías</h3>
+<p>40 minutos. Una investigadora leyó cientos de llamadas a la línea de emergencias 123 y, desde su experticia cualitativa, creó categorías de repertorios de violencia; después, alguien que programaba codificó miles de llamadas con ellas. Hoy la IA puede hacer la parte de programar. La categoría sigue naciendo del criterio cualitativo.</p></div>
+
+<div class="ficha"><p class="eb">Paso a paso · en Google Colab</p><h2>Su libro de códigos frente al de una experta</h2>
+<p class="cuando"><b>Los datos son simulados:</b> llamadas de «Ciudad del Valle», una ciudad inventada. No son datos reales.</p>
+<div class="acc"><a class="boton" href="https://colab.research.google.com/github/alonsorh-econ/diplomado-ia-investigacion/blob/main/sesion-08/cuadernos/s8_cualitativo.ipynb">Abrir en Colab</a></div>
+<p class="hacer"><b>Colab le va a mostrar «Advertencia: este cuaderno no lo ha creado Google».</b> Haga clic en «Ejecutar de todos modos»: es el cuaderno del curso.</p>
+<ol>
+<li><b>Lea 12 llamadas antes de clasificar.</b> Anote qué formas de violencia aparecen, qué las distingue y cuáles le cuesta clasificar. No mire todavía la muestra de la experta.</li>
+<li><b>Escriba su libro de códigos:</b> para cada categoría, nombre, definición, incluye, excluye y un ejemplo; agregue una categoría OTRO y una regla de desempate. No borre la línea <code>%%writefile</code>.</li>
+<li><b>La IA codifica las 80 llamadas con su libro</b>, de 10 en 10: unos 3 minutos. Mientras corre, lea las justificaciones.</li>
+<li><b>Arme la tabla de equivalencias:</b> a qué código de la experta corresponde cada categoría suya.</li>
+<li><b>Mida el acuerdo y el kappa con la experta</b> y lea los desacuerdos: ¿tiene razón su IA, la experta, o a su libro le falta una regla?</li>
+<li><b>Pídale a la IA los cinco casos que no encajan</b> y una regla para cada uno. Decida usted si la regla tiene sentido.</li>
+</ol>
+<p class="hacer"><b>Para conservar su trabajo:</b> Archivo → Guardar una copia en Drive. Descargue <code>mi_libro_de_codigos.md</code> y <code>codificadas_por_mi.csv</code> del panel de archivos de Colab (la carpeta, a la izquierda) y guárdelos en <code>05_resultados</code>.</p></div>
+
+<div class="ficha"><p class="eb">Plan B · Gemini en el navegador</p><h2>Si su Colab no tiene la IA, o salen muchos ERROR</h2>
+<ol>
+<li>Descargue <a href="datos/llamadas_estudiantes.csv" download>llamadas_estudiantes.csv</a>.</li>
+<li>En gemini.google.com, suba el archivo y pegue este prompt, seguido de su libro de códigos.</li>
+<li>Copie la respuesta, péguela en el cuaderno, en la celda del plan B, entre las comillas triples, y córrala. Siga con la tabla de equivalencias.</li>
+</ol>
+<pre>Eres un asistente de investigación cualitativa. Clasifica cada llamada del archivo adjunto usando SOLO el libro de códigos que te pego abajo. Devuélveme una línea por llamada, sin encabezados ni comentarios, con este formato exacto:
+id_llamada | CATEGORIA | frase de la llamada que justifica la categoría | encaja: si/no
+Usa el nombre de la categoría tal como aparece en el libro. Escribe «encaja: no» si la llamada no cabe bien en ninguna categoría o si cabe en dos. Son 80 llamadas: no te saltes ninguna.
+
+LIBRO DE CÓDIGOS:</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="mut">Plan C, solo para ver cómo funciona el cálculo: en la celda del plan B ponga <code>USAR_EJEMPLO = True</code> y use la codificación de ejemplo de una IA que trabajó con el libro de la experta.</p></div>
+
+<div class="ficha"><p class="eb">Después del ejemplo</p><h2>Con sus propios textos</h2>
+<p>El mismo método sirve para <b>entrevistas, respuestas abiertas, notas de campo o los estudios de su revisión</b>. Lea una muestra antes de clasificar, escriba su libro de códigos y codifique a mano unos cuantos textos: esa es su muestra experta. Después use el prompt del plan B cambiando «llamada» por lo que usted tenga (entrevista, respuesta, nota, estudio) y el total por el suyo, y compare a la IA con su muestra.</p>
+<p class="hacer"><b>Con cuenta gratis:</b> quite nombres y todo lo que identifique a las personas antes de subir un texto.</p></div>
+
+<div class="ficha"><p class="eb">Para ubicarse</p><h2>Lo cualitativo impulsado por IA</h2>
+<table>
+<tr><th>Uso</th><th>Qué hace la IA y qué sigue siendo suyo</th></tr>
+<tr><td><b>Del experto a la escala</b></td><td>Usted crea las categorías leyendo; la IA las aplica a muchos textos con la misma regla y una frase que justifica cada código. Es lo que hizo hoy.</td></tr>
+<tr><td><b>Análisis de discurso</b></td><td>La IA marca cómo se nombra a los actores, qué marcos y metáforas aparecen y quién habla de qué. Qué significa eso lo interpreta usted.</td></tr>
+<tr><td><b>Los casos que no encajan</b></td><td>La IA señala los textos que no caben en su libro de códigos; con ellos usted afina las reglas. Es el paso de refinamiento de Nelson.</td></tr>
+<tr><td><b>Saturación</b></td><td>Codifique por tandas y pregúntele a la IA si la tanda nueva trae algo que su libro no tiene. Cuando ya no aparece nada nuevo, se acerca a la saturación; la decisión de parar es suya.</td></tr>
+<tr><td><b>Lo visual</b></td><td>Fotos, dibujos, carteles o capturas de pantalla se codifican con un libro de códigos, igual que el texto. Verifique una muestra a mano, como hoy.</td></tr>
+<tr><td><b>Pilotear la guía</b></td><td>Antes de salir a campo, la IA puede hacer de entrevistado para encontrar preguntas confusas o que inducen la respuesta. Solo para ensayar la guía: nunca como dato.</td></tr>
+</table>
+<p class="mut">El marco: Nelson lo llama <i>teoría fundamentada computacional</i>: el computador detecta y confirma patrones a escala, y la lectura experta los refina. Nelson, L. K. (2020). Computational Grounded Theory: A Methodological Framework. <i>Sociological Methods &amp; Research</i>, 49(1). <a href="https://doi.org/10.1177/0049124117729703">https://doi.org/10.1177/0049124117729703</a></p></div>
+
+<div id="e3"><h3>Estación 3 · El procesamiento: el código con criterio</h3>
+<p>30 minutos. Las llamadas ya codificadas se vuelven un indicador: la tasa de llamadas por cada 10.000 habitantes en cada barrio. Un agente de IA hace el cruce con la tabla de población en segundos. Su trabajo es saber si el resultado es confiable.</p></div>
+
+<div class="ficha"><p class="eb">Paso a paso · en Google Colab o en Antigravity</p><h2>Del dato codificado a la tasa</h2>
+<p class="cuando"><b>Los datos son simulados</b>, de «Ciudad del Valle», una ciudad inventada, y traen problemas puestos a propósito. No le decimos cuáles: para encontrarlos está la lista de chequeo.</p>
+<div class="acc"><a class="boton" href="https://colab.research.google.com/github/alonsorh-econ/diplomado-ia-investigacion/blob/main/sesion-08/cuadernos/s8_procesamiento.ipynb">Abrir en Colab</a> <a href="datos/llamadas_codificadas.csv" download>Descargar llamadas_codificadas.csv</a> <a href="datos/poblacion_barrios.csv" download>Descargar poblacion_barrios.csv</a></div>
+<ol>
+<li>Corra la primera celda (si Colab le advierte que el cuaderno no lo creó Google, «Ejecutar de todos modos»): las dos tablas quedan cargadas como <code>llamadas</code> y <code>poblacion</code>.</li>
+<li>Abra el panel de Gemini en Colab y pegue P1, P2 y P3, <b>uno por uno, en orden</b>.</li>
+<li><b>Lea el código antes de correrlo.</b> Si no entiende una línea, pregúntele a Gemini qué hace antes de aceptarla.</li>
+<li>Después de cada prompt, compare lo que dijo el agente con la lista de chequeo.</li>
+<li>Llene la hoja de auditoría y guárdela en <code>04_metodo</code>.</li>
+</ol>
+<p class="hacer"><b>En Antigravity:</b> descargue los dos CSV, póngalos en la carpeta de su proyecto y use los mismos prompts. <b>Si Gemini no aparece en su Colab:</b> suba los dos CSV a gemini.google.com con los mismos prompts.</p></div>
+
+<div class="ficha" id="chequeo"><p class="eb">Lista de chequeo · antes de creerle a un cruce de tablas</p><h2>Las siete preguntas de quien sabe procesar datos</h2>
+<p>El agente hace el cruce en segundos; estas preguntas le tocan a usted. Respóndalas con evidencia: un número, un conteo, una tabla. «Se ve bien» no es una respuesta.</p>
+<table>
+<tr><th>Pregunta</th><th>Cómo se revisa</th></tr>
+<tr><td><b>1 · ¿Cuál es la llave del cruce y es única en las dos tablas?</b></td><td>Diga por qué columna se unen las tablas. Cuente los valores repetidos de esa columna en cada tabla, después de quitar espacios y pasar a minúsculas: un nombre con un espacio al final se ve igual en pantalla, pero para el computador es otro.</td></tr>
+<tr><td><b>2 · ¿Cuántas filas había antes y cuántas quedaron después?</b></td><td>Anote las filas de cada tabla antes del cruce y las del resultado. Si el número sube, algo se duplicó; si baja, algo se perdió.</td></tr>
+<tr><td><b>3 · ¿Qué se perdió y por qué?</b></td><td>Liste lo que está en una tabla y no en la otra, en las dos direcciones. Un cruce interno (<i>inner join</i>) bota esas filas sin avisar.</td></tr>
+<tr><td><b>4 · ¿Están las unidades y los rangos en lo esperable?</b></td><td>Mire el mínimo y el máximo de cada columna numérica. Un barrio no tiene 4 habitantes, y una tasa por 10.000 habitantes no puede pasar de 10.000.</td></tr>
+<tr><td><b>5 · ¿El denominador es el correcto?</b></td><td>Para cada barrio, ¿la población que se usó es la de ese barrio, en personas, y una sola vez? Pregúntese también si la población residente es la adecuada para todos los barrios (piense en un barrio comercial, donde casi nadie vive pero mucha gente pasa).</td></tr>
+<tr><td><b>6 · ¿Cuadra con un cálculo a mano en dos casos?</b></td><td>Escoja dos barrios, cuente sus llamadas, divida por su población y multiplique por 10.000. Compare con la tabla del agente.</td></tr>
+<tr><td><b>7 · ¿Quedó registrado qué se pidió, qué hizo el agente y qué se revisó?</b></td><td>Llene la hoja de auditoría. Si mañana otra persona repite el análisis, debe llegar al mismo número sin preguntarle a usted.</td></tr>
+</table>
+<p class="hacer"><b>La fórmula:</b> tasa por cada 10.000 habitantes = llamadas del barrio ÷ población del barrio × 10.000.</p></div>
+
+<div class="ficha" id="p"><p class="eb">Los prompts P · en el panel de Gemini de Colab o en Antigravity</p><h2>Pedir, chequear, corregir</h2>
+<p class="cuando"><b>Cómo:</b> en el mismo chat, uno por uno y en orden. Lea el código antes de aceptarlo. Los prompts le hablan a la IA de tú; usted decide si le cree.</p>
+<p class="cuando"><b>P1 · Pide el análisis</b></p>
+<pre>Tengo dos tablas. `llamadas` (archivo llamadas_codificadas.csv) trae 300 llamadas a la línea 123 de Ciudad del Valle en octubre de 2026: una fila por llamada, con fecha, hora, barrio y el repertorio de violencia que le asignó una IA. `poblacion` (archivo poblacion_barrios.csv) trae la población de cada barrio. Calcula la tasa de llamadas por cada 10.000 habitantes en cada barrio, en total y por repertorio. Muéstrame la tabla ordenada de mayor a menor y una gráfica de barras con la tasa total. Escribe el código en Python con pandas y córrelo.</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Antes de seguir:</b> mire la tabla. ¿Le creería? Anote en su hoja de auditoría qué le llamó la atención.</p>
+<p class="cuando"><b>P2 · Aplica la lista de chequeo</b></p>
+<pre>Antes de que yo use ese resultado, revisa tu propio trabajo con esta lista de chequeo. Responde cada pregunta con evidencia que salga del código (un número, un conteo, una tabla), no con una opinión, y muéstrame el código de cada respuesta.
+1. ¿Cuál es la llave del cruce y es única en las dos tablas? Cuenta los repetidos después de quitar espacios y pasar a minúsculas.
+2. ¿Cuántas filas había antes del cruce y cuántas quedaron después?
+3. ¿Qué se perdió en el cruce y por qué? Lista lo que está en una tabla y no en la otra, en las dos direcciones.
+4. ¿Están las unidades y los rangos en lo esperable? Muestra el mínimo y el máximo de la población y de la tasa.
+5. ¿El denominador es el correcto para cada barrio?
+6. Escoge dos barrios y haz el cálculo a mano, paso a paso. ¿Cuadra con tu tabla?
+7. Resume qué te pedí, qué hiciste y qué revisaste.
+Al final, dime qué problemas encontraste en los datos o en tu cruce. No corrijas nada todavía.</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Antes de seguir:</b> ¿encontró el agente los problemas, o tuvo que señalárselos usted? Las dos cosas pasan; anótelo.</p>
+<p class="cuando"><b>P3 · Corrige y registra</b></p>
+<pre>Ahora corrige los problemas que encontraste. Para cada uno, explícame la decisión que tomaste y por qué. Si un dato falta y no se puede deducir con seguridad, no lo inventes: déjalo marcado como pendiente y dime a quién habría que pedírselo. Vuelve a calcular la tabla de tasas y muéstrame, lado a lado, para cada barrio: llamadas, población antes y después de corregir, y tasa antes y después. Al final, escribe un registro de auditoría con este formato: fecha; qué se pidió; qué hizo el agente; qué se revisó (las 7 preguntas, con su respuesta); qué se corrigió; decisión final; qué queda pendiente.</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Para cerrar:</b> copie el registro en su hoja de auditoría y complete lo que el agente no puede saber (por ejemplo, de dónde saldría el dato que falta).</p></div>
+
+<div class="ficha" id="auditoria"><p class="eb">Hoja de auditoría · va a 04_metodo</p><h2>Lo que se pidió, lo que hizo el agente y lo que se revisó</h2>
+<p class="cuando"><b>Cómo:</b> cópiela en un archivo de su proyecto y llénela con evidencia: números, no impresiones.</p>
+<pre># Registro de auditoría · Tasa de llamadas al 123 por barrio
+
+*Una hoja por análisis. Si otra persona lee solo esta hoja, debe poder repetir lo que se hizo y llegar al mismo número.*
+
+**Fecha:** ____ · **Quién revisa:** ____ · **Herramienta y modelo** (Colab con Gemini, Antigravity…): ____
+
+## 1. Lo que se pidió
+
+- Pregunta de investigación: ____
+- Archivos de entrada (nombre y número de filas): ____
+- Prompt usado (P1, copiado tal cual o resumido): ____
+
+## 2. Lo que hizo el agente
+
+- Pasos que siguió (lectura, limpieza, cruce, cálculo, gráfica): ____
+- Tipo de cruce que usó (interno, izquierdo, externo) y por qué columna: ____
+- Resultado que entregó (los tres barrios con la tasa más alta): ____
+
+## 3. Lo que se revisó
+
+| # | Pregunta de la lista | Respuesta, con su evidencia | ¿Encontró un problema? |
+|---|---|---|---|
+| 1 | Llave única en las dos tablas | | |
+| 2 | Filas antes y después | | |
+| 3 | Qué se perdió y por qué | | |
+| 4 | Unidades y rangos | | |
+| 5 | Denominador correcto | | |
+| 6 | Cálculo a mano en dos casos | | |
+| 7 | Registro completo | | |
+
+## 4. Lo que se corrigió
+
+| Problema | Corrección | Quién la decidió (usted o el agente) | Efecto en la tasa |
+|---|---|---|---|
+| | | | |
+| | | | |
+| | | | |
+
+## 5. La decisión
+
+- ¿El resultado corregido se puede usar? ¿Para qué sí y para qué no? ____
+- Lo que queda pendiente, y a quién hay que pedírselo: ____
+- Lo que el agente hizo bien sin que se lo pidieran: ____
+- Lo que el agente no vio hasta que usted se lo preguntó: ____</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Dónde va:</b> en <code>04_metodo</code>. Es la parte de su método que dice cómo se procesaron los datos.</p></div>
+
+<div class="ficha enc"><p class="eb">Por qué existe la lista</p><h2>La misma petición, dos agentes: uno cazó los tres errores y el otro cayó en los tres.</h2>
+<p class="preg">Usted no sabe cuál le tocó: por eso existe la lista.</p></div>
+
+<div id="e4"><h3>Estación 4 · El sistema completo</h3>
+<p>10 minutos. La fuente, la interpretación y el procesamiento son estaciones de un mismo sistema. Ahora, el suyo.</p></div>
+
+<div class="ficha"><p class="eb">Para su ESTADO.md</p><h2>El mapa de su sistema</h2>
+<ol class="preg">
+<li>¿Qué estaciones tiene su investigación, de la fuente al resultado?</li>
+<li>¿Qué estación podría hacer un agente?</li>
+<li>¿Qué decisión no le delega a nadie?</li>
+</ol>
+<pre>## El mapa de mi sistema
+1. Mis estaciones, de la fuente al resultado: __
+2. La estación que podría hacer un agente: __
+3. La decisión que no le delego a nadie: __</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Es el esqueleto de su trabajo final.</b> Escríbalo en su <code>ESTADO.md</code>.</p></div>
+
+<div class="ficha" id="bitacora"><p class="eb">Para su bitácora</p><h2>Una línea por estación</h2>
+<p class="cuando"><b>Estación 1 · La fuente</b></p>
+<pre>Estación 1 · Documento __ · campos __ · acierto __ de 10 · lo que la IA no leyó __</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="cuando"><b>Estación 2 · La interpretación</b></p>
+<pre>Estación 2 · Mis categorías: __ · Acuerdo con la experta: __ % (kappa __) · Lo que mi libro no distinguía: __ · La regla que le agregaría: __ · Lo que hizo la IA y lo que puse yo: __</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="cuando"><b>Estación 3 · El procesamiento</b></p>
+<pre>Estación 3 · Errores encontrados __ · cuál cazó el agente solo __ · cuál tuve que señalarle __ · cómo cambió la tasa __</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="cuando"><b>Estación 4 · El sistema completo</b></p>
+<pre>Estación 4 · Mis estaciones __ · lo que delegaría __ · lo que nunca __</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="hacer"><b>Dónde va:</b> en su <code>BITACORA.md</code>.</p></div>
+
+<div class="ficha kit"><p class="eb">La regla de hoy</p><h2>Un sistema, no una colección. Cada estación deja una pieza; el criterio las conecta.</h2></div>
+
+<p><a href="../sesion-07/prompts.html">← Sesión 7</a> · <a href="../">Volver al módulo</a></p>
+<p class="eb">Alonso Ramírez Hernández · CENES–UPTC · 14 de noviembre de 2026</p>
+</div>
+<script>
+function copiar(b){const t=b.previousElementSibling.innerText;
+  navigator.clipboard.writeText(t).then(()=>{b.textContent="Copiado";setTimeout(()=>b.textContent="Copiar",1500)})
+  .catch(()=>{const r=document.createRange();r.selectNodeContents(b.previousElementSibling);const s=getSelection();s.removeAllRanges();s.addRange(r)})}
+</script></body></html>
