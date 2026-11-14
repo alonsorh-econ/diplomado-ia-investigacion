@@ -1,0 +1,28 @@
+{
+  "nombre": null,
+  "distintivo": {
+    "valor": "HJCR",
+    "confianza": "alta"
+  },
+  "frecuencia": {
+    "valor": "590 Kcs/S",
+    "confianza": "alta"
+  },
+  "potencia": {
+    "valor": "10 kws",
+    "confianza": "alta"
+  },
+  "municipio": null,
+  "antena_tipo": {
+    "valor": "Torre-Paraguas",
+    "confianza": "alta"
+  },
+  "antena_altura": {
+    "valor": "76.77",
+    "confianza": "alta"
+  },
+  "folio_a_mano": {
+    "valor": "101",
+    "confianza": "alta"
+  }
+}

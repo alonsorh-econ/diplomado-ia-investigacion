@@ -1,0 +1,34 @@
+{
+  "nombre": {
+    "valor": "RADIO SUTATENZA",
+    "confianza": "alta"
+  },
+  "distintivo": {
+    "valor": "HJCR",
+    "confianza": "alta"
+  },
+  "frecuencia": {
+    "valor": "590 KHz.",
+    "confianza": "alta"
+  },
+  "potencia": {
+    "valor": "100 kW.",
+    "confianza": "alta"
+  },
+  "municipio": {
+    "valor": "Medellín",
+    "confianza": "alta"
+  },
+  "antena_tipo": {
+    "valor": "Vertical tipo triangu- lar",
+    "confianza": "alta"
+  },
+  "antena_altura": {
+    "valor": "210 mts.",
+    "confianza": "alta"
+  },
+  "folio_a_mano": {
+    "valor": "270/374",
+    "confianza": "alta"
+  }
+}
