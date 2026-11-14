@@ -197,6 +197,25 @@ Tasa de acierto = celdas con ✓ ÷ 10 = __</pre>
 <button onclick="copiar(this)">Copiar</button></details>
 <p class="cuando"><b>Para la sección de método:</b> «Los datos se extrajeron con [modelo] y se verificaron a mano N celdas, con una tasa de acierto de X».</p></div>
 
+<div class="ficha" id="escala"><p class="eb">Para escalar · de una ficha a cien</p><h2>No tiene que programar: tiene que saber pedirlo</h2>
+<p>Una ficha se lee en el chat; cien, con código. El código lo escribe la IA si usted se lo pide bien. Este es el prompt, para Antigravity, el panel de Gemini de Colab o cualquier asistente que escriba código:</p>
+<pre>Tengo una carpeta con imágenes escaneadas de fichas técnicas. Escribe un programa en Python que:
+1. Recorra todas las imágenes de la carpeta.
+2. A cada imagen le aplique mi ficha de campos (te la pego abajo) usando la API de Gemini. La llave se lee de un secreto llamado GOOGLE_API_KEY y nunca se escribe en el código.
+3. Guarde un archivo JSON por imagen y, si se interrumpe, siga donde iba sin repetir las que ya hizo.
+4. Respete el límite de la cuenta gratis: una pausa entre consultas y reintentos si la API dice que espere.
+5. Arme una tabla CSV con todos los campos de todas las fichas.
+6. Saque una muestra al azar de 10 celdas para que yo las revise a mano contra las imágenes.
+7. Escriba un registro de auditoría con la fecha, el modelo, el número de documentos y los errores.
+Antes de correrlo, explícame el código paso a paso.
+
+MI FICHA DE CAMPOS:
+[pegue aquí su ficha de campos]</pre>
+<button onclick="copiar(this)">Copiar</button>
+<div class="acc"><a class="boton" href="https://colab.research.google.com/github/alonsorh-econ/diplomado-ia-investigacion/blob/main/sesion-08/cuadernos/s8_ocr_escala.ipynb">Abrir el ejemplo en Colab</a></div>
+<p class="cuando"><b>El ejemplo:</b> 8 fichas simuladas, con la verdad para medir el acierto, y 2 fichas reales de Radio Sutatenza: la misma emisora en dos momentos, que se vuelven dos filas de un panel. Necesita una llave gratis de la API de Gemini (aistudio.google.com/apikey), guardada en los Secretos de Colab (el ícono de la llave) con el nombre <code>GOOGLE_API_KEY</code>. Sin llave, ponga <code>USAR_EJEMPLO = True</code>.</p>
+<p class="cuando"><b>El criterio sigue siendo suyo:</b> la ficha de campos, ILEGIBLE antes que adivinar, la muestra de 10 celdas y el registro de auditoría. La IA solo escribe el código que los aplica a cien documentos.</p></div>
+
 <div id="e2"><h3>Estación 2 · La interpretación: de las voces a las categorías</h3>
 <p>40 minutos. Una investigadora leyó cientos de llamadas a la línea de emergencias 123 y, desde su experticia cualitativa, creó categorías de repertorios de violencia; después, alguien que programaba codificó miles de llamadas con ellas. Hoy la IA puede hacer la parte de programar. La categoría sigue naciendo del criterio cualitativo.</p></div>
 
