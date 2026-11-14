@@ -1,0 +1,61 @@
+id_llamada,resumen,repertorio,ambigua
+L001,Tendero reporta que un vehículo lleva dos días parqueado frente a su local y no deja descargar mercancía. Solicita que la Policía haga el llamado de atención.,convivencia,0
+L005,Señora reporta que su esposo le rompe sus cosas y la empuja en la habitación que arriendan; hay dos menores presentes. Solicita patrulla con urgencia.,vif_pareja,0
+L008,Señora reporta que un hombre en bicicleta le arrebató la tableta a la salida del banco; la amenazó para que no gritara. Huyó en la bicicleta hacia el parque. Se informa a las patrullas del sector.,hurto_violento,0
+L018,Transeúnte informa que hay una pelea entre dos grupos de jóvenes frente a un estadero; la gente se está aglomerando alrededor. Varias personas estarían en estado de embriaguez. Solicita apoyo de varias unidades.,rina,0
+L019,Señora manifiesta que su novio la amenaza y la empuja en la casa que comparten; ella tiene medida de protección vigente. Solicita acompañamiento policial.,vif_pareja,0
+L023,"Adulto mayor reporta un perro de raza grande suelto en el andén del colegio sin traílla; no ha mordido a nadie, pero los niños tienen miedo. Solicita que se verifique la situación.",convivencia,0
+L025,Vigilante de la cuadra reporta riña entre varios jóvenes debajo del puente peatonal; ya llevan varios minutos. Solicita presencia policial.,rina,0
+L034,Ciudadana manifiesta que su novio la jaloneó y la golpeó en la habitación que arriendan. Solicita patrulla con urgencia.,vif_pareja,0
+L037,Ciudadana reporta que su compañero permanente le lanzó objetos y le rompió sus pertenencias en la casa que comparten; hay un menor presente. Solicita patrulla con urgencia.,vif_pareja,0
+L039,Adulta mayor informa que su hijo la insulta y rompe objetos de la casa. Teme por su integridad. Pide orientación para denunciar.,vif_pareja,0
+L045,"Dueña de una panadería informa que un joven entró al local, la intimidó diciendo que iba armado y se llevó la plata de la caja registradora. Vestía camiseta blanca y gorra. Pide que revisen las cámaras del sector.",hurto_violento,0
+L049,Ciudadana avisa que dos vendedores ambulantes se están agrediendo a golpes en plena vía; una persona quedó en el suelo. Solicita presencia policial con urgencia.,rina,0
+L055,Rectora reporta que el papá de un estudiante la intimidó a la salida del colegio y le dijo que «se atuviera a las consecuencias». No hubo agresión física. Pide acompañamiento policial.,amenaza,0
+L058,"Administradora de una droguería informa que un hombre entró al local, la intimidó diciendo que iba armado y se llevó el dinero de la caja. Las cámaras del local grabaron el hecho. Solicita presencia policial.",hurto_violento,0
+L060,Usuaria manifiesta que su esposo la insulta y la golpea en la casa; hay dos menores presentes. Solicita presencia policial.,vif_pareja,0
+L065,Adulto mayor reporta que unos jóvenes se paran todas las noches frente a su casa y le hacen gestos intimidantes cuando sale; no lo han agredido. Solicita que una patrulla pase por el sector.,amenaza,0
+L066,Adulto mayor reporta música a alto volumen en el salón comunal desde el mediodía; varios vecinos están molestos. Pide que se aplique el Código de Convivencia.,convivencia,0
+L083,Mesera de un bar reporta que se formó una pelea entre dos motociclistas en plena vía; están bloqueando la vía. Varias personas estarían en estado de embriaguez. Solicita presencia policial.,rina,0
+L098,Ciudadano reporta que dos hombres discuten por un parqueadero frente a la panadería; ya hubo empujones y puños. Pide patrulla.,rina,1
+L102,Vecina reporta música a alto volumen en una casa del frente desde ayer en la tarde; varios vecinos están molestos. Solicita que se verifique la situación.,convivencia,0
+L103,Mujer adulta reporta que un grupo de hombres en la esquina de la cancha le grita comentarios sobre su cuerpo cada vez que pasa; hoy uno de ellos la siguió media cuadra. Solicita acompañamiento.,acoso_mujer,0
+L104,Joven reporta que un sujeto le exigió el celular diciéndole que iba armado; ella salió corriendo y no le quitaron nada. Está en una droguería. Solicita presencia policial.,hurto_violento,1
+L106,Ciudadano reporta que un hombre en estado de embriaguez grita en el parque que le va a hacer daño al primero que se le acerque; no ha agredido a nadie. Solicita patrulla.,amenaza,1
+L111,Adulto mayor reporta una fiesta con mucha gente en una casa del frente; hay ruido y personas en la portería. No se reportan agresiones. Pide que se aplique el Código de Convivencia.,convivencia,0
+L115,"Vecino reporta un perro de raza grande suelto en el andén del colegio sin traílla; no ha mordido a nadie, pero los niños tienen miedo. Solicita que se verifique la situación.",convivencia,0
+L121,Ciudadana llama y dice que su compañero permanente le gritó y la golpeó dentro de la vivienda. Solicita acompañamiento policial.,vif_pareja,0
+L127,Vecina reporta música a alto volumen en un carro parqueado con el equipo de sonido encendido desde hace varias horas; es la tercera vez esta semana. Pide apoyo para que bajen el volumen.,convivencia,0
+L128,Mujer adulta reporta que un hombre la viene siguiendo desde el paradero y le dice comentarios ofensivos; se acercó a un vigilante. Solicita presencia policial.,acoso_mujer,0
+L136,"Señora informa que su exesposo llegó al apartamento en estado de embriaguez, le rompió el celular y la amenazó. Él sigue en el lugar. Pide orientación para denunciar.",vif_pareja,0
+L139,Vecino reporta un perro que ladra sin parar en el patio de una casa; cree que lo dejaron solo desde esta mañana. Pide que se informe a la unidad de protección animal.,convivencia,0
+L140,Vigilante de la cuadra informa que hay una pelea entre clientes de un estadero en el paradero de buses; la gente se está aglomerando alrededor. Pide patrulla y ambulancia por precaución.,rina,0
+L145,Vecino reporta que después de un partido en el polideportivo se armó una pelea entre jugadores de los dos equipos; hay empujones y golpes. Pide patrulla y ambulancia por precaución.,rina,0
+L148,Estudiante reporta que un hombre le quitó la gorra en la calle para obligarla a hablarle y luego la siguió dos cuadras. Le devolvió la gorra cuando ella gritó. Solicita presencia policial.,acoso_mujer,1
+L149,Vecino reporta que en la casa de al lado hay una discusión fuerte con gritos; no sabe quiénes son ni si hay agresión. Pide que pase una patrulla a verificar.,convivencia,1
+L152,Vigilante de la cuadra reporta que se formó una pelea entre dos grupos de jóvenes en el parque principal del barrio; dos de ellos parecen lesionados. No se observan armas. Pide que la Policía disperse a las personas.,rina,0
+L159,Ciudadana reporta que en el lote de al lado queman basura y el humo entra a las casas. Solicita visita del cuadrante.,convivencia,0
+L160,Docente reporta que desde hace tres días recibe mensajes de un número desconocido en los que le dicen que saben dónde vive y que se cuide. Dice que ya no se siente segura al salir. Solicita presencia policial.,amenaza,0
+L167,"Transeúnte reporta que un hombre y una mujer, al parecer pareja, discuten a gritos en el parque; él la empujó, otros hombres intervinieron y se formó una pelea. Solicita presencia policial.",vif_pareja,1
+L169,"Dueña de una panadería informa que un hombre entró al local, la intimidó diciendo que iba armado y se llevó el producido del día. Huyó corriendo hacia la avenida. Pide apoyo para ubicar a los responsables.",hurto_violento,0
+L172,"Señor manifiesta que su hijo, en aparente estado de embriaguez, lo empujó y lo insultó en la cocina de la casa. El agresor sigue en el lugar. Pide orientación para denunciar.",vif_pareja,0
+L180,Joven reporta que dos jóvenes a pie le arrebataron la billetera en la entrada de la galería. Huyeron corriendo hacia el parque. Pide apoyo para ubicar a los responsables.,hurto_violento,0
+L188,Trabajadora de un almacén reporta que un grupo de hombres en la esquina de la cancha le grita comentarios sobre su cuerpo cada vez que pasa; hoy uno de ellos la siguió media cuadra. Pide que identifiquen al sujeto.,acoso_mujer,0
+L206,"Conductora de bus reporta que, tras un choque menor en la calle principal, los ocupantes de los dos vehículos se bajaron y se están agrediendo a golpes. No se ven heridos de gravedad. Pide patrulla y ambulancia por precaución.",rina,0
+L212,Ciudadana reporta que un hombre la viene siguiendo desde la salida de la universidad y le dice comentarios ofensivos; se metió a un local y llama desde allí. Pide que una patrulla llegue al sitio.,acoso_mujer,0
+L217,Vecino del frente reporta que se escuchan gritos de auxilio de una mujer en la casa del fondo. Dice que el hombre llega en estado de embriaguez y agrede a su esposa. Solicita presencia policial.,vif_pareja,0
+L230,Entrenador de un equipo reporta que después de un partido en la cancha sintética se armó una pelea entre jugadores de los dos equipos; hay niños cerca. Solicita apoyo de varias unidades.,rina,0
+L234,Mujer joven informa que su esposo la empujó y le rompió sus pertenencias en el apartamento; ella tiene medida de protección vigente. Solicita acompañamiento policial.,vif_pareja,0
+L242,"Ciudadano reporta que, tras un choque entre una moto y un carro en la glorieta, los ocupantes de los dos vehículos se bajaron y se están agrediendo a golpes. No se ven heridos de gravedad. Pide que la Policía disperse a las personas.",rina,0
+L246,"Vecina reporta que en una casa de la cuadra crían gallinas y cerdos, y el olor afecta a los vecinos. Solicita visita del cuadrante.",convivencia,0
+L257,"Ciudadana reporta que, al salir del cajero, un sujeto la empujó y le quitó el sobre con la plata del arriendo. Huyó corriendo hacia la avenida. Se informa a las patrullas del sector.",hurto_violento,0
+L258,Vecina reporta que un vecino dejó escombros en el andén y le bloquea la entrada del garaje. Ya le pidió que los retirara y no lo ha hecho. Pide que se aplique el Código de Convivencia.,convivencia,0
+L259,Administradora de un restaurante reporta que un cliente al que no le quisieron vender licor volvió al negocio y le gritó que la iba a estar esperando a la salida. No hubo agresión. Pide orientación para denunciar.,amenaza,0
+L261,Señora reporta que un exsocio la amenazó con «darle una lección» por una deuda. No la ha agredido. Pide acompañamiento policial.,amenaza,0
+L264,Administradora del conjunto reporta música a alto volumen en el apartamento de arriba desde las nueve de la noche; ya habló con ellos y no bajan el volumen. Pide apoyo para que bajen el volumen.,convivencia,0
+L266,Residente reporta música a alto volumen en una vivienda de la cuadra desde las nueve de la noche; es la tercera vez esta semana. Pide que se aplique el Código de Convivencia.,convivencia,0
+L271,Mujer reporta que la exnovia de su compañero le escribe mensajes en los que la amenaza si no se aleja de él. No se han visto en persona. Pide orientación para denunciar.,amenaza,1
+L286,Vecino informa que dos grupos de jóvenes se están enfrentando a golpes y se lanzan piedras en la parte alta del barrio. Llevan unos diez minutos. Solicita apoyo de varias unidades.,rina,0
+L289,Ciudadano reporta que dos sujetos en motocicleta le arrebataron la tableta a la salida del cajero; no tiene lesiones. La moto no tenía placa. Solicita presencia policial.,hurto_violento,0
+L290,Señora reporta que su hijo se llevó el televisor de la casa y la empujó cuando ella trató de impedirlo. Dice que lo va a vender. Solicita presencia policial.,vif_pareja,1
+L294,Tendero reporta que un vehículo lleva dos días parqueado frente a su local y no deja descargar mercancía. Pide que una patrulla pase a mediar.,convivencia,0
