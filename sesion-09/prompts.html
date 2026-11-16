@@ -1,0 +1,107 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Libro de prompts · Sesión 9</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F7F9;--card:#fff;--ink:#141821;--text:#4B5563;--muted:#78818F;--line:#E4E8EC;--blue:#1B44CC;--blue-t:#EEF2FE;--red:#C81E4A;--code:#141821}
+@media (prefers-color-scheme:dark){:root{--bg:#0F1218;--card:#171B23;--ink:#EEF1F5;--text:#C3C9D2;--muted:#8E97A4;--line:#272D37;--blue:#8AA2FF;--blue-t:#1B2442;--red:#FF7896;--code:#0B0E13}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 Inter,Arial,sans-serif;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+.w{max-width:780px;margin:0 auto;padding-block:36px 64px;display:flex;flex-direction:column;gap:28px}
+a{color:var(--blue)}h1,h2,h3{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);margin:0;text-wrap:balance}
+h1{font-size:clamp(28px,6vw,38px);font-weight:800;letter-spacing:-.02em;line-height:1.1}h2{font-size:21px;font-weight:700}h3{font-size:24px;font-weight:800;margin-top:10px}
+.eb{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.ficha{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.ficha.kit{border:2px solid var(--blue)}.ficha.enc{border:2px solid var(--blue);background:var(--blue-t)}.ficha.envivo{border:2px solid var(--red)}
+.cuando{font-size:15px}.cuando b{color:var(--ink)}
+pre{margin:0;background:var(--code);color:#E8ECF2;border-radius:10px;padding:14px 16px;font:400 13.5px/1.55 "IBM Plex Mono",monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+button{align-self:flex-start;font:600 13px Inter,sans-serif;border:1.5px solid var(--blue);color:var(--blue);background:transparent;border-radius:8px;padding:6px 12px;cursor:pointer}
+.hacer{background:var(--blue-t);border-radius:10px;padding:12px 14px;font-size:15px;color:var(--ink)}.hacer b{color:var(--blue)}
+.boton{align-self:flex-start;display:inline-block;background:var(--blue);color:#fff;text-decoration:none;font:600 15px Inter,sans-serif;border-radius:10px;padding:10px 16px}
+.vivo{display:inline-block;margin-left:6px;background:var(--red);color:#fff;font:600 11px "IBM Plex Mono",monospace;letter-spacing:.1em;border-radius:6px;padding:2px 8px}
+@media (prefers-color-scheme:dark){.boton,.vivo{color:#0F1218}}
+ol,ul{margin:0;padding-left:22px}li{margin:4px 0}
+code{font:400 14px "IBM Plex Mono",monospace;color:var(--ink);overflow-wrap:anywhere}
+.preg{font-size:17px;color:var(--ink)}
+.acc{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;vertical-align:top;padding:8px 6px;border-top:1px solid var(--line)}
+th{color:var(--ink);font-weight:600;border-top:0}td b{color:var(--ink)}
+.mut{color:var(--muted);font-size:14px}
+details{border-top:1px solid var(--line);padding-top:10px}
+summary{cursor:pointer;font-weight:600;color:var(--blue)}
+details p{margin:8px 0 0}
+details pre,details ul,details button{margin-top:10px}
+</style></head><body><div class="w">
+<div><p class="eb">Diplomado en IA para la Investigación · Módulo 3 · Libro de prompts · lunes 16 de noviembre de 2026</p>
+<h1>Sesión 9 · Escribir con IA sin que escriba por usted</h1>
+<p>De los resultados a la figura y al texto, desde su sistema. La IA redacta con lo que está en sus carpetas; la voz, las afirmaciones y la firma son suyas.</p>
+<p><a href="../">← Volver al módulo</a> · <a href="#conceptos">Los seis conceptos</a> · <a href="#a1">1 · Puesta al día</a> · <a href="#a2">2 · Su figura</a> · <a href="#a3">3 · Su párrafo</a> · <a href="#a4">4 · Su declaración</a> · <a href="#regla">La regla</a></p></div>
+
+<div class="ficha" id="conceptos"><p class="eb">Para entender</p><h2>Los seis conceptos de hoy</h2>
+<ol>
+<li><b>La figura primero.</b> Un artículo se arma alrededor de 3 a 5 figuras o tablas. Cada figura hace una sola afirmación, y el título dice el hallazgo, no la variable.</li>
+<li><b>La ficha de la figura.</b> Afirmación en el título, unidades, fuente y n en la nota, un solo color de énfasis, orden por valor, nada de decoración. La IA la aplica si usted se la da.</li>
+<li><b>El párrafo con evidencia.</b> Afirmación, luego la cifra con su fuente, luego la interpretación, y al final el límite.</li>
+<li><b>Escribir desde el sistema.</b> La IA solo escribe con lo que está en sus carpetas: cada cifra sale de un archivo, y lo que no está se marca [VERIFICAR]. Es la diferencia entre escribir con IA y que la IA invente.</li>
+<li><b>La IA de revisora, no de autora.</b> Un revisor exigente busca la afirmación más débil y revisa contra la guía de reporte de su tipo de estudio. La voz es suya.</li>
+<li><b>La declaración de uso de IA sale de la bitácora.</b> Si su sistema guardó qué hizo la IA, la declaración casi se escribe sola.</li>
+</ol>
+<p class="cuando"><b>Dónde queda cada pieza:</b> figuras en <code>05_resultados</code>; borrador en <code>06_discusion</code>; bibliografía anotada y marco en <code>02_literatura</code>; declaración en <code>07_etica</code>; y una regla nueva en <code>GEMINI.md</code>.</p>
+</div>
+
+<div class="ficha" id="a1"><p class="eb">Actividad 1 · 15 minutos · en Antigravity</p><h2>La puesta al día de su sistema</h2>
+<p>Antes de escribir, su sistema tiene que estar al día. Este prompt lee toda su carpeta y le dice qué tiene, qué le falta y qué renombrar.</p>
+<pre>Lee GEMINI.md, ESTADO.md y BITACORA.md y recorre todas mis carpetas. Sin borrar nada, arma en ESTADO.md una tabla de mis piezas por sesión (S02 pregunta, S04–S05 literatura, S05–S06 extracción y clasificación, S06 método, S07 análisis, S08 fuente, interpretación y procesamiento), con el estado de cada una (hecha, a medias, falta) y su ruta. Dime qué archivos debería renombrar con el prefijo de la sesión que los produjo y qué piezas me faltan para el trabajo final. Muéstrame los cambios antes de guardarlos.</pre>
+<button onclick="copiar(this)">Copiar</button>
+</div>
+
+<div class="ficha" id="a2"><p class="eb">Actividad 2 · 25 minutos</p><h2>Su figura central</h2>
+<p>Con su resultado, o con los datos de una estación del miércoles o del sábado. Cambie [ARCHIVO DE DATOS] por su archivo.</p>
+<pre>Con [ARCHIVO DE DATOS], haz la figura central de mi investigación con estas reglas:
+1. El título dice el hallazgo en una frase, no el nombre de la variable.
+2. Ejes con unidades.
+3. Una nota abajo con la fuente, la n y lo que quedó fuera.
+4. Un solo color de énfasis para lo que importa y gris para lo demás.
+5. Categorías ordenadas por valor.
+6. Sin 3D ni decoración.
+Guarda la figura en 05_resultados/S09_figura_1.png y escribe al lado una leyenda de dos líneas. Muéstrame el código.</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="cuando"><b>Antes de aceptarla:</b> ¿el título dice algo que la figura muestra de verdad? ¿Se ve lo que quedó fuera?</p>
+</div>
+
+<div class="ficha" id="a3"><p class="eb">Actividad 3 · 30 minutos</p><h2>Su párrafo con evidencia, y su revisor</h2>
+<p>Escoja: un párrafo de <b>resultados</b> (desde su análisis) o de <b>antecedentes</b> (desde su tabla de evidencia y su bibliografía anotada: es el ejercicio 3 del brochure). Después de que la IA lo redacte, <b>reescríbalo en su voz</b> y páselo por el revisor.</p>
+<p class="cuando"><b>El borrador</b></p>
+<pre>Escribe un párrafo de [RESULTADOS o ANTECEDENTES] usando SOLO lo que está en [ARCHIVOS]. Estructura: una afirmación; la evidencia, con cada cifra seguida del archivo de donde sale entre corchetes; la interpretación; y el límite. No agregues nada que no esté en los archivos: si algo falta, escribe [VERIFICAR]. Máximo 150 palabras. Guárdalo en 06_discusion/S09_borrador.md.</pre>
+<button onclick="copiar(this)">Copiar</button>
+<p class="cuando"><b>El revisor</b></p>
+<pre>Actúa como revisor exigente de una revista de mi campo. Lee mi párrafo y:
+1. Señala la afirmación más débil y por qué.
+2. Dime qué cifra no está respaldada por mis archivos.
+3. Revisa si cumple la guía de reporte de mi tipo de estudio [STROBE, CONSORT, PRISMA, COREQ u otra].
+4. Propón una versión más prudente de una sola frase.
+No reescribas todo el párrafo: la voz es mía.</pre>
+<button onclick="copiar(this)">Copiar</button>
+</div>
+
+<div class="ficha" id="a4"><p class="eb">Actividad 4 · 10 minutos</p><h2>Su declaración de uso de IA</h2>
+<p>Las revistas y las universidades la piden. Si su bitácora está al día, sale de ahí.</p>
+<pre>Con base en BITACORA.md y en mis registros de auditoría, redacta la declaración de uso de IA de mi trabajo: qué herramientas usé, para qué tareas, qué verifiqué yo y cómo, y qué decisiones fueron mías. Tono formal, máximo 120 palabras, sin exagerar ni minimizar el papel de la IA. Guárdala en 07_etica/S09_declaracion_IA.md.</pre>
+<button onclick="copiar(this)">Copiar</button>
+</div>
+
+<div class="ficha" id="regla"><p class="eb">Para cerrar · en Antigravity</p><h2>La regla de la sesión 9 en su sistema</h2>
+<pre>Agrega a GEMINI.md esta regla de la sesión 9: «Al escribir, cada cifra sale de un archivo de mis carpetas y lleva su fuente; lo que no esté se marca [VERIFICAR]; las figuras siguen la ficha de la figura; la voz y las afirmaciones finales son mías». Luego registra en BITACORA.md lo que hice hoy. Muéstrame los cambios antes de guardarlos.</pre>
+<button onclick="copiar(this)">Copiar</button>
+</div>
+
+<div class="ficha kit"><p class="eb">La trampa</p><h2>La IA escribe rápido y con seguridad. Un texto que nadie puede rastrear hasta un archivo no es investigación: es opinión bien redactada.</h2></div>
+
+<div><p><a href="../sesion-08/prompts.html">← Sesión 8</a> · <a href="../">Volver al módulo</a></p>
+<p class="eb">Alonso Ramírez Hernández · CENES–UPTC · 16 de noviembre de 2026</p>
+</div>
+<script>
+function copiar(b){const t=b.previousElementSibling.innerText;
+  navigator.clipboard.writeText(t).then(()=>{b.textContent="Copiado";setTimeout(()=>b.textContent="Copiar",1500)})
+  .catch(()=>{const r=document.createRange();r.selectNodeContents(b.previousElementSibling);const s=getSelection();s.removeAllRanges();s.addRange(r)})}
+</script></body></html>
